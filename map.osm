@@ -1,0 +1,852 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="CGImap 0.3.3 (722 thorn-01.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+ <bounds minlat="55.3954200" minlon="10.3649600" maxlat="55.3967400" maxlon="10.3685200"/>
+ <node id="270109631" visible="true" version="2" changeset="4976917" timestamp="2010-06-13T09:46:17Z" user="Kent B Hansen" uid="13997" lat="55.3953658" lon="10.3659070"/>
+ <node id="341642900" visible="true" version="4" changeset="24389803" timestamp="2014-07-27T19:06:28Z" user="AWSbot" uid="2184056" lat="55.3963244" lon="10.3658328">
+  <tag k="addr:city" v="Odense C"/>
+  <tag k="addr:country" v="DK"/>
+  <tag k="addr:housenumber" v="1"/>
+  <tag k="addr:postcode" v="5000"/>
+  <tag k="addr:street" v="Grønløkken"/>
+  <tag k="kms:county_name" v="Fyns Amtskommune"/>
+  <tag k="kms:county_no" v="42"/>
+  <tag k="kms:house_no" v="1"/>
+  <tag k="kms:last_updated" v="2002"/>
+  <tag k="kms:municipality_name" v="Odense"/>
+  <tag k="kms:municipality_no" v="461"/>
+  <tag k="kms:parish_name" v="Hans Tausens,Odense"/>
+  <tag k="kms:parish_no" v="7783"/>
+  <tag k="kms:street_name" v="Grønløkken"/>
+  <tag k="kms:street_no" v="2708"/>
+  <tag k="kms:zip_name" v="Odense C"/>
+  <tag k="kms:zip_no" v="5000"/>
+  <tag k="osak:identifier" v="0A3F5089356332B8E0440003BA298018"/>
+  <tag k="osak:municipality_no" v="461"/>
+  <tag k="osak:revision" v="2009-02-10T00:00:00"/>
+  <tag k="source" v="OSAK (2010)"/>
+ </node>
+ <node id="341642909" visible="true" version="4" changeset="24389803" timestamp="2014-07-27T19:10:58Z" user="AWSbot" uid="2184056" lat="55.3959199" lon="10.3659820">
+  <tag k="addr:city" v="Odense C"/>
+  <tag k="addr:country" v="DK"/>
+  <tag k="addr:housenumber" v="10"/>
+  <tag k="addr:postcode" v="5000"/>
+  <tag k="addr:street" v="Grønløkkevej"/>
+  <tag k="kms:county_name" v="Fyns Amtskommune"/>
+  <tag k="kms:county_no" v="42"/>
+  <tag k="kms:house_no" v="10"/>
+  <tag k="kms:last_updated" v="2002"/>
+  <tag k="kms:municipality_name" v="Odense"/>
+  <tag k="kms:municipality_no" v="461"/>
+  <tag k="kms:parish_name" v="Hans Tausens,Odense"/>
+  <tag k="kms:parish_no" v="7783"/>
+  <tag k="kms:street_name" v="Grønløkkevej"/>
+  <tag k="kms:street_no" v="2712"/>
+  <tag k="kms:zip_name" v="Odense C"/>
+  <tag k="kms:zip_no" v="5000"/>
+  <tag k="osak:identifier" v="0A3F5089357132B8E0440003BA298018"/>
+  <tag k="osak:municipality_no" v="461"/>
+  <tag k="osak:revision" v="2009-02-10T00:00:00"/>
+  <tag k="source" v="OSAK (2010)"/>
+ </node>
+ <node id="341642910" visible="true" version="4" changeset="24389803" timestamp="2014-07-27T19:20:13Z" user="AWSbot" uid="2184056" lat="55.3958089" lon="10.3657253">
+  <tag k="addr:city" v="Odense C"/>
+  <tag k="addr:country" v="DK"/>
+  <tag k="addr:housenumber" v="10E"/>
+  <tag k="addr:postcode" v="5000"/>
+  <tag k="addr:street" v="Grønløkkevej"/>
+  <tag k="kms:county_name" v="Fyns Amtskommune"/>
+  <tag k="kms:county_no" v="42"/>
+  <tag k="kms:house_no" v="10E"/>
+  <tag k="kms:last_updated" v="2002"/>
+  <tag k="kms:municipality_name" v="Odense"/>
+  <tag k="kms:municipality_no" v="461"/>
+  <tag k="kms:parish_name" v="Hans Tausens,Odense"/>
+  <tag k="kms:parish_no" v="7783"/>
+  <tag k="kms:street_name" v="Grønløkkevej"/>
+  <tag k="kms:street_no" v="2712"/>
+  <tag k="kms:zip_name" v="Odense C"/>
+  <tag k="kms:zip_no" v="5000"/>
+  <tag k="osak:identifier" v="0A3F5089357232B8E0440003BA298018"/>
+  <tag k="osak:municipality_no" v="461"/>
+  <tag k="osak:revision" v="2009-02-11T00:00:00"/>
+  <tag k="source" v="OSAK (2010)"/>
+ </node>
+ <node id="705201979" visible="true" version="2" changeset="7299084" timestamp="2011-02-15T21:10:19Z" user="Kent B Hansen" uid="13997" lat="55.3960566" lon="10.3662904"/>
+ <node id="341686142" visible="true" version="4" changeset="24389803" timestamp="2014-07-27T22:08:49Z" user="AWSbot" uid="2184056" lat="55.3941568" lon="10.3750347">
+  <tag k="addr:city" v="Odense C"/>
+  <tag k="addr:country" v="DK"/>
+  <tag k="addr:housenumber" v="55"/>
+  <tag k="addr:postcode" v="5000"/>
+  <tag k="addr:street" v="Vesterbro"/>
+  <tag k="kms:county_name" v="Fyns Amtskommune"/>
+  <tag k="kms:county_no" v="42"/>
+  <tag k="kms:house_no" v="55"/>
+  <tag k="kms:last_updated" v="2002"/>
+  <tag k="kms:municipality_name" v="Odense"/>
+  <tag k="kms:municipality_no" v="461"/>
+  <tag k="kms:parish_name" v="Ansgars,Odense"/>
+  <tag k="kms:parish_no" v="7775"/>
+  <tag k="kms:street_name" v="Vesterbro"/>
+  <tag k="kms:street_no" v="9274"/>
+  <tag k="kms:zip_name" v="Odense C"/>
+  <tag k="kms:zip_no" v="5000"/>
+  <tag k="osak:identifier" v="0A3F5089E2E832B8E0440003BA298018"/>
+  <tag k="osak:municipality_no" v="461"/>
+  <tag k="osak:revision" v="2009-02-10T00:00:00"/>
+  <tag k="source" v="OSAK (2010)"/>
+ </node>
+ <node id="734829372" visible="true" version="1" changeset="4702333" timestamp="2010-05-15T03:39:17Z" user="findvej" uid="80543" lat="55.3955698" lon="10.3682432">
+  <tag k="addr:city" v="Odense C"/>
+  <tag k="addr:country" v="DK"/>
+  <tag k="addr:housenumber" v="30A"/>
+  <tag k="addr:postcode" v="5000"/>
+  <tag k="addr:street" v="Kanslergade"/>
+  <tag k="osak:identifier" v="48154B07BDB01D3EE0440003BA298018"/>
+  <tag k="osak:municipality_no" v="461"/>
+  <tag k="osak:revision" v="2009-09-23T00:00:00"/>
+  <tag k="osak:street_no" v="4110"/>
+  <tag k="source" v="OSAK (2010)"/>
+ </node>
+ <node id="734829373" visible="true" version="1" changeset="4702333" timestamp="2010-05-15T03:39:17Z" user="findvej" uid="80543" lat="55.3956400" lon="10.3684839">
+  <tag k="addr:city" v="Odense C"/>
+  <tag k="addr:country" v="DK"/>
+  <tag k="addr:housenumber" v="30B"/>
+  <tag k="addr:postcode" v="5000"/>
+  <tag k="addr:street" v="Kanslergade"/>
+  <tag k="osak:identifier" v="40AFD2F6019C3373E0440003BA298018"/>
+  <tag k="osak:municipality_no" v="461"/>
+  <tag k="osak:revision" v="2009-09-23T00:00:00"/>
+  <tag k="osak:street_no" v="4110"/>
+  <tag k="source" v="OSAK (2010)"/>
+ </node>
+ <node id="341652601" visible="true" version="4" changeset="24389803" timestamp="2014-07-27T19:45:47Z" user="AWSbot" uid="2184056" lat="55.3966686" lon="10.3681869">
+  <tag k="addr:city" v="Odense C"/>
+  <tag k="addr:country" v="DK"/>
+  <tag k="addr:housenumber" v="14"/>
+  <tag k="addr:postcode" v="5000"/>
+  <tag k="addr:street" v="Kanslergade"/>
+  <tag k="kms:county_name" v="Fyns Amtskommune"/>
+  <tag k="kms:county_no" v="42"/>
+  <tag k="kms:house_no" v="14"/>
+  <tag k="kms:last_updated" v="2002"/>
+  <tag k="kms:municipality_name" v="Odense"/>
+  <tag k="kms:municipality_no" v="461"/>
+  <tag k="kms:parish_name" v="Hans Tausens,Odense"/>
+  <tag k="kms:parish_no" v="7783"/>
+  <tag k="kms:street_name" v="Kanslergade"/>
+  <tag k="kms:street_no" v="4110"/>
+  <tag k="kms:zip_name" v="Odense C"/>
+  <tag k="kms:zip_no" v="5000"/>
+  <tag k="osak:identifier" v="0A3F50895D2B32B8E0440003BA298018"/>
+  <tag k="osak:municipality_no" v="461"/>
+  <tag k="osak:revision" v="2009-02-10T00:00:00"/>
+  <tag k="source" v="OSAK (2010)"/>
+ </node>
+ <node id="341652603" visible="true" version="4" changeset="24389803" timestamp="2014-07-27T20:00:20Z" user="AWSbot" uid="2184056" lat="55.3965899" lon="10.3680171">
+  <tag k="addr:city" v="Odense C"/>
+  <tag k="addr:country" v="DK"/>
+  <tag k="addr:housenumber" v="16"/>
+  <tag k="addr:postcode" v="5000"/>
+  <tag k="addr:street" v="Kanslergade"/>
+  <tag k="kms:county_name" v="Fyns Amtskommune"/>
+  <tag k="kms:county_no" v="42"/>
+  <tag k="kms:house_no" v="16"/>
+  <tag k="kms:last_updated" v="2002"/>
+  <tag k="kms:municipality_name" v="Odense"/>
+  <tag k="kms:municipality_no" v="461"/>
+  <tag k="kms:parish_name" v="Hans Tausens,Odense"/>
+  <tag k="kms:parish_no" v="7783"/>
+  <tag k="kms:street_name" v="Kanslergade"/>
+  <tag k="kms:street_no" v="4110"/>
+  <tag k="kms:zip_name" v="Odense C"/>
+  <tag k="kms:zip_no" v="5000"/>
+  <tag k="osak:identifier" v="0A3F50895D2D32B8E0440003BA298018"/>
+  <tag k="osak:municipality_no" v="461"/>
+  <tag k="osak:revision" v="2009-02-10T00:00:00"/>
+  <tag k="source" v="OSAK (2010)"/>
+ </node>
+ <node id="341652605" visible="true" version="4" changeset="24389803" timestamp="2014-07-27T20:12:44Z" user="AWSbot" uid="2184056" lat="55.3965516" lon="10.3679157">
+  <tag k="addr:city" v="Odense C"/>
+  <tag k="addr:country" v="DK"/>
+  <tag k="addr:housenumber" v="18"/>
+  <tag k="addr:postcode" v="5000"/>
+  <tag k="addr:street" v="Kanslergade"/>
+  <tag k="kms:county_name" v="Fyns Amtskommune"/>
+  <tag k="kms:county_no" v="42"/>
+  <tag k="kms:house_no" v="18"/>
+  <tag k="kms:last_updated" v="2002"/>
+  <tag k="kms:municipality_name" v="Odense"/>
+  <tag k="kms:municipality_no" v="461"/>
+  <tag k="kms:parish_name" v="Hans Tausens,Odense"/>
+  <tag k="kms:parish_no" v="7783"/>
+  <tag k="kms:street_name" v="Kanslergade"/>
+  <tag k="kms:street_no" v="4110"/>
+  <tag k="kms:zip_name" v="Odense C"/>
+  <tag k="kms:zip_no" v="5000"/>
+  <tag k="osak:identifier" v="0A3F50895D2F32B8E0440003BA298018"/>
+  <tag k="osak:municipality_no" v="461"/>
+  <tag k="osak:revision" v="2009-02-10T00:00:00"/>
+  <tag k="source" v="OSAK (2010)"/>
+ </node>
+ <node id="341652607" visible="true" version="4" changeset="24389803" timestamp="2014-07-27T20:28:58Z" user="AWSbot" uid="2184056" lat="55.3964954" lon="10.3677721">
+  <tag k="addr:city" v="Odense C"/>
+  <tag k="addr:country" v="DK"/>
+  <tag k="addr:housenumber" v="20"/>
+  <tag k="addr:postcode" v="5000"/>
+  <tag k="addr:street" v="Kanslergade"/>
+  <tag k="kms:county_name" v="Fyns Amtskommune"/>
+  <tag k="kms:county_no" v="42"/>
+  <tag k="kms:house_no" v="20"/>
+  <tag k="kms:last_updated" v="2002"/>
+  <tag k="kms:municipality_name" v="Odense"/>
+  <tag k="kms:municipality_no" v="461"/>
+  <tag k="kms:parish_name" v="Hans Tausens,Odense"/>
+  <tag k="kms:parish_no" v="7783"/>
+  <tag k="kms:street_name" v="Kanslergade"/>
+  <tag k="kms:street_no" v="4110"/>
+  <tag k="kms:zip_name" v="Odense C"/>
+  <tag k="kms:zip_no" v="5000"/>
+  <tag k="osak:identifier" v="0A3F50895D3132B8E0440003BA298018"/>
+  <tag k="osak:municipality_no" v="461"/>
+  <tag k="osak:revision" v="2009-02-10T00:00:00"/>
+  <tag k="source" v="OSAK (2010)"/>
+ </node>
+ <node id="341652609" visible="true" version="4" changeset="24389803" timestamp="2014-07-27T20:38:19Z" user="AWSbot" uid="2184056" lat="55.3964551" lon="10.3676676">
+  <tag k="addr:city" v="Odense C"/>
+  <tag k="addr:country" v="DK"/>
+  <tag k="addr:housenumber" v="22"/>
+  <tag k="addr:postcode" v="5000"/>
+  <tag k="addr:street" v="Kanslergade"/>
+  <tag k="kms:county_name" v="Fyns Amtskommune"/>
+  <tag k="kms:county_no" v="42"/>
+  <tag k="kms:house_no" v="22"/>
+  <tag k="kms:last_updated" v="2002"/>
+  <tag k="kms:municipality_name" v="Odense"/>
+  <tag k="kms:municipality_no" v="461"/>
+  <tag k="kms:parish_name" v="Hans Tausens,Odense"/>
+  <tag k="kms:parish_no" v="7783"/>
+  <tag k="kms:street_name" v="Kanslergade"/>
+  <tag k="kms:street_no" v="4110"/>
+  <tag k="kms:zip_name" v="Odense C"/>
+  <tag k="kms:zip_no" v="5000"/>
+  <tag k="osak:identifier" v="0A3F50895D3332B8E0440003BA298018"/>
+  <tag k="osak:municipality_no" v="461"/>
+  <tag k="osak:revision" v="2009-02-10T00:00:00"/>
+  <tag k="source" v="OSAK (2010)"/>
+ </node>
+ <node id="341652611" visible="true" version="4" changeset="24389803" timestamp="2014-07-27T20:46:50Z" user="AWSbot" uid="2184056" lat="55.3957256" lon="10.3680256">
+  <tag k="addr:city" v="Odense C"/>
+  <tag k="addr:country" v="DK"/>
+  <tag k="addr:housenumber" v="24"/>
+  <tag k="addr:postcode" v="5000"/>
+  <tag k="addr:street" v="Kanslergade"/>
+  <tag k="kms:county_name" v="Fyns Amtskommune"/>
+  <tag k="kms:county_no" v="42"/>
+  <tag k="kms:house_no" v="24"/>
+  <tag k="kms:last_updated" v="2002"/>
+  <tag k="kms:municipality_name" v="Odense"/>
+  <tag k="kms:municipality_no" v="461"/>
+  <tag k="kms:parish_name" v="Hans Tausens,Odense"/>
+  <tag k="kms:parish_no" v="7783"/>
+  <tag k="kms:street_name" v="Kanslergade"/>
+  <tag k="kms:street_no" v="4110"/>
+  <tag k="kms:zip_name" v="Odense C"/>
+  <tag k="kms:zip_no" v="5000"/>
+  <tag k="osak:identifier" v="362E6B2350680F9BE0440003BA298018"/>
+  <tag k="osak:municipality_no" v="461"/>
+  <tag k="osak:revision" v="2009-02-11T00:00:00"/>
+  <tag k="source" v="OSAK (2010)"/>
+ </node>
+ <node id="341652612" visible="true" version="4" changeset="24389803" timestamp="2014-07-27T20:50:50Z" user="AWSbot" uid="2184056" lat="55.3966918" lon="10.3675321">
+  <tag k="addr:city" v="Odense C"/>
+  <tag k="addr:country" v="DK"/>
+  <tag k="addr:housenumber" v="25"/>
+  <tag k="addr:postcode" v="5000"/>
+  <tag k="addr:street" v="Kanslergade"/>
+  <tag k="kms:county_name" v="Fyns Amtskommune"/>
+  <tag k="kms:county_no" v="42"/>
+  <tag k="kms:house_no" v="25"/>
+  <tag k="kms:last_updated" v="2002"/>
+  <tag k="kms:municipality_name" v="Odense"/>
+  <tag k="kms:municipality_no" v="461"/>
+  <tag k="kms:parish_name" v="Hans Tausens,Odense"/>
+  <tag k="kms:parish_no" v="7783"/>
+  <tag k="kms:street_name" v="Kanslergade"/>
+  <tag k="kms:street_no" v="4110"/>
+  <tag k="kms:zip_name" v="Odense C"/>
+  <tag k="kms:zip_no" v="5000"/>
+  <tag k="osak:identifier" v="0A3F50895D3632B8E0440003BA298018"/>
+  <tag k="osak:municipality_no" v="461"/>
+  <tag k="osak:revision" v="2009-02-10T00:00:00"/>
+  <tag k="source" v="OSAK (2010)"/>
+ </node>
+ <node id="341652613" visible="true" version="4" changeset="24389803" timestamp="2014-07-27T20:57:45Z" user="AWSbot" uid="2184056" lat="55.3966556" lon="10.3674356">
+  <tag k="addr:city" v="Odense C"/>
+  <tag k="addr:country" v="DK"/>
+  <tag k="addr:housenumber" v="27"/>
+  <tag k="addr:postcode" v="5000"/>
+  <tag k="addr:street" v="Kanslergade"/>
+  <tag k="kms:county_name" v="Fyns Amtskommune"/>
+  <tag k="kms:county_no" v="42"/>
+  <tag k="kms:house_no" v="27"/>
+  <tag k="kms:last_updated" v="2002"/>
+  <tag k="kms:municipality_name" v="Odense"/>
+  <tag k="kms:municipality_no" v="461"/>
+  <tag k="kms:parish_name" v="Hans Tausens,Odense"/>
+  <tag k="kms:parish_no" v="7783"/>
+  <tag k="kms:street_name" v="Kanslergade"/>
+  <tag k="kms:street_no" v="4110"/>
+  <tag k="kms:zip_name" v="Odense C"/>
+  <tag k="kms:zip_no" v="5000"/>
+  <tag k="osak:identifier" v="0A3F50895D3732B8E0440003BA298018"/>
+  <tag k="osak:municipality_no" v="461"/>
+  <tag k="osak:revision" v="2009-02-10T00:00:00"/>
+  <tag k="source" v="OSAK (2010)"/>
+ </node>
+ <node id="341652614" visible="true" version="4" changeset="24389803" timestamp="2014-07-27T21:04:05Z" user="AWSbot" uid="2184056" lat="55.3965734" lon="10.3672491">
+  <tag k="addr:city" v="Odense C"/>
+  <tag k="addr:country" v="DK"/>
+  <tag k="addr:housenumber" v="29"/>
+  <tag k="addr:postcode" v="5000"/>
+  <tag k="addr:street" v="Kanslergade"/>
+  <tag k="kms:county_name" v="Fyns Amtskommune"/>
+  <tag k="kms:county_no" v="42"/>
+  <tag k="kms:house_no" v="29"/>
+  <tag k="kms:last_updated" v="2002"/>
+  <tag k="kms:municipality_name" v="Odense"/>
+  <tag k="kms:municipality_no" v="461"/>
+  <tag k="kms:parish_name" v="Hans Tausens,Odense"/>
+  <tag k="kms:parish_no" v="7783"/>
+  <tag k="kms:street_name" v="Kanslergade"/>
+  <tag k="kms:street_no" v="4110"/>
+  <tag k="kms:zip_name" v="Odense C"/>
+  <tag k="kms:zip_no" v="5000"/>
+  <tag k="osak:identifier" v="0A3F50895D3832B8E0440003BA298018"/>
+  <tag k="osak:municipality_no" v="461"/>
+  <tag k="osak:revision" v="2009-02-10T00:00:00"/>
+  <tag k="source" v="OSAK (2010)"/>
+ </node>
+ <node id="341652615" visible="true" version="4" changeset="24389803" timestamp="2014-07-27T21:15:32Z" user="AWSbot" uid="2184056" lat="55.3965285" lon="10.3671140">
+  <tag k="addr:city" v="Odense C"/>
+  <tag k="addr:country" v="DK"/>
+  <tag k="addr:housenumber" v="31"/>
+  <tag k="addr:postcode" v="5000"/>
+  <tag k="addr:street" v="Kanslergade"/>
+  <tag k="kms:county_name" v="Fyns Amtskommune"/>
+  <tag k="kms:county_no" v="42"/>
+  <tag k="kms:house_no" v="31"/>
+  <tag k="kms:last_updated" v="2002"/>
+  <tag k="kms:municipality_name" v="Odense"/>
+  <tag k="kms:municipality_no" v="461"/>
+  <tag k="kms:parish_name" v="Hans Tausens,Odense"/>
+  <tag k="kms:parish_no" v="7783"/>
+  <tag k="kms:street_name" v="Kanslergade"/>
+  <tag k="kms:street_no" v="4110"/>
+  <tag k="kms:zip_name" v="Odense C"/>
+  <tag k="kms:zip_no" v="5000"/>
+  <tag k="osak:identifier" v="0A3F50895D3932B8E0440003BA298018"/>
+  <tag k="osak:municipality_no" v="461"/>
+  <tag k="osak:revision" v="2009-02-10T00:00:00"/>
+  <tag k="source" v="OSAK (2010)"/>
+ </node>
+ <node id="341652616" visible="true" version="4" changeset="24389803" timestamp="2014-07-27T21:20:49Z" user="AWSbot" uid="2184056" lat="55.3964389" lon="10.3668835">
+  <tag k="addr:city" v="Odense C"/>
+  <tag k="addr:country" v="DK"/>
+  <tag k="addr:housenumber" v="33"/>
+  <tag k="addr:postcode" v="5000"/>
+  <tag k="addr:street" v="Kanslergade"/>
+  <tag k="kms:county_name" v="Fyns Amtskommune"/>
+  <tag k="kms:county_no" v="42"/>
+  <tag k="kms:house_no" v="33"/>
+  <tag k="kms:last_updated" v="2002"/>
+  <tag k="kms:municipality_name" v="Odense"/>
+  <tag k="kms:municipality_no" v="461"/>
+  <tag k="kms:parish_name" v="Hans Tausens,Odense"/>
+  <tag k="kms:parish_no" v="7783"/>
+  <tag k="kms:street_name" v="Kanslergade"/>
+  <tag k="kms:street_no" v="4110"/>
+  <tag k="kms:zip_name" v="Odense C"/>
+  <tag k="kms:zip_no" v="5000"/>
+  <tag k="osak:identifier" v="0A3F50895D3A32B8E0440003BA298018"/>
+  <tag k="osak:municipality_no" v="461"/>
+  <tag k="osak:revision" v="2009-02-10T00:00:00"/>
+  <tag k="source" v="OSAK (2010)"/>
+ </node>
+ <node id="754621170" visible="true" version="1" changeset="4838854" timestamp="2010-05-29T00:59:47Z" user="findvej" uid="80543" lat="55.3954904" lon="10.3652722">
+  <tag k="addr:city" v="Odense C"/>
+  <tag k="addr:country" v="DK"/>
+  <tag k="addr:housenumber" v="8A"/>
+  <tag k="addr:postcode" v="5000"/>
+  <tag k="addr:street" v="Grønløkkevej"/>
+  <tag k="osak:identifier" v="0A3F5089356D32B8E0440003BA298018"/>
+  <tag k="osak:municipality_no" v="461"/>
+  <tag k="osak:revision" v="2009-02-10T00:00:00"/>
+  <tag k="osak:street_no" v="2712"/>
+  <tag k="source" v="OSAK (2010)"/>
+ </node>
+ <node id="754621183" visible="true" version="1" changeset="4838854" timestamp="2010-05-29T00:59:47Z" user="findvej" uid="80543" lat="55.3954538" lon="10.3668493">
+  <tag k="addr:city" v="Odense C"/>
+  <tag k="addr:country" v="DK"/>
+  <tag k="addr:housenumber" v="9E"/>
+  <tag k="addr:postcode" v="5000"/>
+  <tag k="addr:street" v="Grønløkkevej"/>
+  <tag k="osak:identifier" v="362E6B2350650F9BE0440003BA298018"/>
+  <tag k="osak:municipality_no" v="461"/>
+  <tag k="osak:revision" v="2009-02-11T00:00:00"/>
+  <tag k="osak:street_no" v="2712"/>
+  <tag k="source" v="OSAK (2010)"/>
+ </node>
+ <node id="754621185" visible="true" version="1" changeset="4838854" timestamp="2010-05-29T00:59:48Z" user="findvej" uid="80543" lat="55.3956127" lon="10.3666704">
+  <tag k="addr:city" v="Odense C"/>
+  <tag k="addr:country" v="DK"/>
+  <tag k="addr:housenumber" v="9F"/>
+  <tag k="addr:postcode" v="5000"/>
+  <tag k="addr:street" v="Grønløkkevej"/>
+  <tag k="osak:identifier" v="362E6B2350660F9BE0440003BA298018"/>
+  <tag k="osak:municipality_no" v="461"/>
+  <tag k="osak:revision" v="2009-02-11T00:00:00"/>
+  <tag k="osak:street_no" v="2712"/>
+  <tag k="source" v="OSAK (2010)"/>
+ </node>
+ <node id="754621188" visible="true" version="1" changeset="4838854" timestamp="2010-05-29T00:59:48Z" user="findvej" uid="80543" lat="55.3957742" lon="10.3664884">
+  <tag k="addr:city" v="Odense C"/>
+  <tag k="addr:country" v="DK"/>
+  <tag k="addr:housenumber" v="9G"/>
+  <tag k="addr:postcode" v="5000"/>
+  <tag k="addr:street" v="Grønløkkevej"/>
+  <tag k="osak:identifier" v="362E6B2350670F9BE0440003BA298018"/>
+  <tag k="osak:municipality_no" v="461"/>
+  <tag k="osak:revision" v="2009-02-11T00:00:00"/>
+  <tag k="osak:street_no" v="2712"/>
+  <tag k="source" v="OSAK (2010)"/>
+ </node>
+ <node id="754621192" visible="true" version="1" changeset="4838854" timestamp="2010-05-29T00:59:48Z" user="findvej" uid="80543" lat="55.3966900" lon="10.3650774">
+  <tag k="addr:city" v="Odense C"/>
+  <tag k="addr:country" v="DK"/>
+  <tag k="addr:housenumber" v="16Z"/>
+  <tag k="addr:postcode" v="5000"/>
+  <tag k="addr:street" v="Grønløkkevej"/>
+  <tag k="osak:identifier" v="0A3F5089357732B8E0440003BA298018"/>
+  <tag k="osak:municipality_no" v="461"/>
+  <tag k="osak:revision" v="2009-02-10T00:00:00"/>
+  <tag k="osak:street_no" v="2712"/>
+  <tag k="source" v="OSAK (2010)"/>
+ </node>
+ <node id="771212109" visible="true" version="2" changeset="4976917" timestamp="2010-06-13T09:46:17Z" user="Kent B Hansen" uid="13997" lat="55.3953314" lon="10.3658871"/>
+ <node id="1072751002" visible="true" version="1" changeset="6808800" timestamp="2010-12-30T12:37:45Z" user="Kent B Hansen" uid="13997" lat="55.3970096" lon="10.3687204"/>
+ <node id="617229272" visible="true" version="2" changeset="6808800" timestamp="2010-12-30T12:37:54Z" user="Kent B Hansen" uid="13997" lat="55.3976894" lon="10.3696843"/>
+ <node id="617229366" visible="true" version="2" changeset="6808800" timestamp="2010-12-30T12:37:54Z" user="Kent B Hansen" uid="13997" lat="55.3973119" lon="10.3695253"/>
+ <node id="617229368" visible="true" version="2" changeset="6808800" timestamp="2010-12-30T12:37:57Z" user="Kent B Hansen" uid="13997" lat="55.3974965" lon="10.3697054"/>
+ <node id="617229354" visible="true" version="2" changeset="6808800" timestamp="2010-12-30T12:38:04Z" user="Kent B Hansen" uid="13997" lat="55.3981055" lon="10.3696327"/>
+ <node id="617229285" visible="true" version="2" changeset="6808800" timestamp="2010-12-30T12:38:05Z" user="Kent B Hansen" uid="13997" lat="55.3974055" lon="10.3696902"/>
+ <node id="617229317" visible="true" version="2" changeset="6808800" timestamp="2010-12-30T12:38:06Z" user="Kent B Hansen" uid="13997" lat="55.3972155" lon="10.3692945"/>
+ <node id="270047442" visible="true" version="3" changeset="6838650" timestamp="2011-01-02T14:01:14Z" user="Norgaard" uid="139017" lat="55.3969484" lon="10.3685457"/>
+ <node id="55463131" visible="true" version="3" changeset="7299084" timestamp="2011-02-15T21:10:32Z" user="Kent B Hansen" uid="13997" lat="55.3944671" lon="10.3653984">
+  <tag k="highway" v="traffic_signals"/>
+ </node>
+ <node id="270047434" visible="true" version="3" changeset="20747083" timestamp="2014-02-24T09:27:42Z" user="Mo Li Hansen" uid="1348665" lat="55.3962194" lon="10.3663908"/>
+ <node id="705201983" visible="true" version="2" changeset="16003155" timestamp="2013-05-06T20:31:19Z" user="Hjart" uid="207581" lat="55.3963479" lon="10.3646808"/>
+ <node id="1553892093" visible="true" version="1" changeset="10155150" timestamp="2011-12-19T12:37:51Z" user="Mimrecard" uid="355277" lat="55.3953328" lon="10.3677714"/>
+ <node id="1553892138" visible="true" version="1" changeset="10155150" timestamp="2011-12-19T12:37:52Z" user="Mimrecard" uid="355277" lat="55.3958385" lon="10.3672001"/>
+ <node id="1553892261" visible="true" version="1" changeset="10155150" timestamp="2011-12-19T12:37:54Z" user="Mimrecard" uid="355277" lat="55.3958492" lon="10.3663606"/>
+ <node id="1553892388" visible="true" version="1" changeset="10155150" timestamp="2011-12-19T12:37:56Z" user="Mimrecard" uid="355277" lat="55.3956375" lon="10.3674254"/>
+ <node id="1553892543" visible="true" version="1" changeset="10155150" timestamp="2011-12-19T12:37:59Z" user="Mimrecard" uid="355277" lat="55.3951211" lon="10.3671840"/>
+ <node id="1553892689" visible="true" version="1" changeset="10155150" timestamp="2011-12-19T12:38:03Z" user="Mimrecard" uid="355277" lat="55.3960655" lon="10.3669426"/>
+ <node id="1553892802" visible="true" version="1" changeset="10155150" timestamp="2011-12-19T12:38:05Z" user="Mimrecard" uid="355277" lat="55.3956024" lon="10.3673342"/>
+ <node id="1553892811" visible="true" version="1" changeset="10155150" timestamp="2011-12-19T12:38:06Z" user="Mimrecard" uid="355277" lat="55.3958065" lon="10.3671009"/>
+ <node id="1588442379" visible="true" version="1" changeset="10379776" timestamp="2012-01-13T16:02:02Z" user="Mimrecard" uid="355277" lat="55.3956615" lon="10.3648905"/>
+ <node id="1588442409" visible="true" version="1" changeset="10379776" timestamp="2012-01-13T16:02:03Z" user="Mimrecard" uid="355277" lat="55.3955574" lon="10.3656248"/>
+ <node id="1588442414" visible="true" version="1" changeset="10379776" timestamp="2012-01-13T16:02:03Z" user="Mimrecard" uid="355277" lat="55.3957347" lon="10.3657274"/>
+ <node id="1588442419" visible="true" version="1" changeset="10379776" timestamp="2012-01-13T16:02:03Z" user="Mimrecard" uid="355277" lat="55.3956259" lon="10.3646243"/>
+ <node id="1588442441" visible="true" version="1" changeset="10379776" timestamp="2012-01-13T16:02:04Z" user="Mimrecard" uid="355277" lat="55.3966571" lon="10.3662175"/>
+ <node id="1588442445" visible="true" version="1" changeset="10379776" timestamp="2012-01-13T16:02:04Z" user="Mimrecard" uid="355277" lat="55.3956488" lon="10.3646216"/>
+ <node id="1588442508" visible="true" version="1" changeset="10379776" timestamp="2012-01-13T16:02:06Z" user="Mimrecard" uid="355277" lat="55.3966273" lon="10.3663845"/>
+ <node id="1588442519" visible="true" version="1" changeset="10379776" timestamp="2012-01-13T16:02:07Z" user="Mimrecard" uid="355277" lat="55.3958331" lon="10.3644473"/>
+ <node id="1588442521" visible="true" version="1" changeset="10379776" timestamp="2012-01-13T16:02:07Z" user="Mimrecard" uid="355277" lat="55.3965794" lon="10.3658018"/>
+ <node id="1588442540" visible="true" version="1" changeset="10379776" timestamp="2012-01-13T16:02:07Z" user="Mimrecard" uid="355277" lat="55.3956661" lon="10.3650541"/>
+ <node id="1588442548" visible="true" version="1" changeset="10379776" timestamp="2012-01-13T16:02:08Z" user="Mimrecard" uid="355277" lat="55.3957036" lon="10.3644070"/>
+ <node id="1588442563" visible="true" version="1" changeset="10379776" timestamp="2012-01-13T16:02:08Z" user="Mimrecard" uid="355277" lat="55.3967074" lon="10.3659547"/>
+ <node id="1588442566" visible="true" version="1" changeset="10379776" timestamp="2012-01-13T16:02:08Z" user="Mimrecard" uid="355277" lat="55.3965542" lon="10.3654430"/>
+ <node id="1588442572" visible="true" version="1" changeset="10379776" timestamp="2012-01-13T16:02:09Z" user="Mimrecard" uid="355277" lat="55.3956357" lon="10.3648932"/>
+ <node id="1588442631" visible="true" version="1" changeset="10379776" timestamp="2012-01-13T16:02:10Z" user="Mimrecard" uid="355277" lat="55.3956006" lon="10.3653894"/>
+ <node id="1588442707" visible="true" version="1" changeset="10379776" timestamp="2012-01-13T16:02:13Z" user="Mimrecard" uid="355277" lat="55.3966937" lon="10.3658635"/>
+ <node id="1588442711" visible="true" version="1" changeset="10379776" timestamp="2012-01-13T16:02:13Z" user="Mimrecard" uid="355277" lat="55.3956792" lon="10.3656972"/>
+ <node id="1588442718" visible="true" version="1" changeset="10379776" timestamp="2012-01-13T16:02:13Z" user="Mimrecard" uid="355277" lat="55.3964475" lon="10.3662692"/>
+ <node id="1588442722" visible="true" version="1" changeset="10379776" timestamp="2012-01-13T16:02:13Z" user="Mimrecard" uid="355277" lat="55.3957027" lon="10.3657113"/>
+ <node id="1588442727" visible="true" version="1" changeset="10379776" timestamp="2012-01-13T16:02:13Z" user="Mimrecard" uid="355277" lat="55.3964408" lon="10.3663034"/>
+ <node id="1588442765" visible="true" version="1" changeset="10379776" timestamp="2012-01-13T16:02:14Z" user="Mimrecard" uid="355277" lat="55.3964704" lon="10.3662879"/>
+ <node id="1588442772" visible="true" version="1" changeset="10379776" timestamp="2012-01-13T16:02:14Z" user="Mimrecard" uid="355277" lat="55.3956244" lon="10.3645599"/>
+ <node id="1588442791" visible="true" version="1" changeset="10379776" timestamp="2012-01-13T16:02:15Z" user="Mimrecard" uid="355277" lat="55.3966785" lon="10.3662283"/>
+ <node id="1588442811" visible="true" version="1" changeset="10379776" timestamp="2012-01-13T16:02:15Z" user="Mimrecard" uid="355277" lat="55.3953843" lon="10.3652714"/>
+ <node id="1588442827" visible="true" version="1" changeset="10379776" timestamp="2012-01-13T16:02:16Z" user="Mimrecard" uid="355277" lat="55.3954233" lon="10.3650481"/>
+ <node id="1588442839" visible="true" version="1" changeset="10379776" timestamp="2012-01-13T16:02:17Z" user="Mimrecard" uid="355277" lat="55.3956494" lon="10.3644587"/>
+ <node id="1588442842" visible="true" version="1" changeset="10379776" timestamp="2012-01-13T16:02:17Z" user="Mimrecard" uid="355277" lat="55.3956762" lon="10.3644580"/>
+ <node id="1588442869" visible="true" version="1" changeset="10379776" timestamp="2012-01-13T16:02:18Z" user="Mimrecard" uid="355277" lat="55.3966785" lon="10.3661129"/>
+ <node id="1588442874" visible="true" version="1" changeset="10379776" timestamp="2012-01-13T16:02:18Z" user="Mimrecard" uid="355277" lat="55.3963586" lon="10.3653887"/>
+ <node id="1588442877" visible="true" version="1" changeset="10379776" timestamp="2012-01-13T16:02:18Z" user="Mimrecard" uid="355277" lat="55.3966952" lon="10.3661236"/>
+ <node id="1588442879" visible="true" version="1" changeset="10379776" timestamp="2012-01-13T16:02:18Z" user="Mimrecard" uid="355277" lat="55.3956509" lon="10.3645579"/>
+ <node id="1588442882" visible="true" version="1" changeset="10379776" timestamp="2012-01-13T16:02:18Z" user="Mimrecard" uid="355277" lat="55.3956396" lon="10.3651661"/>
+ <node id="1588442885" visible="true" version="1" changeset="10379776" timestamp="2012-01-13T16:02:18Z" user="Mimrecard" uid="355277" lat="55.3964637" lon="10.3663194"/>
+ <node id="1588442913" visible="true" version="1" changeset="10379776" timestamp="2012-01-13T16:02:19Z" user="Mimrecard" uid="355277" lat="55.3958483" lon="10.3650883"/>
+ <node id="1588442920" visible="true" version="1" changeset="10379776" timestamp="2012-01-13T16:02:19Z" user="Mimrecard" uid="355277" lat="55.3962291" lon="10.3661451"/>
+ <node id="1588442926" visible="true" version="1" changeset="10379776" timestamp="2012-01-13T16:02:19Z" user="Mimrecard" uid="355277" lat="55.3964003" lon="10.3654806"/>
+ <node id="1588442950" visible="true" version="1" changeset="10379776" timestamp="2012-01-13T16:02:20Z" user="Mimrecard" uid="355277" lat="55.3965337" lon="10.3655604"/>
+ <node id="1588442962" visible="true" version="1" changeset="10379776" timestamp="2012-01-13T16:02:21Z" user="Mimrecard" uid="355277" lat="55.3956753" lon="10.3657247"/>
+ <node id="1588442990" visible="true" version="1" changeset="10379776" timestamp="2012-01-13T16:02:22Z" user="Mimrecard" uid="355277" lat="55.3956944" lon="10.3657401"/>
+ <node id="1588443018" visible="true" version="1" changeset="10379776" timestamp="2012-01-13T16:02:23Z" user="Mimrecard" uid="355277" lat="55.3956731" lon="10.3644070"/>
+ <node id="1588443019" visible="true" version="1" changeset="10379776" timestamp="2012-01-13T16:02:23Z" user="Mimrecard" uid="355277" lat="55.3964088" lon="10.3654236"/>
+ <node id="1588443059" visible="true" version="1" changeset="10379776" timestamp="2012-01-13T16:02:24Z" user="Mimrecard" uid="355277" lat="55.3965679" lon="10.3658776"/>
+ <node id="1588443062" visible="true" version="1" changeset="10379776" timestamp="2012-01-13T16:02:24Z" user="Mimrecard" uid="355277" lat="55.3956564" lon="10.3648416"/>
+ <node id="1588443063" visible="true" version="1" changeset="10379776" timestamp="2012-01-13T16:02:24Z" user="Mimrecard" uid="355277" lat="55.3966175" lon="10.3655550"/>
+ <node id="1588443078" visible="true" version="1" changeset="10379776" timestamp="2012-01-13T16:02:25Z" user="Mimrecard" uid="355277" lat="55.3956335" lon="10.3648523"/>
+ <node id="1588443083" visible="true" version="1" changeset="10379776" timestamp="2012-01-13T16:02:25Z" user="Mimrecard" uid="355277" lat="55.3966297" lon="10.3654853"/>
+ <node id="1588443098" visible="true" version="1" changeset="10379776" timestamp="2012-01-13T16:02:26Z" user="Mimrecard" uid="355277" lat="55.3967379" lon="10.3656274"/>
+ <node id="1588443114" visible="true" version="1" changeset="10379776" timestamp="2012-01-13T16:02:27Z" user="Mimrecard" uid="355277" lat="55.3957066" lon="10.3644607"/>
+ <node id="79900773" visible="true" version="5" changeset="21691930" timestamp="2014-04-14T18:20:40Z" user="Mo Li Hansen" uid="1348665" lat="55.3971554" lon="10.3790041"/>
+ <node id="1789808279" visible="true" version="1" changeset="11913603" timestamp="2012-06-16T11:11:39Z" user="Esben Damgaard" uid="11533" lat="55.3976321" lon="10.3671634"/>
+ <node id="73578560" visible="true" version="3" changeset="11913603" timestamp="2012-06-16T11:11:41Z" user="Esben Damgaard" uid="11533" lat="55.3978906" lon="10.3673064"/>
+ <node id="1990663097" visible="true" version="1" changeset="13695347" timestamp="2012-10-31T07:38:21Z" user="AE35" uid="21323" lat="55.3962140" lon="10.3658073">
+  <tag k="natural" v="tree"/>
+ </node>
+ <node id="1990663105" visible="true" version="1" changeset="13695347" timestamp="2012-10-31T07:38:22Z" user="AE35" uid="21323" lat="55.3955331" lon="10.3660836">
+  <tag k="natural" v="tree"/>
+ </node>
+ <node id="1990663111" visible="true" version="1" changeset="13695347" timestamp="2012-10-31T07:38:22Z" user="AE35" uid="21323" lat="55.3961576" lon="10.3660487">
+  <tag k="natural" v="tree"/>
+ </node>
+ <node id="1990663113" visible="true" version="1" changeset="13695347" timestamp="2012-10-31T07:38:22Z" user="AE35" uid="21323" lat="55.3964882" lon="10.3663652">
+  <tag k="natural" v="tree"/>
+ </node>
+ <node id="1990663118" visible="true" version="1" changeset="13695347" timestamp="2012-10-31T07:38:23Z" user="AE35" uid="21323" lat="55.3966115" lon="10.3664403">
+  <tag k="natural" v="tree"/>
+ </node>
+ <node id="1990663130" visible="true" version="1" changeset="13695347" timestamp="2012-10-31T07:38:23Z" user="AE35" uid="21323" lat="55.3962749" lon="10.3654345">
+  <tag k="natural" v="tree"/>
+ </node>
+ <node id="1990663133" visible="true" version="1" changeset="13695347" timestamp="2012-10-31T07:38:23Z" user="AE35" uid="21323" lat="55.3956351" lon="10.3661318">
+  <tag k="natural" v="tree"/>
+ </node>
+ <node id="1990663145" visible="true" version="1" changeset="13695347" timestamp="2012-10-31T07:38:24Z" user="AE35" uid="21323" lat="55.3962490" lon="10.3655605">
+  <tag k="natural" v="tree"/>
+ </node>
+ <node id="1990663231" visible="true" version="1" changeset="13695347" timestamp="2012-10-31T07:38:27Z" user="AE35" uid="21323" lat="55.3962901" lon="10.3665905">
+  <tag k="natural" v="tree"/>
+ </node>
+ <node id="1990663356" visible="true" version="1" changeset="13695347" timestamp="2012-10-31T07:38:31Z" user="AE35" uid="21323" lat="55.3961409" lon="10.3665100">
+  <tag k="natural" v="tree"/>
+ </node>
+ <node id="1990663361" visible="true" version="1" changeset="13695347" timestamp="2012-10-31T07:38:31Z" user="AE35" uid="21323" lat="55.3957341" lon="10.3661882">
+  <tag k="natural" v="tree"/>
+ </node>
+ <node id="754621172" visible="true" version="2" changeset="13967576" timestamp="2012-11-21T19:35:49Z" user="findvej" uid="80543" lat="55.3956520" lon="10.3656437">
+  <tag k="addr:city" v="Odense C"/>
+  <tag k="addr:country" v="DK"/>
+  <tag k="addr:housenumber" v="8B"/>
+  <tag k="addr:postcode" v="5000"/>
+  <tag k="addr:street" v="Grønløkkevej"/>
+  <tag k="osak:identifier" v="0A3F5089356E32B8E0440003BA298018"/>
+  <tag k="osak:municipality_no" v="461"/>
+  <tag k="osak:revision" v="2011-09-29T11:59:00"/>
+  <tag k="osak:street" v="Grønløkkevej"/>
+  <tag k="osak:street_no" v="2712"/>
+  <tag k="source" v="OSAK (2012)"/>
+ </node>
+ <node id="270109633" visible="true" version="2" changeset="16576460" timestamp="2013-06-16T14:02:30Z" user="Mo Li Hansen" uid="1348665" lat="55.3949322" lon="10.3658748"/>
+ <node id="270109635" visible="true" version="3" changeset="20747311" timestamp="2014-02-24T09:45:57Z" user="Mo Li Hansen" uid="1348665" lat="55.3957055" lon="10.3664786"/>
+ <node id="2661164811" visible="true" version="1" changeset="20444866" timestamp="2014-02-08T11:36:00Z" user="Lytter1" uid="649780" lat="55.3939685" lon="10.3766404"/>
+ <node id="2661164815" visible="true" version="1" changeset="20444866" timestamp="2014-02-08T11:36:00Z" user="Lytter1" uid="649780" lat="55.3949739" lon="10.3775953"/>
+ <node id="2661164821" visible="true" version="1" changeset="20444866" timestamp="2014-02-08T11:36:00Z" user="Lytter1" uid="649780" lat="55.3946829" lon="10.3702053"/>
+ <node id="2661164837" visible="true" version="1" changeset="20444866" timestamp="2014-02-08T11:36:01Z" user="Lytter1" uid="649780" lat="55.3983021" lon="10.3798719"/>
+ <node id="2661164838" visible="true" version="1" changeset="20444866" timestamp="2014-02-08T11:36:01Z" user="Lytter1" uid="649780" lat="55.3988777" lon="10.3792443"/>
+ <node id="2661164836" visible="true" version="2" changeset="20747083" timestamp="2014-02-24T09:27:42Z" user="Mo Li Hansen" uid="1348665" lat="55.3954995" lon="10.3700630"/>
+ <node id="2661164839" visible="true" version="2" changeset="21691930" timestamp="2014-04-14T18:20:41Z" user="Mo Li Hansen" uid="1348665" lat="55.3975973" lon="10.3801343"/>
+ <node id="2661164841" visible="true" version="1" changeset="20444866" timestamp="2014-02-08T11:36:01Z" user="Lytter1" uid="649780" lat="55.3945976" lon="10.3666004"/>
+ <node id="2661164859" visible="true" version="1" changeset="20444866" timestamp="2014-02-08T11:36:01Z" user="Lytter1" uid="649780" lat="55.3945108" lon="10.3718124"/>
+ <node id="2661164861" visible="true" version="1" changeset="20444866" timestamp="2014-02-08T11:36:01Z" user="Lytter1" uid="649780" lat="55.3955710" lon="10.3785501"/>
+ <node id="2661164905" visible="true" version="1" changeset="20444866" timestamp="2014-02-08T11:36:02Z" user="Lytter1" uid="649780" lat="55.3964545" lon="10.3666840"/>
+ <node id="2661164846" visible="true" version="2" changeset="21691930" timestamp="2014-04-14T18:20:41Z" user="Mo Li Hansen" uid="1348665" lat="55.3977092" lon="10.3804614"/>
+ <node id="2688145176" visible="true" version="1" changeset="20747083" timestamp="2014-02-24T09:27:42Z" user="Mo Li Hansen" uid="1348665" lat="55.3977063" lon="10.3672941"/>
+ <node id="2661164845" visible="true" version="2" changeset="20747083" timestamp="2014-02-24T09:27:42Z" user="Mo Li Hansen" uid="1348665" lat="55.3951682" lon="10.3681370"/>
+ <node id="2661164853" visible="true" version="2" changeset="20747083" timestamp="2014-02-24T09:27:42Z" user="Mo Li Hansen" uid="1348665" lat="55.3976989" lon="10.3674712"/>
+ <node id="270047436" visible="true" version="2" changeset="20747083" timestamp="2014-02-24T09:27:42Z" user="Mo Li Hansen" uid="1348665" lat="55.3962032" lon="10.3665568"/>
+ <node id="270047858" visible="true" version="7" changeset="20747083" timestamp="2014-02-24T09:27:42Z" user="Mo Li Hansen" uid="1348665" lat="55.3949562" lon="10.3685145"/>
+ <node id="270047438" visible="true" version="2" changeset="20747083" timestamp="2014-02-24T09:27:42Z" user="Mo Li Hansen" uid="1348665" lat="55.3962793" lon="10.3668154"/>
+ <node id="270047855" visible="true" version="2" changeset="20747083" timestamp="2014-02-24T09:27:42Z" user="Mo Li Hansen" uid="1348665" lat="55.3951961" lon="10.3680315"/>
+ <node id="270047856" visible="true" version="2" changeset="20747083" timestamp="2014-02-24T09:27:42Z" user="Mo Li Hansen" uid="1348665" lat="55.3950930" lon="10.3681533"/>
+ <node id="2688155016" visible="true" version="1" changeset="20747180" timestamp="2014-02-24T09:36:09Z" user="Mo Li Hansen" uid="1348665" lat="55.3950797" lon="10.3682293"/>
+ <node id="2688155026" visible="true" version="1" changeset="20747180" timestamp="2014-02-24T09:36:10Z" user="Mo Li Hansen" uid="1348665" lat="55.3962954" lon="10.3671783"/>
+ <node id="2688155027" visible="true" version="1" changeset="20747180" timestamp="2014-02-24T09:36:10Z" user="Mo Li Hansen" uid="1348665" lat="55.3962207" lon="10.3669584"/>
+ <node id="2688155029" visible="true" version="1" changeset="20747180" timestamp="2014-02-24T09:36:10Z" user="Mo Li Hansen" uid="1348665" lat="55.3951603" lon="10.3684760"/>
+ <node id="270047857" visible="true" version="4" changeset="20747180" timestamp="2014-02-24T09:36:10Z" user="Mo Li Hansen" uid="1348665" lat="55.3950267" lon="10.3683295"/>
+ <node id="2688159418" visible="true" version="1" changeset="20747311" timestamp="2014-02-24T09:45:57Z" user="Mo Li Hansen" uid="1348665" lat="55.3951949" lon="10.3682657"/>
+ <node id="2688159420" visible="true" version="1" changeset="20747311" timestamp="2014-02-24T09:45:57Z" user="Mo Li Hansen" uid="1348665" lat="55.3950429" lon="10.3664515"/>
+ <node id="2688159422" visible="true" version="1" changeset="20747311" timestamp="2014-02-24T09:45:57Z" user="Mo Li Hansen" uid="1348665" lat="55.3951222" lon="10.3666770"/>
+ <node id="2688159424" visible="true" version="1" changeset="20747311" timestamp="2014-02-24T09:45:57Z" user="Mo Li Hansen" uid="1348665" lat="55.3948089" lon="10.3659175"/>
+ <node id="2688159426" visible="true" version="1" changeset="20747311" timestamp="2014-02-24T09:45:57Z" user="Mo Li Hansen" uid="1348665" lat="55.3963393" lon="10.3669705"/>
+ <node id="2688159428" visible="true" version="1" changeset="20747311" timestamp="2014-02-24T09:45:57Z" user="Mo Li Hansen" uid="1348665" lat="55.3955260" lon="10.3662241"/>
+ <node id="270109634" visible="true" version="2" changeset="20747311" timestamp="2014-02-24T09:45:57Z" user="Mo Li Hansen" uid="1348665" lat="55.3955991" lon="10.3661670"/>
+ <node id="2347538281" visible="true" version="2" changeset="20747311" timestamp="2014-02-24T09:45:57Z" user="Mo Li Hansen" uid="1348665" lat="55.3952110" lon="10.3670769"/>
+ <node id="270109637" visible="true" version="2" changeset="20747311" timestamp="2014-02-24T09:45:57Z" user="Mo Li Hansen" uid="1348665" lat="55.3948591" lon="10.3658396"/>
+ <node id="270109632" visible="true" version="2" changeset="20747311" timestamp="2014-02-24T09:45:57Z" user="Mo Li Hansen" uid="1348665" lat="55.3953277" lon="10.3661227"/>
+ <node id="270109636" visible="true" version="3" changeset="20747311" timestamp="2014-02-24T09:45:57Z" user="Mo Li Hansen" uid="1348665" lat="55.3952214" lon="10.3670436"/>
+ <node id="2791030481" visible="true" version="1" changeset="21691930" timestamp="2014-04-14T18:20:40Z" user="Mo Li Hansen" uid="1348665" lat="55.3970520" lon="10.3789098"/>
+ <node id="2791030484" visible="true" version="1" changeset="21691930" timestamp="2014-04-14T18:20:40Z" user="Mo Li Hansen" uid="1348665" lat="55.3973610" lon="10.3794276"/>
+ <node id="2791030485" visible="true" version="1" changeset="21691930" timestamp="2014-04-14T18:20:40Z" user="Mo Li Hansen" uid="1348665" lat="55.3960525" lon="10.3787447"/>
+ <node id="2791030486" visible="true" version="1" changeset="21691930" timestamp="2014-04-14T18:20:40Z" user="Mo Li Hansen" uid="1348665" lat="55.3962447" lon="10.3787578"/>
+ <node id="2791030487" visible="true" version="1" changeset="21691930" timestamp="2014-04-14T18:20:40Z" user="Mo Li Hansen" uid="1348665" lat="55.3968708" lon="10.3787922"/>
+ <node id="2791030491" visible="true" version="1" changeset="21691930" timestamp="2014-04-14T18:20:40Z" user="Mo Li Hansen" uid="1348665" lat="55.3972504" lon="10.3791434"/>
+ <node id="251487117" visible="true" version="2" changeset="21691930" timestamp="2014-04-14T18:20:41Z" user="Mo Li Hansen" uid="1348665" lat="55.3952528" lon="10.3783767"/>
+ <node id="2661164816" visible="true" version="2" changeset="21691930" timestamp="2014-04-14T18:20:41Z" user="Mo Li Hansen" uid="1348665" lat="55.3964239" lon="10.3787499"/>
+ <node id="2882913507" visible="true" version="1" changeset="22575995" timestamp="2014-05-27T06:13:25Z" user="Bilbo-denmark" uid="295005" lat="55.3963606" lon="10.3670257">
+  <tag k="traffic_calming" v="bump"/>
+ </node>
+ <node id="2882913508" visible="true" version="1" changeset="22575995" timestamp="2014-05-27T06:13:25Z" user="Bilbo-denmark" uid="295005" lat="55.3963856" lon="10.3670903">
+  <tag k="traffic_calming" v="bump"/>
+ </node>
+ <node id="2882913509" visible="true" version="1" changeset="22575995" timestamp="2014-05-27T06:13:25Z" user="Bilbo-denmark" uid="295005" lat="55.3967560" lon="10.3680482">
+  <tag k="traffic_calming" v="bump"/>
+ </node>
+ <node id="2882913510" visible="true" version="1" changeset="22575995" timestamp="2014-05-27T06:13:25Z" user="Bilbo-denmark" uid="295005" lat="55.3967796" lon="10.3681093">
+  <tag k="traffic_calming" v="bump"/>
+ </node>
+ <node id="2882913511" visible="true" version="1" changeset="22575995" timestamp="2014-05-27T06:13:25Z" user="Bilbo-denmark" uid="295005" lat="55.3970405" lon="10.3688067">
+  <tag k="traffic_calming" v="bump"/>
+ </node>
+ <node id="2882913512" visible="true" version="1" changeset="22575995" timestamp="2014-05-27T06:13:25Z" user="Bilbo-denmark" uid="295005" lat="55.3979779" lon="10.3696485">
+  <tag k="traffic_calming" v="bump"/>
+ </node>
+ <node id="1520505020" visible="true" version="3" changeset="24154268" timestamp="2014-07-15T07:03:32Z" user="AWSbot" uid="2184056" lat="55.3957734" lon="10.3681629">
+  <tag k="addr:city" v="Odense C"/>
+  <tag k="addr:country" v="DK"/>
+  <tag k="addr:housenumber" v="26"/>
+  <tag k="addr:postcode" v="5000"/>
+  <tag k="addr:street" v="Kanslergade"/>
+  <tag k="osak:identifier" v="99EA6B67ADFD48629E06F884FC3E5CFD"/>
+  <tag k="osak:municipality_no" v="461"/>
+  <tag k="osak:revision" v="2011-02-20T11:59:00"/>
+  <tag k="osak:street" v="Kanslergade"/>
+  <tag k="osak:street_no" v="4110"/>
+  <tag k="source" v="AWS Web API"/>
+ </node>
+ <node id="1520505021" visible="true" version="3" changeset="24154268" timestamp="2014-07-15T07:05:05Z" user="AWSbot" uid="2184056" lat="55.3958347" lon="10.3683419">
+  <tag k="addr:city" v="Odense C"/>
+  <tag k="addr:country" v="DK"/>
+  <tag k="addr:housenumber" v="28"/>
+  <tag k="addr:postcode" v="5000"/>
+  <tag k="addr:street" v="Kanslergade"/>
+  <tag k="osak:identifier" v="C0F8ABB5C2A545CF8DBAB8263A926070"/>
+  <tag k="osak:municipality_no" v="461"/>
+  <tag k="osak:revision" v="2011-02-20T11:59:00"/>
+  <tag k="osak:street" v="Kanslergade"/>
+  <tag k="osak:street_no" v="4110"/>
+  <tag k="source" v="AWS Web API"/>
+ </node>
+ <node id="341687587" visible="true" version="5" changeset="24392925" timestamp="2014-07-27T22:48:01Z" user="AWSbot" uid="2184056" lat="55.3966461" lon="10.3787362">
+  <tag k="addr:city" v="Odense C"/>
+  <tag k="addr:country" v="DK"/>
+  <tag k="addr:housenumber" v="83"/>
+  <tag k="addr:postcode" v="5000"/>
+  <tag k="addr:street" v="Vindegade"/>
+  <tag k="kms:county_name" v="Fyns Amtskommune"/>
+  <tag k="kms:county_no" v="42"/>
+  <tag k="kms:house_no" v="83"/>
+  <tag k="kms:last_updated" v="2002"/>
+  <tag k="kms:municipality_name" v="Odense"/>
+  <tag k="kms:municipality_no" v="461"/>
+  <tag k="kms:parish_name" v="Skt Knuds,Odense"/>
+  <tag k="kms:parish_no" v="7774"/>
+  <tag k="kms:street_name" v="Vindegade"/>
+  <tag k="kms:street_no" v="9393"/>
+  <tag k="kms:zip_name" v="Odense C"/>
+  <tag k="kms:zip_no" v="5000"/>
+  <tag k="osak:identifier" v="0A3F5089E90E32B8E0440003BA298018"/>
+  <tag k="osak:municipality_no" v="461"/>
+  <tag k="osak:revision" v="2009-02-10T00:00:00"/>
+  <tag k="source" v="OSAK (2010)"/>
+ </node>
+ <way id="24853582" visible="true" version="8" changeset="22575995" timestamp="2014-05-27T06:13:26Z" user="Bilbo-denmark" uid="295005">
+  <nd ref="270047434"/>
+  <nd ref="270047436"/>
+  <nd ref="270047438"/>
+  <nd ref="2688159426"/>
+  <nd ref="2882913507"/>
+  <nd ref="2882913508"/>
+  <nd ref="2882913509"/>
+  <nd ref="2882913510"/>
+  <nd ref="270047442"/>
+  <nd ref="1072751002"/>
+  <nd ref="2882913511"/>
+  <nd ref="617229317"/>
+  <nd ref="617229366"/>
+  <nd ref="617229285"/>
+  <nd ref="617229368"/>
+  <nd ref="617229272"/>
+  <nd ref="2882913512"/>
+  <nd ref="617229354"/>
+  <tag k="highway" v="residential"/>
+  <tag k="name" v="Kanslergade"/>
+ </way>
+ <way id="24858556" visible="true" version="2" changeset="20747311" timestamp="2014-02-24T09:45:57Z" user="Mo Li Hansen" uid="1348665">
+  <nd ref="270109631"/>
+  <nd ref="270109632"/>
+  <nd ref="2688159420"/>
+  <nd ref="2688159422"/>
+  <nd ref="2688159428"/>
+  <nd ref="270109632"/>
+  <tag k="highway" v="service"/>
+ </way>
+ <way id="24858557" visible="true" version="2" changeset="20747311" timestamp="2014-02-24T09:45:57Z" user="Mo Li Hansen" uid="1348665">
+  <nd ref="270109633"/>
+  <nd ref="270109634"/>
+  <nd ref="270109635"/>
+  <nd ref="270109636"/>
+  <nd ref="2688159424"/>
+  <nd ref="270109637"/>
+  <nd ref="270109633"/>
+  <tag k="amenity" v="parking"/>
+ </way>
+ <way id="24951720" visible="true" version="7" changeset="23246666" timestamp="2014-06-28T14:32:52Z" user="Rune Bugge Jensen" uid="1760365">
+  <nd ref="55463131"/>
+  <nd ref="771212109"/>
+  <nd ref="270109631"/>
+  <nd ref="705201979"/>
+  <nd ref="270047434"/>
+  <nd ref="1789808279"/>
+  <nd ref="73578560"/>
+  <tag k="highway" v="secondary"/>
+  <tag k="name" v="Grønløkkevej"/>
+  <tag k="ref" v="O1"/>
+ </way>
+ <way id="56199861" visible="true" version="2" changeset="16003155" timestamp="2013-05-06T20:31:07Z" user="Hjart" uid="207581">
+  <nd ref="705201979"/>
+  <nd ref="705201983"/>
+  <tag k="highway" v="unclassified"/>
+  <tag k="name" v="Grønløkken"/>
+ </way>
+ <way id="141959409" visible="true" version="2" changeset="16576460" timestamp="2013-06-16T14:02:30Z" user="Mo Li Hansen" uid="1348665">
+  <nd ref="1553892261"/>
+  <nd ref="2347538281"/>
+  <nd ref="1553892543"/>
+  <nd ref="1553892093"/>
+  <nd ref="1553892388"/>
+  <nd ref="1553892802"/>
+  <nd ref="1553892811"/>
+  <nd ref="1553892138"/>
+  <nd ref="1553892689"/>
+  <nd ref="1553892261"/>
+  <tag k="building" v="yes"/>
+  <tag k="source" v="Bing"/>
+ </way>
+ <way id="145428782" visible="true" version="1" changeset="10379776" timestamp="2012-01-13T16:02:27Z" user="Mimrecard" uid="355277">
+  <nd ref="1588442409"/>
+  <nd ref="1588442631"/>
+  <nd ref="1588442811"/>
+  <nd ref="1588442827"/>
+  <nd ref="1588442882"/>
+  <nd ref="1588442540"/>
+  <nd ref="1588442379"/>
+  <nd ref="1588442572"/>
+  <nd ref="1588443078"/>
+  <nd ref="1588443062"/>
+  <nd ref="1588442445"/>
+  <nd ref="1588442419"/>
+  <nd ref="1588442772"/>
+  <nd ref="1588442879"/>
+  <nd ref="1588442839"/>
+  <nd ref="1588442842"/>
+  <nd ref="1588443018"/>
+  <nd ref="1588442548"/>
+  <nd ref="1588443114"/>
+  <nd ref="1588442519"/>
+  <nd ref="1588442913"/>
+  <nd ref="1588442414"/>
+  <nd ref="1588442722"/>
+  <nd ref="1588442990"/>
+  <nd ref="1588442962"/>
+  <nd ref="1588442711"/>
+  <nd ref="1588442409"/>
+  <tag k="building" v="yes"/>
+  <tag k="source" v="Bing"/>
+ </way>
+ <way id="145428788" visible="true" version="1" changeset="10379776" timestamp="2012-01-13T16:02:31Z" user="Mimrecard" uid="355277">
+  <nd ref="1588442920"/>
+  <nd ref="1588442874"/>
+  <nd ref="1588443019"/>
+  <nd ref="1588442926"/>
+  <nd ref="1588442950"/>
+  <nd ref="1588442566"/>
+  <nd ref="1588443083"/>
+  <nd ref="1588443063"/>
+  <nd ref="1588443098"/>
+  <nd ref="1588442707"/>
+  <nd ref="1588442521"/>
+  <nd ref="1588443059"/>
+  <nd ref="1588442563"/>
+  <nd ref="1588442869"/>
+  <nd ref="1588442877"/>
+  <nd ref="1588442791"/>
+  <nd ref="1588442441"/>
+  <nd ref="1588442508"/>
+  <nd ref="1588442765"/>
+  <nd ref="1588442885"/>
+  <nd ref="1588442727"/>
+  <nd ref="1588442718"/>
+  <nd ref="1588442920"/>
+  <tag k="building" v="yes"/>
+  <tag k="source" v="Bing"/>
+ </way>
+ <way id="260590496" visible="true" version="3" changeset="21691930" timestamp="2014-04-14T18:20:43Z" user="Mo Li Hansen" uid="1348665">
+  <nd ref="2661164905"/>
+  <nd ref="2661164845"/>
+  <nd ref="2661164841"/>
+  <nd ref="2661164821"/>
+  <nd ref="2661164859"/>
+  <nd ref="341686142"/>
+  <nd ref="2661164811"/>
+  <nd ref="2661164815"/>
+  <nd ref="251487117"/>
+  <nd ref="2661164861"/>
+  <nd ref="2791030485"/>
+  <nd ref="2791030486"/>
+  <nd ref="2661164816"/>
+  <nd ref="341687587"/>
+  <nd ref="2791030487"/>
+  <nd ref="2791030481"/>
+  <nd ref="79900773"/>
+  <nd ref="2791030491"/>
+  <nd ref="2791030484"/>
+  <nd ref="2661164839"/>
+  <nd ref="2661164846"/>
+  <nd ref="2661164837"/>
+  <nd ref="2661164838"/>
+  <nd ref="2661164836"/>
+  <nd ref="2661164853"/>
+  <nd ref="2688145176"/>
+  <nd ref="2661164905"/>
+  <tag k="landuse" v="residential"/>
+ </way>
+ <way id="24853600" visible="true" version="2" changeset="20747083" timestamp="2014-02-24T09:27:43Z" user="Mo Li Hansen" uid="1348665">
+  <nd ref="270047438"/>
+  <nd ref="270047855"/>
+  <nd ref="270047856"/>
+  <nd ref="270047857"/>
+  <nd ref="270047858"/>
+  <tag k="access" v="no"/>
+  <tag k="highway" v="service"/>
+  <tag k="oneway" v="yes"/>
+ </way>
+ <way id="263188364" visible="true" version="1" changeset="20747180" timestamp="2014-02-24T09:36:10Z" user="Mo Li Hansen" uid="1348665">
+  <nd ref="2688155026"/>
+  <nd ref="2688155027"/>
+  <nd ref="2688155016"/>
+  <nd ref="2688155029"/>
+  <nd ref="2688155026"/>
+  <tag k="amenity" v="parking"/>
+ </way>
+ <way id="263192192" visible="true" version="1" changeset="20747311" timestamp="2014-02-24T09:45:57Z" user="Mo Li Hansen" uid="1348665">
+  <nd ref="2688159418"/>
+  <nd ref="2688159426"/>
+  <tag k="highway" v="service"/>
+  <tag k="service" v="parking_aisle"/>
+ </way>
+</osm>
