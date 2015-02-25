@@ -25,8 +25,10 @@ void Painter::initRoadImage()
                                  boundary.minLatitude,
                                  boundary.minLongitude);
 
-    std::cout << "Image Width : " << imageWidth  << std::endl;
-    std::cout << "Image Height: " << imageHeight << std::endl;
+    boundary.imageWidth  = imageWidth;
+    boundary.imageHeight = imageHeight;
+
+    roadNetwork->setBoundary( boundary );
 
     A.setX( 0 );
     A.setY( 0 );
@@ -75,6 +77,7 @@ double Painter::latLon2Length( double endLatitude, double endLongitude,
     dist = rad2Deg( dist );
     dist = dist * 60 * 1.1515 * 1.609344; //M nothing, KM 1.609344
     dist = dist * MAP_SCALE;
+
     return dist;
 }
 
@@ -100,12 +103,11 @@ void Painter::createRoadLines()
     {
         std::vector<Node> nodes = it->getNodes();
         for ( std::vector<Node>::iterator jt = nodes.begin();
-              jt != (nodes.end() - 1); ++jt )
+              jt < (nodes.end() - 1); ++jt )
         {
             beginPoint = circle2CircleIntersect( jt->latitude, jt->longitude );
             endPoint   = circle2CircleIntersect( (jt+1)->latitude, (jt+1)->longitude );
             tempLine.setPoints( beginPoint, endPoint );
-            tempLine = boundaryAdjustedLine( tempLine );
             it->addLine( tempLine );
         }
     }
@@ -158,80 +160,32 @@ QPointF Painter::circle2CircleIntersect( double latitude, double longitude )
                   ( (point2.y() - d.p1().y()) *
                     (point2.y() - d.p1().y()) ) );
 
-    if ( ((r3 - dist1) <= 0.005) && ((r3 - dist1) >= -0.005) )
+    double choseP1 = fabs(r3 - dist1);
+    double choseP2 = fabs(r3 - dist2);
+    if ( choseP1 < choseP2 )
     {
         result.setX( point1.x() );
         result.setY( point1.y() );
     }
-    else if ( ((r3 - dist2) <= 0.005) && ((r3 - dist2) >= -0.005) )
+    else
     {
         result.setX( point2.x() );
         result.setY( point2.y() );
     }
 
+    //NOTE!!! If the output image is wrong change CIRCLE2CIRCLE_INTERSECT. DEBUG output below.
+    //If result.x() is 0 and result.y() is a high value change CIRCLE2CIRCLE_INTERSECT.
+
+    /*
+    std::cout << "r3: " << r3 << " Dist1: " << dist1 << " r3 - dist1: " << r3 - dist1 << std::endl;
+    std::cout << "r3: " << r3 << " Dist2: " << dist2 << " r3 - dist2: " << r3 - dist2 << std::endl;
+    std::cout << "Point1: " << point1.x() << " , " << point1.y() << std::endl;
+    std::cout << "Point2: " << point2.x() << " , " << point2.y() << std::endl;
+    std::cout << "Result: " << result.x() << " , " << result.y() << std::endl;
+    std::cout << std::endl;
+    //*/
+
     return result;
-}
-
-QLineF Painter::boundaryAdjustedLine( QLineF line )
-{
-    QLineF tempLine = line;
-
-    QPointF aIntersectionPoint;
-    QPointF bIntersectionPoint;
-    QPointF cIntersectionPoint;
-    QPointF dIntersectionPoint;
-
-    int aIntersect = line.intersect( a, &aIntersectionPoint );
-    int bIntersect = line.intersect( b, &bIntersectionPoint );
-    int cIntersect = line.intersect( c, &cIntersectionPoint );
-    int dIntersect = line.intersect( d, &dIntersectionPoint );
-
-    if ( aIntersect == QLineF::BoundedIntersection )
-    {
-        if ( pointOutOfBoundary( line.p1() ) )
-            tempLine.p1() = aIntersectionPoint;
-        if ( pointOutOfBoundary( line.p2() ) )
-            tempLine.p2() = aIntersectionPoint;
-    }
-
-    if ( bIntersect == QLineF::BoundedIntersection )
-    {
-        if ( pointOutOfBoundary( line.p1() ) )
-            tempLine.p1() = bIntersectionPoint;
-        if ( pointOutOfBoundary( line.p2() ) )
-            tempLine.p2() = bIntersectionPoint;
-    }
-
-    if ( cIntersect == QLineF::BoundedIntersection )
-    {
-        if ( pointOutOfBoundary( line.p1() ) )
-            tempLine.p1() = cIntersectionPoint;
-        if ( pointOutOfBoundary( line.p2() ) )
-            tempLine.p2() = cIntersectionPoint;
-    }
-
-    if ( dIntersect == QLineF::BoundedIntersection )
-    {
-        if ( pointOutOfBoundary( line.p1() ) )
-            tempLine.p1() = dIntersectionPoint;
-        if ( pointOutOfBoundary( line.p2() ) )
-            tempLine.p2() = dIntersectionPoint;
-    }
-
-    return tempLine;
-}
-
-bool Painter::pointOutOfBoundary( QPointF point )
-{
-    bool temp;
-    if ( point.x() < a.p1().x() && point.y() < a.p1().y() )
-        temp = true;
-    else if ( point.x() > c.p1().x() && point.y() > c.p1().y() )
-        temp = true;
-    else
-        temp = false;
-
-    return temp;
 }
 
 void Painter::drawRoads()

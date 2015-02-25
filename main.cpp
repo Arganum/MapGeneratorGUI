@@ -23,6 +23,8 @@ int main(int argc, char *argv[])
     mapGenerator->saveRoadImage();
     mapGenerator->deletePainter();
 
+    mapGenerator->printRoadNetwork();
+
     delete mapGenerator;
 
     return a.exec();

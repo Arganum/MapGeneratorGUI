@@ -44,8 +44,6 @@ private:
     double rad2Deg( double rad );
 
     QPointF circle2CircleIntersect( double latitude, double longitude);
-    QLineF boundaryAdjustedLine( QLineF line );
-    bool pointOutOfBoundary( QPointF point );
 };
 
 #endif // PAINTER_H

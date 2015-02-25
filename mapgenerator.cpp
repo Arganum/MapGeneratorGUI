@@ -38,9 +38,6 @@ void MapGenerator::deleteOsmParser()
 {
     delete xmlParser;
     delete osmFile;
-    roadNetwork->printBoundary();
-    roadNetwork->printRoadsNodes();
-    roadNetwork->printRoadsNodeIDs();
 }
 
 void MapGenerator::initPainter()
@@ -80,6 +77,14 @@ void MapGenerator::deletePainter()
 {
     painter->endRoadPainter();
     delete painter;
+}
+
+void MapGenerator::printRoadNetwork()
+{
+    roadNetwork->printBoundary();
+    roadNetwork->printRoadsNodes();
+    roadNetwork->printRoadsLines();
+    roadNetwork->printRoadsNodeIDs();
 }
 
 

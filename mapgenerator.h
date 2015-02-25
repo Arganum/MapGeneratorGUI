@@ -34,6 +34,9 @@ public:
     void saveRoadImage();
     void deletePainter();
 
+    // Print RoadNetwork
+    void printRoadNetwork();
+
 private:
     RoadNetwork* roadNetwork;
     XmlParser* xmlParser;

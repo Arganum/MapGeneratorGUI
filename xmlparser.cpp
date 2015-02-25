@@ -60,8 +60,26 @@ void XmlParser::firstParse()
             {
                 Road tempRoad;
                 elementWay( tempRoad );
-                bool hasRoadType = !tempRoad.getType().empty();
-                if ( hasRoadType && tempRoad.getType() != "service" )
+                //bool hasRoadType = !tempRoad.getType().empty();
+                //bool hasRoadName = !tempRoad.getName().empty(); //ROAD TYPE HERE!!!
+                //if ( hasRoadType && hasRoadName )
+                //    XmlParser::roads.push_back( tempRoad );
+
+                if ( tempRoad.getType() == "motorway" && MOTORWAY )
+                    XmlParser::roads.push_back( tempRoad );
+                else if ( tempRoad.getType() == "trunk" && TRUNK )
+                    XmlParser::roads.push_back( tempRoad );
+                else if ( tempRoad.getType() == "primary" && PRIMARY )
+                    XmlParser::roads.push_back( tempRoad );
+                else if ( tempRoad.getType() == "secondary" && SECONDARY )
+                    XmlParser::roads.push_back( tempRoad );
+                else if ( tempRoad.getType() == "tertiary" && TERTIARY )
+                    XmlParser::roads.push_back( tempRoad );
+                else if ( tempRoad.getType() == "unclassified" && UNCLASSIFIED )
+                    XmlParser::roads.push_back( tempRoad );
+                else if ( tempRoad.getType() == "residential" && RESIDENTIAL )
+                    XmlParser::roads.push_back( tempRoad );
+                else if ( tempRoad.getType() == "service" && SERVICE )
                     XmlParser::roads.push_back( tempRoad );
             }
             else
@@ -155,7 +173,6 @@ void XmlParser::elementNode()
     for ( std::vector<Road>::iterator it = XmlParser::roads.begin();
           it != XmlParser::roads.end(); ++it )
     {
-        //std::cout << it->getName() << std::endl;
         std::vector<unsigned long> nodeIDs = it->getNodeIDs();
         int index = 0;
         for ( std::vector<unsigned long>::iterator jt = nodeIDs.begin();
@@ -164,7 +181,6 @@ void XmlParser::elementNode()
             ++index;
             if ( xmlReader->attributes().value( "id" ).toULong() == *jt )
             {
-                //std::cout << "NuuuM" << std::endl;
                 struct Node tempNode;
 
                 tempNode.number = index;
@@ -174,8 +190,6 @@ void XmlParser::elementNode()
 
                 it->addNode( tempNode );
             }
-
-            //std::cout << *jt << " , " << index << std::endl;
         }
     }
 }

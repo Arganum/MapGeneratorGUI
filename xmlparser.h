@@ -17,11 +17,14 @@ public:
 
     bool hasParsed( bool parse, QIODevice* device );
 
+    //clearfunctions
+
 private:
     RoadNetwork* roadNetwork;
 
     QXmlStreamReader* xmlReader;
     std::vector<Road> roads;
+    std::vector<Node> trafficLights;
 
     void firstParse();
     void elementWay( Road & road );
@@ -31,6 +34,7 @@ private:
     void secondParse();
     void elementBounds();
     void elementNode();
+    void elementTagTrafficLights();
 
     void sortRoadsNodes();
 };
