@@ -17,8 +17,6 @@ public:
 
     bool hasParsed( bool parse, QIODevice* device );
 
-    //clearfunctions
-
 private:
     RoadNetwork* roadNetwork;
 
@@ -34,7 +32,7 @@ private:
     void secondParse();
     void elementBounds();
     void elementNode();
-    void elementTagTrafficLights();
+    void elementTagTrafficLights( Node & node );
 
     void sortRoadsNodes();
 };

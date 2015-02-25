@@ -33,7 +33,9 @@ bool XmlParser::hasParsed(bool parseNumber, QIODevice* device )
 
                 sortRoadsNodes();
                 roadNetwork->setRoads( XmlParser::roads );
+                roadNetwork->setTrafficLights( XmlParser::trafficLights );
                 XmlParser::roads.clear();
+                XmlParser::trafficLights.clear();
 
                 isDone = true;
             }
@@ -92,9 +94,7 @@ void XmlParser::elementWay( Road & road )
 {
     while ( xmlReader->readNextStartElement() )
     {
-        if ( xmlReader->name() == "way" )
-            elementWay( road );
-        else if ( xmlReader->name() == "nd" )
+        if ( xmlReader->name() == "nd" )
             elementNd( road );
         else if ( xmlReader->name() == "tag" )
             elementTag( road );
@@ -109,9 +109,7 @@ void XmlParser::elementNd( Road & road )
 
     while ( xmlReader->readNextStartElement() )
     {
-        if ( xmlReader->name() == "way" )
-            elementWay( road );
-        else if ( xmlReader->name() == "nd" )
+        if ( xmlReader->name() == "nd" )
             elementNd( road );
         else if ( xmlReader->name() == "tag" )
             elementTag( road );
@@ -130,9 +128,7 @@ void XmlParser::elementTag( Road & road )
 
     while ( xmlReader->readNextStartElement() )
     {
-        if ( xmlReader->name() == "way" )
-            elementWay( road );
-        else if ( xmlReader->name() == "nd" )
+        if ( xmlReader->name() == "nd" )
             elementNd( road );
         else if ( xmlReader->name() == "tag" )
             elementTag( road );
@@ -170,6 +166,13 @@ void XmlParser::elementBounds()
 
 void XmlParser::elementNode()
 {
+    struct Node tempNode;
+
+    tempNode.number = 0;
+    tempNode.ID = xmlReader->attributes().value( "id" ).toULong();
+    tempNode.latitude = xmlReader->attributes().value( "lat" ).toDouble();
+    tempNode.longitude = xmlReader->attributes().value( "lon" ).toDouble();
+
     for ( std::vector<Road>::iterator it = XmlParser::roads.begin();
           it != XmlParser::roads.end(); ++it )
     {
@@ -181,16 +184,39 @@ void XmlParser::elementNode()
             ++index;
             if ( xmlReader->attributes().value( "id" ).toULong() == *jt )
             {
-                struct Node tempNode;
-
                 tempNode.number = index;
-                tempNode.ID = xmlReader->attributes().value( "id" ).toULong();
-                tempNode.latitude = xmlReader->attributes().value( "lat" ).toDouble();
-                tempNode.longitude = xmlReader->attributes().value( "lon" ).toDouble();
-
                 it->addNode( tempNode );
             }
         }
+    }
+
+    while ( xmlReader->readNextStartElement() )
+    {
+        if ( xmlReader->name() == "node" )
+            elementNode();
+        else if ( xmlReader->name() == "tag" )
+            elementTagTrafficLights( tempNode );
+        else
+            xmlReader->skipCurrentElement();
+    }
+
+}
+
+void XmlParser::elementTagTrafficLights( Node & node )
+{
+    if ( xmlReader->attributes().value( "k" ) == "highway" )
+        if ( xmlReader->attributes().value( "v" ) == "traffic_signals" )
+            if ( node.number != 0 )
+                XmlParser::trafficLights.push_back( node );
+
+    while ( xmlReader->readNextStartElement() )
+    {
+        if ( xmlReader->name() == "node" )
+            elementNode();
+        else if ( xmlReader->name() == "tag" )
+            elementTagTrafficLights( node );
+        else
+            xmlReader->skipCurrentElement();
     }
 }
 

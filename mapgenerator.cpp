@@ -81,10 +81,11 @@ void MapGenerator::deletePainter()
 
 void MapGenerator::printRoadNetwork()
 {
-    roadNetwork->printBoundary();
-    roadNetwork->printRoadsNodes();
-    roadNetwork->printRoadsLines();
-    roadNetwork->printRoadsNodeIDs();
+    //roadNetwork->printBoundary();
+    roadNetwork->printTrafficLights();
+    //roadNetwork->printRoadsNodes();
+    //roadNetwork->printRoadsLines();
+    //roadNetwork->printRoadsNodeIDs();
 }
 
 
