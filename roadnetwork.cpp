@@ -30,12 +30,12 @@ void RoadNetwork::setRoads( std::vector<Road> roads )
     RoadNetwork::roads = roads;
 }
 
-std::vector<Node> RoadNetwork::getTrafficLights()
+std::vector<TrafficLight> RoadNetwork::getTrafficLights()
 {
     return RoadNetwork::trafficLights;
 }
 
-void RoadNetwork::setTrafficLights( std::vector<Node> trafficLights )
+void RoadNetwork::setTrafficLights( std::vector<TrafficLight> trafficLights )
 {
     RoadNetwork::trafficLights = trafficLights;
 }
@@ -86,13 +86,16 @@ void RoadNetwork::printTrafficLights()
     std::cout.precision(15);
 
     std::cout << "Traffic Light Nodes:" << std::endl;
-    for ( std::vector<Node>::iterator it = RoadNetwork::trafficLights.begin();
+    for ( std::vector<TrafficLight>::iterator it = RoadNetwork::trafficLights.begin();
           it != RoadNetwork::trafficLights.end(); ++it )
     {
-        std::cout << "  Node: " << it->number << std::endl;
-        std::cout << "    ID        : " << it->ID << std::endl;
-        std::cout << "    Latitude  : " << it->latitude << std::endl;
-        std::cout << "    Longitude : " << it->longitude << std::endl;
+        std::cout << "  Node: " << it->node.number << std::endl;
+        std::cout << "    ID        : " << it->node.ID << std::endl;
+        std::cout << "    Latitude  : " << it->node.latitude << std::endl;
+        std::cout << "    Longitude : " << it->node.longitude << std::endl;
+
+        std::cout << "      x : " << it->x << std::endl;
+        std::cout << "      y : " << it->y << std::endl;
     }
 }
 

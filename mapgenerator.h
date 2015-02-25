@@ -29,6 +29,7 @@ public:
     // Painting
     void initPainter();
     void createRoadLines();
+    void createTrafficLightCoordinates();
     void drawRoads();
     void drawBoundary();
     void saveRoadImage();

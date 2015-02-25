@@ -18,8 +18,8 @@ public:
     std::vector<Road> getRoads();
     void setRoads( std::vector<Road> roads );
 
-    std::vector<Node> getTrafficLights();
-    void setTrafficLights( std::vector<Node> trafficLights );
+    std::vector<TrafficLight> getTrafficLights();
+    void setTrafficLights( std::vector<TrafficLight> trafficLights );
 
     void clearRoads();
     void clearTrafficLights();
@@ -36,7 +36,7 @@ public:
 private:
     Bounds boundary;
     std::vector<Road> roads;
-    std::vector<Node> trafficLights;
+    std::vector<TrafficLight> trafficLights;
 };
 
 #endif // ROADNETWORK_H

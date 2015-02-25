@@ -63,6 +63,52 @@ void Painter::endRoadPainter()
     roadPainter.end();
 }
 
+void Painter::createRoadLines()
+{
+    QLineF tempLine;
+    QPointF beginPoint, endPoint;
+
+    std::vector<Road> roads = roadNetwork->getRoads();
+
+    for ( std::vector<Road>::iterator it = roads.begin();
+          it != roads.end(); ++it )
+    {
+        std::vector<Node> nodes = it->getNodes();
+        for ( std::vector<Node>::iterator jt = nodes.begin();
+              jt < (nodes.end() - 1); ++jt )
+        {
+            beginPoint = circle2CircleIntersect( jt->latitude, jt->longitude );
+            endPoint   = circle2CircleIntersect( (jt+1)->latitude, (jt+1)->longitude );
+            tempLine.setPoints( beginPoint, endPoint );
+            it->addLine( tempLine );
+        }
+    }
+
+    roadNetwork->setRoads( roads );
+}
+
+void Painter::createTrafficLightCoordinates()
+{
+    std::vector<TrafficLight> trafficLights = roadNetwork->getTrafficLights();
+    std::vector<TrafficLight> newTrafficLights;
+    QPointF trafficLightPoint;
+    struct TrafficLight newTrafficLight;
+    for ( std::vector<TrafficLight>::iterator it = trafficLights.begin();
+          it != trafficLights.end(); ++it )
+    {
+        trafficLightPoint = circle2CircleIntersect( it->node.latitude, it->node.longitude );
+        if ( trafficLightPoint.x() > A.x() && trafficLightPoint.y() > A.y() )
+            if ( trafficLightPoint.x() < C.x() && trafficLightPoint.y() < C.y() )
+            {
+                newTrafficLight.node = it->node;
+                newTrafficLight.x = trafficLightPoint.x();
+                newTrafficLight.y = trafficLightPoint.y();
+                newTrafficLights.push_back( newTrafficLight );
+            }
+    }
+    roadNetwork->setTrafficLights( newTrafficLights );
+}
+
 double Painter::latLon2Length( double endLatitude, double endLongitude,
                                double beginLatitude, double beginLongitude )
 {
@@ -89,30 +135,6 @@ double Painter::deg2Rad(double deg )
 double Painter::rad2Deg( double rad )
 {
     return ( rad * 180 / M_PI );
-}
-
-void Painter::createRoadLines()
-{
-    QLineF tempLine;
-    QPointF beginPoint, endPoint;
-
-    std::vector<Road> roads = roadNetwork->getRoads();
-
-    for ( std::vector<Road>::iterator it = roads.begin();
-          it != roads.end(); ++it )
-    {
-        std::vector<Node> nodes = it->getNodes();
-        for ( std::vector<Node>::iterator jt = nodes.begin();
-              jt < (nodes.end() - 1); ++jt )
-        {
-            beginPoint = circle2CircleIntersect( jt->latitude, jt->longitude );
-            endPoint   = circle2CircleIntersect( (jt+1)->latitude, (jt+1)->longitude );
-            tempLine.setPoints( beginPoint, endPoint );
-            it->addLine( tempLine );
-        }
-    }
-
-    roadNetwork->setRoads( roads );
 }
 
 QPointF Painter::circle2CircleIntersect( double latitude, double longitude )

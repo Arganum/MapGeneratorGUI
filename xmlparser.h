@@ -22,7 +22,7 @@ private:
 
     QXmlStreamReader* xmlReader;
     std::vector<Road> roads;
-    std::vector<Node> trafficLights;
+    std::vector<TrafficLight> trafficLights;
 
     void firstParse();
     void elementWay( Road & road );

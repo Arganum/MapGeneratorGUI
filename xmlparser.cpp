@@ -207,7 +207,11 @@ void XmlParser::elementTagTrafficLights( Node & node )
     if ( xmlReader->attributes().value( "k" ) == "highway" )
         if ( xmlReader->attributes().value( "v" ) == "traffic_signals" )
             if ( node.number != 0 )
-                XmlParser::trafficLights.push_back( node );
+            {
+                struct TrafficLight tempTrafficLight;
+                tempTrafficLight.node = node;
+                XmlParser::trafficLights.push_back( tempTrafficLight );
+            }
 
     while ( xmlReader->readNextStartElement() )
     {

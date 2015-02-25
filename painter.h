@@ -21,6 +21,7 @@ public:
     void endRoadPainter();
 
     void createRoadLines();
+    void createTrafficLightCoordinates();
 
     void drawRoads();
     void drawBoundary();

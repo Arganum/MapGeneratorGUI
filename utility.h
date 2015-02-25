@@ -6,14 +6,14 @@
 #define MAP_SCALE 1000 // 1 pixel = 1 meter
 
 //What Road Type to Paint
-#define MOTORWAY     1
-#define TRUNK        1
-#define PRIMARY      1
+#define MOTORWAY     0
+#define TRUNK        0
+#define PRIMARY      0
 #define SECONDARY    1
-#define TERTIARY     1
-#define UNCLASSIFIED 1
-#define RESIDENTIAL  1
-#define SERVICE      1
+#define TERTIARY     0
+#define UNCLASSIFIED 0
+#define RESIDENTIAL  0
+#define SERVICE      0
 
 struct Node
 {
@@ -26,6 +26,14 @@ struct Node
     {
         return number < a.number;
     }
+};
+
+struct TrafficLight
+{
+    struct Node node;
+
+    double x;
+    double y;
 };
 
 struct Bounds

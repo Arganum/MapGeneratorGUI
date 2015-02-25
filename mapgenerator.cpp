@@ -51,6 +51,11 @@ void MapGenerator::createRoadLines()
     painter->createRoadLines();
 }
 
+void MapGenerator::createTrafficLightCoordinates()
+{
+    painter->createTrafficLightCoordinates();
+}
+
 void MapGenerator::drawRoads()
 {
     painter->drawRoads();
