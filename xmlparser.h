@@ -12,7 +12,7 @@ class RoadNetwork;
 class XmlParser
 {
 public:
-    XmlParser(RoadNetwork* roadNet);
+    XmlParser(RoadNetwork* roadNetwork);
     ~XmlParser();
 
     bool hasParsed( bool parse, QIODevice* device );

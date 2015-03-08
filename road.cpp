@@ -90,5 +90,13 @@ void Road::clearLines()
     Road::lines.clear();
 }
 
+QColor Road::getColor()
+{
+    return Road::color;
+}
 
+void Road::setColor( QColor color )
+{
+    Road::color = color;
+}
 

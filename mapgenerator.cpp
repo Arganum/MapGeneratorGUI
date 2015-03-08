@@ -2,31 +2,33 @@
 
 MapGenerator::MapGenerator()
 {
-    roadNetwork = new RoadNetwork;
-    xmlParser = new XmlParser( roadNetwork );
-    painter = new Painter( roadNetwork );
+    MapGenerator::roadNetwork = new RoadNetwork;
+
+    MapGenerator::xmlParser = new XmlParser( MapGenerator::roadNetwork );
+    MapGenerator::designer = new Designer( MapGenerator::roadNetwork );
+    MapGenerator::painter = new Painter( MapGenerator::roadNetwork );
 }
 
 MapGenerator::~MapGenerator()
 {
-    delete roadNetwork;
+    delete MapGenerator::roadNetwork;
 }
 
 void MapGenerator::setOsmFile( QString path )
 {
-    osmFile = new QFile( path ); // C:/Users/LAU/Downloads/
+    MapGenerator::osmFile = new QFile( path ); // C:/Users/LAU/Downloads/
 }
 
 void MapGenerator::parseOsmFile()
 {
-    if ( xmlParser->hasParsed( FIRST_PARSE, osmFile ) )
+    if ( MapGenerator::xmlParser->hasParsed( FIRST_PARSE, MapGenerator::osmFile ) )
     {
         //std::cout << "First parse successful" << std::endl;
     } else {
         std::cout << "Error at first parse" << std::endl;
     }
 
-    if ( xmlParser->hasParsed( SECOND_PARSE, osmFile ) )
+    if ( MapGenerator::xmlParser->hasParsed( SECOND_PARSE, MapGenerator::osmFile ) )
     {
         //std::cout << "Second parse successful" << std::endl;
     } else {
@@ -36,41 +38,56 @@ void MapGenerator::parseOsmFile()
 
 void MapGenerator::deleteOsmParser()
 {
-    delete xmlParser;
-    delete osmFile;
+    delete MapGenerator::xmlParser;
+    delete MapGenerator::osmFile;
 }
 
-void MapGenerator::initPainter()
+void MapGenerator::createBoundary()
 {
-    painter->initRoadImage();
-    painter->initRoadPainter();
+    MapGenerator::designer->createBoundary();
 }
 
 void MapGenerator::createRoadLines()
 {
-    painter->createRoadLines();
+    MapGenerator::designer->createRoadLines();
 }
 
 void MapGenerator::createTrafficLightCoordinates()
 {
-    painter->createTrafficLightCoordinates();
+    MapGenerator::designer->createTrafficLightCoordinates();
+}
+
+void MapGenerator::deleteDesigner()
+{
+    delete MapGenerator::designer;
+}
+
+void MapGenerator::initPainter()
+{
+    MapGenerator::painter->initRoadImage();
+    MapGenerator::painter->initRoadPainter();
+}
+
+void MapGenerator::drawRoadNetwork()
+{
+    MapGenerator::painter->drawRoadNetwork();
 }
 
 void MapGenerator::drawRoads()
 {
-    painter->drawRoads();
+    MapGenerator::painter->drawRoads();
 }
 
-void MapGenerator::drawBoundary()
+void MapGenerator::drawTrafficLights()
 {
-    painter->drawBoundary();
+    MapGenerator::painter->drawTrafficLights();
 }
 
 void MapGenerator::saveRoadImage()
 {
     QFile* imageFile = new QFile( "roads.png" );
 
-    QImage roadImage = painter->getRoadImage();
+    QImage roadImage = MapGenerator::painter->getRoadImage();
     roadImage = roadImage.mirrored();
     if ( !roadImage.save( imageFile ) )
         std::cout << "Cannot save map" << std::endl;
@@ -80,19 +97,43 @@ void MapGenerator::saveRoadImage()
 
 void MapGenerator::deletePainter()
 {
-    painter->endRoadPainter();
-    delete painter;
+    MapGenerator::painter->endRoadPainter();
+    delete MapGenerator::painter;
+}
+
+void MapGenerator::saveTrafficLightsCoordinates()
+{
+    QFile* trafficLightsFile = new QFile( "trafficLights.lua" );
+    if ( !trafficLightsFile->open( QIODevice::WriteOnly | QIODevice::Text ) )
+        return;
+    QTextStream out( trafficLightsFile );
+
+    std::vector<TrafficLight> trafficLights = MapGenerator::roadNetwork->getTrafficLights();
+
+    for ( std::vector<TrafficLight>::iterator it = trafficLights.begin();
+          it != trafficLights.end(); ++it )
+    {
+        out << "Entry { " << "\n";
+        out << "x = " << floor( it->getPoint().x() + 0.5 ) << ",\n";
+        out << "y = " << floor( ( MapGenerator::roadNetwork->getBoundary().height - it->getPoint().y() ) + 0.5 ) << ",\n";
+        out << "Red   = " << it->getColor().red() << ",\n";
+        out << "Green = " << it->getColor().green() << ",\n";
+        out << "Blue  = " << it->getColor().blue() << "\n";
+        out << "}" << "\n" << "\n";
+    }
+
+    trafficLightsFile->close();
+    delete trafficLightsFile;
 }
 
 void MapGenerator::printRoadNetwork()
 {
-    //roadNetwork->printBoundary();
-    roadNetwork->printTrafficLights();
-    //roadNetwork->printRoadsNodes();
-    //roadNetwork->printRoadsLines();
-    //roadNetwork->printRoadsNodeIDs();
+    //MapGenerator::roadNetwork->printBoundary();
+    MapGenerator::roadNetwork->printTrafficLights();
+    MapGenerator::roadNetwork->printRoadsNodes();
+    //MapGenerator::roadNetwork->printRoadsLines();
+    //MapGenerator::roadNetwork->printRoadsNodeIDs();
 }
-
 
 
 

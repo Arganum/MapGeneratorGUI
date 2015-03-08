@@ -4,6 +4,7 @@
 #include <iostream>
 
 #include "road.h"
+#include "trafficlight.h"
 #include "utility.h"
 
 class RoadNetwork

@@ -16,15 +16,19 @@ int main(int argc, char *argv[])
     mapGenerator->parseOsmFile();
     mapGenerator->deleteOsmParser();
 
-    mapGenerator->initPainter();
+    mapGenerator->createBoundary();
     mapGenerator->createRoadLines();
     mapGenerator->createTrafficLightCoordinates();
-    mapGenerator->drawRoads();
-    mapGenerator->drawBoundary();
+    mapGenerator->deleteDesigner();
+
+    mapGenerator->initPainter();
+    mapGenerator->drawRoadNetwork();
     mapGenerator->saveRoadImage();
     mapGenerator->deletePainter();
 
+    mapGenerator->saveTrafficLightsCoordinates();
     mapGenerator->printRoadNetwork();
+
 
     delete mapGenerator;
 

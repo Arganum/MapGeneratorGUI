@@ -72,8 +72,8 @@ void RoadNetwork::printBoundary()
 {
     std::cout.precision(15);
     std::cout << "RoadNetwork Boundary: " << std::endl;
-    std::cout << "  Image Width   : " << RoadNetwork::boundary.imageWidth << std::endl;
-    std::cout << "  Image Height  : " << RoadNetwork::boundary.imageHeight << std::endl;
+    std::cout << "  Width   : " << RoadNetwork::boundary.width << std::endl;
+    std::cout << "  Height  : " << RoadNetwork::boundary.height << std::endl;
     std::cout << "    Min Latitude  : " << RoadNetwork::boundary.minLatitude << std::endl;
     std::cout << "    Min Longitude : " << RoadNetwork::boundary.minLongitude << std::endl;
     std::cout << "    Max Latitude  : " << RoadNetwork::boundary.maxLatitude << std::endl;
@@ -89,13 +89,18 @@ void RoadNetwork::printTrafficLights()
     for ( std::vector<TrafficLight>::iterator it = RoadNetwork::trafficLights.begin();
           it != RoadNetwork::trafficLights.end(); ++it )
     {
-        std::cout << "  Node: " << it->node.number << std::endl;
-        std::cout << "    ID        : " << it->node.ID << std::endl;
-        std::cout << "    Latitude  : " << it->node.latitude << std::endl;
-        std::cout << "    Longitude : " << it->node.longitude << std::endl;
+        std::cout << "  Node  : " << it->getNode().number << std::endl;
+        std::cout << "    ID        : " << it->getNode().ID << std::endl;
+        std::cout << "    Latitude  : " << it->getNode().latitude << std::endl;
+        std::cout << "    Longitude : " << it->getNode().longitude << std::endl;
 
-        std::cout << "      x : " << it->x << std::endl;
-        std::cout << "      y : " << it->y << std::endl;
+        std::cout << "  Color : " << std::endl;
+        std::cout << "    Red   : " << it->getColor().red() << std::endl;
+        std::cout << "    Green : " << it->getColor().green() << std::endl;
+        std::cout << "    Blue  : " << it->getColor().blue() << std::endl;
+
+        std::cout << "  x     : " << it->getPoint().x() << std::endl;
+        std::cout << "  y     : " << it->getPoint().y() << std::endl;
     }
 }
 
@@ -111,6 +116,10 @@ void RoadNetwork::printRoadsNodes()
         std::cout << "Road: " << std::endl;
         std::cout << "  Name  : " << it->getName() << std::endl;
         std::cout << "  Type  : " << it->getType() << std::endl;
+        std::cout << "  Color : " << std::endl;
+        std::cout << "    Red   : " << it->getColor().red() << std::endl;
+        std::cout << "    Green : " << it->getColor().green() << std::endl;
+        std::cout << "    Blue  : " << it->getColor().blue() << std::endl;
         std::cout << "  Nodes : " << nodes.size() << std::endl;
 
         for ( std::vector<Node>::iterator jt = nodes.begin();
@@ -138,6 +147,10 @@ void RoadNetwork::printRoadsNodeIDs()
         std::cout << "Road: " << std::endl;
         std::cout << "  Name    : " << it->getName() << std::endl;
         std::cout << "  Type    : " << it->getType() << std::endl;
+        std::cout << "  Color : " << std::endl;
+        std::cout << "    Red   : " << it->getColor().red() << std::endl;
+        std::cout << "    Green : " << it->getColor().green() << std::endl;
+        std::cout << "    Blue  : " << it->getColor().blue() << std::endl;
         std::cout << "  NodeIDs : " << nodeIDs.size() << std::endl;
 
         for ( std::vector<unsigned long>::iterator jt = nodeIDs.begin();
@@ -162,6 +175,10 @@ void RoadNetwork::printRoadsLines()
         std::cout << "Road: " << std::endl;
         std::cout << "  Name  : " << it->getName() << std::endl;
         std::cout << "  Type  : " << it->getType() << std::endl;
+        std::cout << "  Color : " << std::endl;
+        std::cout << "    Red   : " << it->getColor().red() << std::endl;
+        std::cout << "    Green : " << it->getColor().green() << std::endl;
+        std::cout << "    Blue  : " << it->getColor().blue() << std::endl;
         std::cout << "  Lines : " << lines.size() << std::endl;
 
         for ( std::vector<QLineF>::iterator jt = lines.begin();

@@ -3,7 +3,9 @@
 
 #define FIRST_PARSE 0
 #define SECOND_PARSE 1
-#define MAP_SCALE 1000 // 1 pixel = 1 meter
+#define MAP_SCALE 1000 // 1000 = 1 pixel = 1 meter
+
+#define COLOR_SCHEME 11390625 // 225^3
 
 //What Road Type to Paint
 #define MOTORWAY     0
@@ -28,18 +30,10 @@ struct Node
     }
 };
 
-struct TrafficLight
-{
-    struct Node node;
-
-    double x;
-    double y;
-};
-
 struct Bounds
 {
-    double imageWidth;
-    double imageHeight;
+    double width;
+    double height;
 
     double minLatitude;
     double minLongitude;

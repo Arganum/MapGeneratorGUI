@@ -3,9 +3,8 @@
 
 #include <QImage>
 #include <QPainter>
-#include <QLineF>
-#include <qmath.h>
 #include <QFile>
+#include <string>
 
 #include <roadnetwork.h>
 
@@ -13,18 +12,16 @@ class RoadNetwork;
 class Painter
 {
 public:
-    Painter( RoadNetwork* roadNet );
+    Painter( RoadNetwork* roadNetwork );
     ~Painter();
 
     void initRoadImage();
     void initRoadPainter();
     void endRoadPainter();
 
-    void createRoadLines();
-    void createTrafficLightCoordinates();
-
+    void drawRoadNetwork();
     void drawRoads();
-    void drawBoundary();
+    void drawTrafficLights();
 
     QImage getRoadImage();
 
@@ -34,17 +31,10 @@ private:
     QImage roadImage;
     QPainter roadPainter;
 
-    QPointF A,B,C,D;    // The Four cornors  A-------a-------B
-                        // of a rectangle    |               |
-    QLineF a,b,c,d;     // The Four sides    d               b
-                        // of a rectangle    |               |
-                        //                   D-------c-------C
-    double latLon2Length( double endLatitude, double endLongitude,
-                          double beginLatitude, double beginLongitude );
-    double deg2Rad( double deg );
-    double rad2Deg( double rad );
+    // string function parameter sendt
+    // med i stedet for alle functionerne neden under
 
-    QPointF circle2CircleIntersect( double latitude, double longitude);
+    void drawRoadsType( std::string type );
 };
 
 #endif // PAINTER_H

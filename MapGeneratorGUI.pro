@@ -23,7 +23,9 @@ SOURCES += main.cpp\
     xmlparser.cpp \
     painter.cpp \
     mapgenerator.cpp \
-    roadnetwork.cpp
+    roadnetwork.cpp \
+    designer.cpp \
+    trafficlight.cpp
 
 HEADERS  += mainwindow.h \
     road.h \
@@ -31,6 +33,8 @@ HEADERS  += mainwindow.h \
     xmlparser.h \
     painter.h \
     mapgenerator.h \
-    roadnetwork.h
+    roadnetwork.h \
+    designer.h \
+    trafficlight.h
 
 FORMS    += mainwindow.ui

@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include <QLine>
+#include <QColor>
 
 #include "utility.h"
 
@@ -34,6 +35,9 @@ public:
     void addLine( QLineF line );
     void clearLines();
 
+    QColor getColor();
+    void setColor( QColor color );
+
 private:
     std::string name;
     std::string type;
@@ -42,6 +46,7 @@ private:
     std::vector<unsigned long> nodeIDs;
 
     std::vector<QLineF> lines;
+    QColor color;
 };
 
 #endif // ROAD_H
