@@ -18,6 +18,7 @@ public:
     void createBoundary();
     void createRoadLines();
     void createTrafficLightCoordinates();
+    void createTrafficLightDirections();
 
 private:
     RoadNetwork* roadNetwork;
@@ -33,6 +34,7 @@ private:
     double rad2Deg( double rad );
 
     QPointF circle2CircleIntersect( double latitude, double longitude);
+    void circle2CircleIntersect1();
 
     QColor createColorScheme( double totalNumber, double number );
 };

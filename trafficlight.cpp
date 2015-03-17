@@ -40,3 +40,23 @@ void TrafficLight::setColor( QColor color )
     TrafficLight::color = color;
 }
 
+std::vector<Lane> TrafficLight::getSwitch1()
+{
+    return TrafficLight::switch1;
+}
+
+void TrafficLight::setSwitch1( std::vector<Lane> switch1 )
+{
+    TrafficLight::switch1 = switch1;
+}
+
+std::vector<Lane> TrafficLight::getSwitch2()
+{
+    return TrafficLight::switch2;
+}
+
+void TrafficLight::setSwitch2( std::vector<Lane> switch2 )
+{
+    TrafficLight::switch2 = switch2;
+}
+

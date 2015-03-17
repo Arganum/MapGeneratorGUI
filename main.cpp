@@ -19,6 +19,7 @@ int main(int argc, char *argv[])
     mapGenerator->createBoundary();
     mapGenerator->createRoadLines();
     mapGenerator->createTrafficLightCoordinates();
+    mapGenerator->createTrafficLightDirections();
     mapGenerator->deleteDesigner();
 
     mapGenerator->initPainter();

@@ -3,7 +3,7 @@
 
 #define FIRST_PARSE 0
 #define SECOND_PARSE 1
-#define MAP_SCALE 1000 // 1000 = 1 pixel = 1 meter
+#define MAP_SCALE 2000 // 1000 = 1 pixel = 1 meter
 
 #define COLOR_SCHEME 11390625 // 225^3
 
@@ -39,6 +39,16 @@ struct Bounds
     double minLongitude;
     double maxLatitude;
     double maxLongitude;
+};
+
+struct Lane
+{
+    double x;
+    double y;
+
+    double red;
+    double green;
+    double blue;
 };
 
 #endif // UTILITY_H

@@ -19,7 +19,7 @@ void Painter::initRoadImage()
     imageWidth = boundary.width + 1;
     imageHeight = boundary.height + 1;
 
-    QImage tempRoadImage( imageWidth, imageHeight,
+    QImage tempRoadImage( int(imageWidth + 0.5), int(imageHeight + 0.5),
                           QImage::Format_RGB32 );
     tempRoadImage.fill( Qt::black );
     Painter::roadImage = tempRoadImage;
@@ -40,6 +40,7 @@ void Painter::drawRoadNetwork()
 {
     Painter::drawRoads();
     Painter::drawTrafficLights();
+    Painter::drawBoundary();
 }
 
 void Painter::drawRoads()
@@ -72,15 +73,44 @@ void Painter::drawTrafficLights()
         QPen pen;
 
         pen.setStyle( Qt::SolidLine );
-        pen.setWidth( 3 );
-        pen.setColor( it->getColor() );
         pen.setCapStyle( Qt::SquareCap );
         pen.setJoinStyle( Qt::BevelJoin );
 
+        pen.setColor( it->getColor() );
         Painter::roadPainter.setPen( pen );
 
-        Painter::roadPainter.drawPoint( floor ( it->getPoint().x() + 0.5 ), floor ( it->getPoint().y() + 0.5 ) );
+        Painter::roadPainter.drawEllipse( QPoint(int(it->getPoint().x() + 0.5), int(it->getPoint().y() + 0.5)), 1, 1 );
+        Painter::roadPainter.drawEllipse( QPoint(int(it->getPoint().x() + 0.5), int(it->getPoint().y() + 0.5)), 2, 2 );
+        Painter::roadPainter.drawEllipse( QPoint(int(it->getPoint().x() + 0.5), int(it->getPoint().y() + 0.5)), 3, 3 );
+
+        pen.setWidth( 3 );
+        Painter::roadPainter.setPen( pen );
+        Painter::roadPainter.drawPoint( int(it->getPoint().x() + 0.5), int(it->getPoint().y() + 0.5) );
+
+        pen.setWidth( 1 );
+        pen.setColor( Qt::black );
+        Painter::roadPainter.setPen( pen );
+
+        Painter::roadPainter.drawPoint( int(it->getPoint().x() + 0.5), int(it->getPoint().y() + 0.5) );
     }
+}
+
+void Painter::drawBoundary()
+{
+    QPen pen;
+
+    pen.setStyle( Qt::SolidLine );
+    pen.setWidth( 1 );
+    pen.setColor( Qt::black );
+    pen.setCapStyle( Qt::SquareCap );
+    pen.setJoinStyle( Qt::BevelJoin );
+
+    Painter::roadPainter.setPen( pen );
+
+    Painter::roadPainter.drawLine( 0, 0, Painter::roadImage.width()-1, 0 );
+    Painter::roadPainter.drawLine( Painter::roadImage.width()-1, 0, Painter::roadImage.width()-1, Painter::roadImage.height()-1 );
+    Painter::roadPainter.drawLine( Painter::roadImage.width()-1, Painter::roadImage.height()-1, 0, Painter::roadImage.height()-1 );
+    Painter::roadPainter.drawLine( 0, Painter::roadImage.height()-1, 0, 0 );
 }
 
 QImage Painter::getRoadImage()
@@ -100,7 +130,7 @@ void Painter::drawRoadsType( std::string type )
             QPen pen;
 
             pen.setStyle( Qt::SolidLine );
-            pen.setWidth( 1 );
+            pen.setWidth( 3 );
             pen.setColor( it->getColor() );
             pen.setCapStyle( Qt::SquareCap );
             pen.setJoinStyle( Qt::BevelJoin );
@@ -112,7 +142,9 @@ void Painter::drawRoadsType( std::string type )
             for ( std::vector<QLineF>::iterator jt = lines.begin();
                   jt != lines.end(); ++jt )
             {
-                Painter::roadPainter.drawLine( *jt );
+                Painter::roadPainter.drawLine( int(jt->p1().x() + 0.5), int(jt->p1().y() + 0.5),
+                                               int(jt->p2().x() + 0.5), int(jt->p2().y() + 0.5) );
+                //Painter::roadPainter.drawLine( *jt );
             }
         }
     }

@@ -57,6 +57,11 @@ void MapGenerator::createTrafficLightCoordinates()
     MapGenerator::designer->createTrafficLightCoordinates();
 }
 
+void MapGenerator::createTrafficLightDirections()
+{
+    MapGenerator::designer->createTrafficLightDirections();
+}
+
 void MapGenerator::deleteDesigner()
 {
     delete MapGenerator::designer;
@@ -81,6 +86,11 @@ void MapGenerator::drawRoads()
 void MapGenerator::drawTrafficLights()
 {
     MapGenerator::painter->drawTrafficLights();
+}
+
+void MapGenerator::drawBoundary()
+{
+    MapGenerator::painter->drawBoundary();
 }
 
 void MapGenerator::saveRoadImage()
@@ -110,16 +120,43 @@ void MapGenerator::saveTrafficLightsCoordinates()
 
     std::vector<TrafficLight> trafficLights = MapGenerator::roadNetwork->getTrafficLights();
 
+    int index = 0;
     for ( std::vector<TrafficLight>::iterator it = trafficLights.begin();
           it != trafficLights.end(); ++it )
     {
-        out << "Entry { " << "\n";
+        index++;
+        out << "Entry( { " << "\n";
+        out << "index = " << index << ",\n";
         out << "x = " << floor( it->getPoint().x() + 0.5 ) << ",\n";
         out << "y = " << floor( ( MapGenerator::roadNetwork->getBoundary().height - it->getPoint().y() ) + 0.5 ) << ",\n";
-        out << "Red   = " << it->getColor().red() << ",\n";
-        out << "Green = " << it->getColor().green() << ",\n";
-        out << "Blue  = " << it->getColor().blue() << "\n";
-        out << "}" << "\n" << "\n";
+        out << "red   = " << it->getColor().red() << ",\n";
+        out << "green = " << it->getColor().green() << ",\n";
+        out << "blue  = " << it->getColor().blue() << ",\n";
+
+        std::vector<Lane> tempSwitch = it->getSwitch1();
+        out << "switch1 = { ";
+        for ( std::vector<Lane>::iterator jt = tempSwitch.begin();
+              jt != tempSwitch.end(); ++jt )
+        {
+            if ( jt+1 == tempSwitch.end() )
+                out << "{ red = " << jt->red << " , green = " << jt->green << " , blue = " << jt->blue << " }";
+            else
+                out << "{ red = " << jt->red << " , green = " << jt->green << " , blue = " << jt->blue << " }, ";
+        }
+        out << " } ,\n";
+
+        tempSwitch = it->getSwitch2();
+        out << "switch2 = { ";
+        for ( std::vector<Lane>::iterator jt = tempSwitch.begin();
+              jt != tempSwitch.end(); ++jt )
+        {
+            if ( jt+1 == tempSwitch.end() )
+                out << "{ red = " << jt->red << " , green = " << jt->green << " , blue = " << jt->blue << " }";
+            else
+                out << "{ red = " << jt->red << " , green = " << jt->green << " , blue = " << jt->blue << " }, ";
+        }
+        out << " }\n";
+        out << "} )" << "\n" << "\n";
     }
 
     trafficLightsFile->close();
@@ -129,8 +166,8 @@ void MapGenerator::saveTrafficLightsCoordinates()
 void MapGenerator::printRoadNetwork()
 {
     //MapGenerator::roadNetwork->printBoundary();
-    MapGenerator::roadNetwork->printTrafficLights();
-    MapGenerator::roadNetwork->printRoadsNodes();
+    //MapGenerator::roadNetwork->printTrafficLights();
+    //MapGenerator::roadNetwork->printRoadsNodes();
     //MapGenerator::roadNetwork->printRoadsLines();
     //MapGenerator::roadNetwork->printRoadsNodeIDs();
 }

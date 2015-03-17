@@ -32,6 +32,7 @@ public:
     void createBoundary();
     void createRoadLines();
     void createTrafficLightCoordinates();
+    void createTrafficLightDirections();
     void deleteDesigner();
 
     // Painting
@@ -39,6 +40,7 @@ public:
     void drawRoadNetwork();
     void drawRoads();
     void drawTrafficLights();
+    void drawBoundary();
     void saveRoadImage();
     void deletePainter();
 

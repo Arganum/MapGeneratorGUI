@@ -10,9 +10,10 @@ Designer::~Designer()
 
 }
 
-
 void Designer::createBoundary()
 {
+    //Designer::circle2CircleIntersect1();
+
     double width, height;
 
     Bounds boundary = Designer::roadNetwork->getBoundary();
@@ -20,11 +21,16 @@ void Designer::createBoundary()
     width  = Designer::latLon2Length( boundary.minLatitude,
                                       boundary.maxLongitude,
                                       boundary.minLatitude,
-                                      boundary.minLongitude);
+                                      boundary.minLongitude );
     height = Designer::latLon2Length( boundary.maxLatitude,
                                       boundary.minLongitude,
                                       boundary.minLatitude,
-                                      boundary.minLongitude);
+                                      boundary.minLongitude );
+
+    //std::cout << width  << " , " << floor ( width  + 0.5 ) << std::endl;
+    //std::cout << height << " , " << floor ( height + 0.5 ) << std::endl;
+    //width  = floor ( width  + 0.5 );
+    //height = floor ( height + 0.5 );
 
     boundary.width  = width;
     boundary.height = height;
@@ -100,6 +106,109 @@ void Designer::createTrafficLightCoordinates()
             }
     }
     Designer::roadNetwork->setTrafficLights( newTrafficLights );
+}
+
+void Designer::createTrafficLightDirections()
+{
+    std::vector<Road> roads =  Designer::roadNetwork->getRoads();
+    std::vector<TrafficLight> trafficLights = Designer::roadNetwork->getTrafficLights();
+    for ( std::vector<TrafficLight>::iterator it = trafficLights.begin();
+          it != trafficLights.end(); ++it )
+    {
+        std::vector<Lane> lanes;
+
+        for ( std::vector<Road>::iterator jt = roads.begin();
+              jt != roads.end(); ++jt )
+        {
+            std::vector<QLineF> lines = jt->getLines();
+            for ( std::vector<QLineF>::iterator kt = lines.begin();
+                  kt != lines.end(); ++kt )
+            {
+                if ( ( floor( kt->p1().x() + 0.5 ) == floor( it->getPoint().x() + 0.5 ) &&
+                       floor( kt->p1().y() + 0.5 ) == floor( it->getPoint().y() + 0.5 ) ) ||
+                     ( floor( kt->p2().x() + 0.5 ) == floor( it->getPoint().x() + 0.5 ) &&
+                       floor( kt->p2().y() + 0.5 ) == floor( it->getPoint().y() + 0.5 ) )
+                   )
+                {
+
+                    if ( ( kt->p1().x() - it->getPoint().x() ) == 0  && ( kt->p1().y() - it->getPoint().y() ) == 0 )
+                    {
+                        Lane lane;
+                        lane.x = kt->p2().x() - it->getPoint().x();
+                        lane.y = kt->p2().y() - it->getPoint().y();
+
+                        lane.red = jt->getColor().red();
+                        lane.green = jt->getColor().green();
+                        lane.blue = jt->getColor().blue();
+
+                        lanes.push_back( lane );
+                    } else if ( ( kt->p2().x() - it->getPoint().x() ) == 0  && ( kt->p2().y() - it->getPoint().y() ) == 0 ) {
+                        Lane lane;
+                        lane.x = kt->p1().x() - it->getPoint().x();
+                        lane.y = kt->p1().y() - it->getPoint().y();
+
+                        lane.red = jt->getColor().red();
+                        lane.green = jt->getColor().green();
+                        lane.blue = jt->getColor().blue();
+
+                        lanes.push_back( lane );
+                    }
+
+                    std::cout << std::endl;
+                }
+            }
+        }
+
+        double highest = 0;
+        std::vector<Lane> switch1;
+        std::vector<Lane> switch2;
+        for ( std::vector<Lane>::iterator lt = lanes.begin();
+              lt != lanes.end(); ++lt )
+        {
+            double temp;
+            std::vector<Lane> tempSwitch1;
+            Lane lane;
+            tempSwitch1.push_back( lane );
+            tempSwitch1.push_back( lane );
+
+            if ( lt+1 == lanes.end() )
+            {
+                //std::cout << QPointF::dotProduct( *lt, *points.begin() ) << std::endl << std::endl;
+                tempSwitch1[0] = *lt;
+                tempSwitch1[1] = *lanes.begin();
+
+                temp = QPointF::dotProduct( QPointF( lt->x, lt->y ), QPointF( lanes.begin()->x, lanes.begin()->y ) );
+            }
+            else
+            {
+                //std::cout << QPointF::dotProduct( *lt, *(lt+1) ) << std::endl;
+                tempSwitch1[0] = *lt;
+                tempSwitch1[1] = *(lt+1);
+
+                temp = QPointF::dotProduct( QPointF( lt->x, lt->y ), QPointF( (lt+1)->x, (lt+1)->y ) );
+            }
+
+            if ( highest > temp )
+            {
+                highest = temp;
+                switch1 = tempSwitch1;
+            }
+        }
+
+        for ( std::vector<Lane>::iterator lt = lanes.begin();
+              lt != lanes.end(); ++lt )
+        {
+            if ( switch1[0].x != lt->x && switch1[0].y != lt->y &&
+                 switch1[1].x != lt->x && switch1[1].y != lt->y )
+            {
+                switch2.push_back( *lt );
+            }
+        }
+
+        it->setSwitch1( switch1 );
+        it->setSwitch2( switch2 );
+    }
+    Designer::roadNetwork->setTrafficLights( trafficLights );
 }
 
 double Designer::latLon2Length( double endLatitude, double endLongitude,
@@ -201,6 +310,32 @@ QPointF Designer::circle2CircleIntersect( double latitude, double longitude )
     //*/
 
     return result;
+}
+
+void Designer::circle2CircleIntersect1()
+{
+    double x1 = 0;
+    double y1 = 0;
+    double r1 = 4;
+    double x2 = 8;
+    double y2 = 0;
+    double r2 = 5;
+
+    double dx = x2 - x1;
+    double dy = y2 - y1;
+
+    double cdist = sqrt( dx*dx + dy*dy );
+    double adist = ( cdist*cdist + r1*r1 - r2*r2 ) / ( 2*cdist );
+
+    double x = x1 + dx*adist/cdist + ( dy/cdist )*sqrt( r1*r1 - adist*adist );
+    double y = y1 + dy*adist/cdist - ( dx/cdist )*sqrt( r1*r1 - adist*adist );
+    double dist = sqrt( (0 - x)*(0 - x) + (4 - y)*(4 - y) );
+    std::cout << x << " , " << y << " , " << dist << std::endl;
+
+    x = x1 + dx*adist/cdist - ( dy/cdist )*sqrt( r1*r1 - adist*adist );
+    y = y1 + dy*adist/cdist + ( dx/cdist )*sqrt( r1*r1 - adist*adist );
+    dist = sqrt( (0 - x)*(0 - x) + (4 - y)*(4 - y) );
+    std::cout << x << " , " << y << " , " << dist << std::endl;
 }
 
 QColor Designer::createColorScheme( double totalNumber, double number )
