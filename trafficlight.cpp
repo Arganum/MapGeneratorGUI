@@ -40,6 +40,31 @@ void TrafficLight::setColor( QColor color )
     TrafficLight::color = color;
 }
 
+double TrafficLight::getSpeedLimit()
+{
+    return TrafficLight::speedLimit;
+}
+
+void TrafficLight::setSpeedLimit( double speedLimit )
+{
+    TrafficLight::speedLimit = speedLimit;
+}
+
+std::vector<Lane> TrafficLight::getLanes()
+{
+    return TrafficLight::lanes;
+}
+
+void TrafficLight::setLanes( std::vector<Lane> lanes )
+{
+    TrafficLight::lanes = lanes;
+}
+
+void TrafficLight::addLane( Lane lane )
+{
+    TrafficLight::lanes.push_back( lane );
+}
+
 std::vector<Lane> TrafficLight::getSwitch1()
 {
     return TrafficLight::switch1;

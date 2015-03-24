@@ -20,6 +20,9 @@ public:
     std::string getType();
     void setType( std::string type );
 
+    double getSpeedLimit();
+    void setSpeedLimit( double speedLimit );
+
     std::vector<Node> getNodes();
     void setNodes( std::vector<Node> nodes );
     void addNode( Node node );
@@ -41,6 +44,8 @@ public:
 private:
     std::string name;
     std::string type;
+
+    double speedLimit;
 
     std::vector<Node> nodes;
     std::vector<unsigned long> nodeIDs;

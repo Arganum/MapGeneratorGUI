@@ -1,19 +1,16 @@
-#ifndef TRAFFICLIGHT_H
-#define TRAFFICLIGHT_H
+#ifndef INTERSECTION_H
+#define INTERSECTION_H
 
-#include <QPoint>
+#include <QPointF>
 #include <QColor>
 
 #include "utility.h"
 
-class TrafficLight
+class Intersection
 {
 public:
-    TrafficLight();
-    ~TrafficLight();
-
-    Node getNode();
-    void setNode( Node node );
+    Intersection();
+    ~Intersection();
 
     QPointF getPoint();
     void setPoint( QPointF point );
@@ -28,22 +25,13 @@ public:
     void setLanes( std::vector<Lane> lanes );
     void addLane( Lane lane );
 
-    std::vector<Lane> getSwitch1();
-    void setSwitch1( std::vector<Lane> switch1 );
-
-    std::vector<Lane> getSwitch2();
-    void setSwitch2( std::vector<Lane> switch2 );
-
 private:
-    Node node;
     QPointF point;
     QColor color;
 
     double speedLimit;
 
     std::vector<Lane> lanes;
-    std::vector<Lane> switch1;
-    std::vector<Lane> switch2;
 };
 
-#endif // TRAFFICLIGHT_H
+#endif // INTERSECTION_H

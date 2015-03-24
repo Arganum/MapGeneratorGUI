@@ -58,36 +58,39 @@ void Designer::createRoadLines()
     QPointF beginPoint, endPoint;
 
     std::vector<Road> roads = Designer::roadNetwork->getRoads();
-    double totalNumber = roads.size() + 1;
-    int index = 0;
 
     for ( std::vector<Road>::iterator it = roads.begin();
           it != roads.end(); ++it )
     {
-        ++index;
-        QColor color;
-        color = Designer::createColorScheme( totalNumber, index );
-        it->setColor ( color );
-
         std::vector<Node> nodes = it->getNodes();
+
         for ( std::vector<Node>::iterator jt = nodes.begin();
               jt < (nodes.end() - 1); ++jt )
         {
             beginPoint = Designer::circle2CircleIntersect( jt->latitude, jt->longitude );
             endPoint   = Designer::circle2CircleIntersect( (jt+1)->latitude, (jt+1)->longitude );
-            tempLine.setPoints( beginPoint, endPoint );
-            it->addLine( tempLine );
+            if ( ( beginPoint.x() > Designer::A.x() &&
+                   beginPoint.y() > Designer::A.y() &&
+                   beginPoint.x() < Designer::C.x() &&
+                   beginPoint.y() < Designer::C.y() ) ||
+                 ( endPoint.x() > Designer::A.x() &&
+                   endPoint.y() > Designer::A.y() &&
+                   endPoint.x() < Designer::C.x() &&
+                   endPoint.y() < Designer::C.y() ) )
+            {
+                tempLine.setPoints( beginPoint, endPoint );
+                it->addLine( tempLine );
+            }
         }
     }
+
+    roads = Designer::mergeRoads( roads );
 
     Designer::roadNetwork->setRoads( roads );
 }
 
 void Designer::createTrafficLightCoordinates()
 {
-    QColor color;
-    color = Designer::createColorScheme( Designer::roadNetwork->getRoads().size() + 1, Designer::roadNetwork->getRoads().size() + 1 );
-
     std::vector<TrafficLight> trafficLights = Designer::roadNetwork->getTrafficLights();
     std::vector<TrafficLight> newTrafficLights;
     QPointF trafficLightPoint;
@@ -101,7 +104,7 @@ void Designer::createTrafficLightCoordinates()
             {
                 newTrafficLight.setNode( it->getNode() );
                 newTrafficLight.setPoint( trafficLightPoint );
-                newTrafficLight.setColor( color );
+                newTrafficLight.setSpeedLimit( TRAFFICLIGHT_SPEED );
                 newTrafficLights.push_back( newTrafficLight );
             }
     }
@@ -131,21 +134,29 @@ void Designer::createTrafficLightDirections()
                    )
                 {
 
-                    if ( ( kt->p1().x() - it->getPoint().x() ) == 0  && ( kt->p1().y() - it->getPoint().y() ) == 0 )
+                    if ( ( floor( kt->p1().x() + 0.5 ) - floor( it->getPoint().x() + 0.5 ) ) == 0  &&
+                         ( floor( kt->p1().y() + 0.5 ) - floor( it->getPoint().y() + 0.5 ) ) == 0 )
                     {
                         Lane lane;
                         lane.x = kt->p2().x() - it->getPoint().x();
                         lane.y = kt->p2().y() - it->getPoint().y();
+
+                        lane.speedLimit = jt->getSpeedLimit();
 
                         lane.red = jt->getColor().red();
                         lane.green = jt->getColor().green();
                         lane.blue = jt->getColor().blue();
 
                         lanes.push_back( lane );
-                    } else if ( ( kt->p2().x() - it->getPoint().x() ) == 0  && ( kt->p2().y() - it->getPoint().y() ) == 0 ) {
+                    }
+                    else if ( ( floor( kt->p2().x() + 0.5 ) - floor( it->getPoint().x() + 0.5 ) ) == 0  &&
+                                ( floor( kt->p2().y() + 0.5 ) - floor( it->getPoint().y() + 0.5 ) ) == 0 )
+                    {
                         Lane lane;
                         lane.x = kt->p1().x() - it->getPoint().x();
                         lane.y = kt->p1().y() - it->getPoint().y();
+
+                        lane.speedLimit = jt->getSpeedLimit();
 
                         lane.red = jt->getColor().red();
                         lane.green = jt->getColor().green();
@@ -159,6 +170,8 @@ void Designer::createTrafficLightDirections()
             }
         }
 
+        it->setLanes( lanes );
+
         double highest = 0;
         std::vector<Lane> switch1;
         std::vector<Lane> switch2;
@@ -171,35 +184,33 @@ void Designer::createTrafficLightDirections()
             tempSwitch1.push_back( lane );
             tempSwitch1.push_back( lane );
 
-            if ( lt+1 == lanes.end() )
+            for ( std::vector<Lane>::iterator mt = lanes.begin();
+                  mt != lanes.end(); ++mt )
             {
-                //std::cout << QPointF::dotProduct( *lt, *points.begin() ) << std::endl << std::endl;
+                if ( lt - lanes.begin() == mt - lanes.begin() )
+                    continue;
+
                 tempSwitch1[0] = *lt;
-                tempSwitch1[1] = *lanes.begin();
+                tempSwitch1[1] = *mt;
 
-                temp = QPointF::dotProduct( QPointF( lt->x, lt->y ), QPointF( lanes.begin()->x, lanes.begin()->y ) );
-            }
-            else
-            {
-                //std::cout << QPointF::dotProduct( *lt, *(lt+1) ) << std::endl;
-                tempSwitch1[0] = *lt;
-                tempSwitch1[1] = *(lt+1);
+                temp = QPointF::dotProduct( QPointF( lt->x, lt->y ), QPointF( mt->x, mt->y ) );
 
-                temp = QPointF::dotProduct( QPointF( lt->x, lt->y ), QPointF( (lt+1)->x, (lt+1)->y ) );
-            }
 
-            if ( highest > temp )
-            {
-                highest = temp;
-                switch1 = tempSwitch1;
+                if ( highest > temp )
+                {
+                    //std::cout <<  lt->x << " , " << lt->y << " : " << mt->x << " , " << mt->y << std::endl;
+                    //std::cout << QPointF::dotProduct( QPointF( lt->x, lt->y ), QPointF( mt->x, mt->y ) ) << std::endl << std::endl;
+                    highest = temp;
+                    switch1 = tempSwitch1;
+                }
             }
         }
 
         for ( std::vector<Lane>::iterator lt = lanes.begin();
               lt != lanes.end(); ++lt )
         {
-            if ( switch1[0].x != lt->x && switch1[0].y != lt->y &&
-                 switch1[1].x != lt->x && switch1[1].y != lt->y )
+            if ( floor( switch1[0].x + 0.5 ) != floor( lt->x + 0.5 ) && floor( switch1[0].y + 0.5 ) != floor( lt->y + 0.5 ) &&
+                 floor( switch1[1].x + 0.5 ) != floor( lt->x + 0.5 ) && floor( switch1[1].y + 0.5 ) != floor( lt->y + 0.5 ) )
             {
                 switch2.push_back( *lt );
             }
@@ -209,6 +220,146 @@ void Designer::createTrafficLightDirections()
         it->setSwitch2( switch2 );
     }
     Designer::roadNetwork->setTrafficLights( trafficLights );
+}
+
+void Designer::createIntersectionCoordinates()
+{
+    std::vector<QPointF> intersectPoints;
+    std::vector<Road> roads =  Designer::roadNetwork->getRoads();
+    for ( std::vector<Road>::iterator it = roads.begin();
+          it != roads.end(); ++it )
+    {
+        std::vector<QLineF> origLines = it->getLines();
+
+        for ( std::vector<Road>::iterator jt = roads.begin();
+              jt != roads.end(); ++jt )
+        {
+            std::vector<QLineF> testLines = jt->getLines();
+
+            for ( std::vector<QLineF>::iterator kt = origLines.begin();
+                  kt != origLines.end(); ++kt )
+            {
+                QPointF tempPoint;
+
+                for ( std::vector<QLineF>::iterator lt = testLines.begin();
+                      lt != testLines.end(); ++lt )
+                {
+                    if ( floor( kt->p1().x() + 0.5 ) == floor( lt->p1().x() + 0.5 ) &&
+                         floor( kt->p1().y() + 0.5 ) == floor( lt->p1().y() + 0.5 ) )
+                    {
+                        tempPoint = kt->p1();
+                        intersectPoints.push_back( tempPoint );
+                    }
+                    else if ( floor( kt->p2().x() + 0.5 ) == floor( lt->p2().x() + 0.5 ) &&
+                              floor( kt->p2().y() + 0.5 ) == floor( lt->p2().y() + 0.5 ) )
+                    {
+                        tempPoint = kt->p2();
+                        intersectPoints.push_back( tempPoint );
+                    }
+                }
+            }
+        }
+    }
+
+    intersectPoints = Designer::sortIntersectionCoordinates( intersectPoints );
+
+    Intersection tempIntersection;
+    for ( std::vector<QPointF>::iterator mt = intersectPoints.begin();
+          mt != intersectPoints.end(); ++mt )
+    {
+        tempIntersection.setPoint( *mt );
+        tempIntersection.setSpeedLimit( INTERSECTION_SPEED );
+        //std::cout << mt->x() << " , " << mt->y() << std::endl;
+        Designer::roadNetwork->addIntersection( tempIntersection );
+    }
+}
+
+void Designer::createIntersectionLanes()
+{
+    std::vector<Intersection> intersections = Designer::roadNetwork->getIntersections();
+    std::vector<Road> roads = Designer::roadNetwork->getRoads();
+
+    for ( std::vector<Intersection>::iterator it = intersections.begin();
+          it != intersections.end(); ++it )
+    {
+        for ( std::vector<Road>::iterator jt = roads.begin();
+              jt != roads.end(); ++jt )
+        {
+            std::vector<QLineF> lines = jt->getLines();
+            Lane tempLane;
+
+            for ( std::vector<QLineF>::iterator kt = lines.begin();
+                  kt != lines.end(); ++kt )
+            {
+                if ( floor( kt->p1().x() + 0.5 ) == floor( it->getPoint().x() + 0.5 ) &&
+                     floor( kt->p1().y() + 0.5 ) == floor( it->getPoint().y() + 0.5 ) )
+                {
+                    tempLane.speedLimit = jt->getSpeedLimit();
+
+                    tempLane.red = jt->getColor().red();
+                    tempLane.green = jt->getColor().green();
+                    tempLane.blue = jt->getColor().blue();
+                    //std::cout << tempLane.red << " , " << tempLane.green << " , " << tempLane.blue << std::endl;
+                    it->addLane( tempLane );
+                }
+                else if ( floor( kt->p2().x() + 0.5 ) == floor( it->getPoint().x() + 0.5 ) &&
+                          floor( kt->p2().y() + 0.5 ) == floor( it->getPoint().y() + 0.5 ) )
+                {
+                    tempLane.speedLimit = jt->getSpeedLimit();
+
+                    tempLane.red = jt->getColor().red();
+                    tempLane.green = jt->getColor().green();
+                    tempLane.blue = jt->getColor().blue();
+                    //std::cout << tempLane.red << " , " << tempLane.green << " , " << tempLane.blue << std::endl;
+                    it->addLane( tempLane );
+                }
+            }
+        }
+    }
+
+    Designer::roadNetwork->setIntersections( intersections );
+}
+
+void Designer::createColorScheme()
+{
+    std::vector<Road> roads = Designer::roadNetwork->getRoads();
+    std::vector<TrafficLight> trafficLights = Designer::roadNetwork->getTrafficLights();
+    std::vector<Intersection> intersections = Designer::roadNetwork->getIntersections();
+
+    double totalNumber = roads.size() + trafficLights.size() + intersections.size();
+    //std::cout << totalNumber << std::endl;
+    int indexNumber = 0;
+
+    for ( std::vector<Road>::iterator it = roads.begin();
+              it != roads.end(); ++it )
+    {
+        ++indexNumber;
+        QColor color;
+        color = Designer::createColorScheme( totalNumber, indexNumber );
+        it->setColor ( color );
+    }
+
+    for ( std::vector<TrafficLight>::iterator it = trafficLights.begin();
+              it != trafficLights.end(); ++it )
+    {
+        ++indexNumber;
+        QColor color;
+        color = Designer::createColorScheme( totalNumber, indexNumber );
+        it->setColor ( color );
+    }
+
+    for ( std::vector<Intersection>::iterator it = intersections.begin();
+              it != intersections.end(); ++it )
+    {
+        ++indexNumber;
+        QColor color;
+        color = Designer::createColorScheme( totalNumber, indexNumber );
+        it->setColor ( color );
+    }
+
+    Designer::roadNetwork->setRoads( roads );
+    Designer::roadNetwork->setTrafficLights( trafficLights );
+    Designer::roadNetwork->setIntersections( intersections );
 }
 
 double Designer::latLon2Length( double endLatitude, double endLongitude,
@@ -344,9 +495,9 @@ QColor Designer::createColorScheme( double totalNumber, double number )
 
     double thress = value / COLOR_SCHEME;
 
-    uchar r = 0;
-    uchar g = 0;
-    uchar b = 0;
+    uchar r = 30;
+    uchar g = 30;
+    uchar b = 30;
     int sat = 255;
 
     if ( thress <= 0.2 )
@@ -391,4 +542,105 @@ QColor Designer::createColorScheme( double totalNumber, double number )
 
         return QColor( r, g, b );
     } else return QColor( 255, 255, 255 );
+}
+
+// Some roads in the osm file are divided into two ways. so in this code they would get a different color.
+// Even though it is the same road. This will create a problem with the graph creation.
+// Since a road might change color without an intersection or trafficlight.
+// And this in turn does so that the Route behavior of the Car agents breaks down.
+// Lines række følgen vil ikke længere være seqventiel efter denne operation.
+std::vector<Road> Designer::mergeRoads( std::vector<Road> roads )
+{
+    std::vector<Road> newRoads;
+    std::unordered_set<std::string> uniqueness;
+
+    //Evt return type se sortIntersectionCoordinates
+    for ( std::vector<Road>::iterator it = roads.begin();
+          it != roads.end(); ++it )
+    {
+        std::vector<QLineF> origlines = it->getLines();
+
+        for ( std::vector<Road>::iterator jt = roads.begin();
+              jt != roads.end(); ++jt )
+        {
+            std::vector<QLineF> lines = jt->getLines();
+
+            if ( it - roads.begin() == jt - roads.begin() )
+                continue;
+
+            if ( it->getName() == jt->getName() && it->getType() == jt->getType() )
+            {
+                origlines.insert( origlines.end(), lines.begin(), lines.end() );
+            }
+        }
+
+        if ( uniqueness.count( it->getName() + it->getType() ) == 0 )
+        {
+            uniqueness.insert( it->getName() + it->getType() );
+            it->setLines( origlines );
+            newRoads.push_back( *it );
+        }
+    }
+
+    return newRoads;
+}
+
+std::vector<QPointF> Designer::sortIntersectionCoordinates( std::vector<QPointF> coordinates )
+{
+    std::vector<QPointF> intersectionPoints;
+    QPointF tempPoint;
+
+    for ( std::vector<QPointF>::iterator it = coordinates.begin();
+          it != coordinates.end(); ++it )
+    {
+        int count = 0;
+        tempPoint = *it;
+        for ( std::vector<QPointF>::iterator jt = coordinates.begin();
+              jt != coordinates.end(); ++jt )
+        {
+            if ( floor( it->x() + 0.5 ) == floor( jt->x() + 0.5 ) &&
+                 floor( it->y() + 0.5 ) == floor( jt->y() + 0.5 ) )
+            {
+                count++;
+            }
+        }
+
+        if ( tempPoint.x() > Designer::A.x() && tempPoint.y() > Designer::A.y() &&
+             tempPoint.x() < Designer::C.x() && tempPoint.y() < Designer::C.y() && count > 2 )
+        {
+            bool isDuplicate = false;
+
+            for ( std::vector<QPointF>::iterator kt = intersectionPoints.begin();
+                  kt != intersectionPoints.end(); ++kt )
+            {
+                if ( floor( tempPoint.x() + 0.5 ) == floor( kt->x() + 0.5 ) &&
+                     floor( tempPoint.y() + 0.5 ) == floor( kt->y() + 0.5 ) )
+                {
+                    isDuplicate = true;
+                    break;
+                }
+            }
+
+            //Test if the Intersect is a trafficLight.
+            std::vector<TrafficLight> trafficLights = Designer::roadNetwork->getTrafficLights();
+            for ( std::vector<TrafficLight>::iterator lt = trafficLights.begin();
+                  lt != trafficLights.end(); ++lt )
+            {
+                if ( floor( tempPoint.x() + 0.5 ) == floor( lt->getPoint().x() + 0.5 ) &&
+                     floor( tempPoint.y() + 0.5 ) == floor( lt->getPoint().y() + 0.5 ) )
+                {
+                    isDuplicate = true;
+                    break;
+                }
+            }
+
+            if ( isDuplicate == false )
+            {
+                intersectionPoints.push_back( tempPoint );
+                //std::cout << tempPoint.x() << " , " << tempPoint.y() << " , " << count << std::endl;
+            }
+        }
+    }
+
+    return intersectionPoints;
 }

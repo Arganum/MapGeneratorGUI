@@ -67,22 +67,31 @@ void XmlParser::firstParse()
                 //if ( hasRoadType && hasRoadName )
                 //    XmlParser::roads.push_back( tempRoad );
 
-                if ( tempRoad.getType() == "motorway" && MOTORWAY )
+                if ( tempRoad.getType() == "motorway" && MOTORWAY ) {
+                    tempRoad.setSpeedLimit( MOTORWAY_SPEED );
                     XmlParser::roads.push_back( tempRoad );
-                else if ( tempRoad.getType() == "trunk" && TRUNK )
+                } else if ( tempRoad.getType() == "trunk" && TRUNK ) {
+                    tempRoad.setSpeedLimit( TRUNK_SPEED );
                     XmlParser::roads.push_back( tempRoad );
-                else if ( tempRoad.getType() == "primary" && PRIMARY )
+                } else if ( tempRoad.getType() == "primary" && PRIMARY ) {
+                    tempRoad.setSpeedLimit( PRIMARY_SPEED );
                     XmlParser::roads.push_back( tempRoad );
-                else if ( tempRoad.getType() == "secondary" && SECONDARY )
+                } else if ( tempRoad.getType() == "secondary" && SECONDARY ) {
+                    tempRoad.setSpeedLimit( SECONDARY_SPEED );
                     XmlParser::roads.push_back( tempRoad );
-                else if ( tempRoad.getType() == "tertiary" && TERTIARY )
+                } else if ( tempRoad.getType() == "tertiary" && TERTIARY ) {
+                    tempRoad.setSpeedLimit( TERTIARY_SPEED );
                     XmlParser::roads.push_back( tempRoad );
-                else if ( tempRoad.getType() == "unclassified" && UNCLASSIFIED )
+                } else if ( tempRoad.getType() == "unclassified" && UNCLASSIFIED ) {
+                    tempRoad.setSpeedLimit( UNCLASSIFIED_SPEED );
                     XmlParser::roads.push_back( tempRoad );
-                else if ( tempRoad.getType() == "residential" && RESIDENTIAL )
+                } else if ( tempRoad.getType() == "residential" && RESIDENTIAL ) {
+                    tempRoad.setSpeedLimit( RESIDENTIAL_SPEED );
                     XmlParser::roads.push_back( tempRoad );
-                else if ( tempRoad.getType() == "service" && SERVICE )
+                } else if ( tempRoad.getType() == "service" && SERVICE ) {
+                    tempRoad.setSpeedLimit( SERVICE_SPEED );
                     XmlParser::roads.push_back( tempRoad );
+                }
             }
             else
                 XmlParser::xmlReader->skipCurrentElement();

@@ -40,6 +40,7 @@ void Painter::drawRoadNetwork()
 {
     Painter::drawRoads();
     Painter::drawTrafficLights();
+    Painter::drawIntersections();
     Painter::drawBoundary();
 }
 
@@ -69,6 +70,38 @@ void Painter::drawTrafficLights()
 
     for ( std::vector<TrafficLight>::iterator it = trafficLights.begin();
           it != trafficLights.end(); ++it )
+    {
+        QPen pen;
+
+        pen.setStyle( Qt::SolidLine );
+        pen.setCapStyle( Qt::SquareCap );
+        pen.setJoinStyle( Qt::BevelJoin );
+
+        pen.setColor( it->getColor() );
+        Painter::roadPainter.setPen( pen );
+
+        Painter::roadPainter.drawEllipse( QPoint(int(it->getPoint().x() + 0.5), int(it->getPoint().y() + 0.5)), 1, 1 );
+        Painter::roadPainter.drawEllipse( QPoint(int(it->getPoint().x() + 0.5), int(it->getPoint().y() + 0.5)), 2, 2 );
+        Painter::roadPainter.drawEllipse( QPoint(int(it->getPoint().x() + 0.5), int(it->getPoint().y() + 0.5)), 3, 3 );
+
+        pen.setWidth( 3 );
+        Painter::roadPainter.setPen( pen );
+        Painter::roadPainter.drawPoint( int(it->getPoint().x() + 0.5), int(it->getPoint().y() + 0.5) );
+
+        pen.setWidth( 1 );
+        pen.setColor( Qt::black );
+        Painter::roadPainter.setPen( pen );
+
+        Painter::roadPainter.drawPoint( int(it->getPoint().x() + 0.5), int(it->getPoint().y() + 0.5) );
+    }
+}
+
+void Painter::drawIntersections()
+{
+    std::vector<Intersection> intersections = Painter::roadNetwork->getIntersections();
+
+    for ( std::vector<Intersection>::iterator it = intersections.begin();
+          it != intersections.end(); ++it )
     {
         QPen pen;
 

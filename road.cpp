@@ -30,6 +30,16 @@ void Road::setType( std::string type )
     Road::type = type;
 }
 
+double Road::getSpeedLimit()
+{
+    return Road::speedLimit;
+}
+
+void Road::setSpeedLimit( double speedLimit )
+{
+    Road::speedLimit = speedLimit;
+}
+
 std::vector<Node> Road::getNodes()
 {
     return Road::nodes;

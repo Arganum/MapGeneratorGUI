@@ -3,9 +3,10 @@
 
 #include <iostream>
 
+#include "utility.h"
 #include "road.h"
 #include "trafficlight.h"
-#include "utility.h"
+#include "intersection.h"
 
 class RoadNetwork
 {
@@ -22,8 +23,13 @@ public:
     std::vector<TrafficLight> getTrafficLights();
     void setTrafficLights( std::vector<TrafficLight> trafficLights );
 
+    std::vector<Intersection> getIntersections();
+    void setIntersections( std::vector<Intersection> intersections );
+    void addIntersection( Intersection intersection );
+
     void clearRoads();
     void clearTrafficLights();
+    void clearIntersections();
 
     void clearRoadsNodes();
     void clearRoadsNodeIDs();
@@ -38,6 +44,7 @@ private:
     Bounds boundary;
     std::vector<Road> roads;
     std::vector<TrafficLight> trafficLights;
+    std::vector<Intersection> intersections;
 };
 
 #endif // ROADNETWORK_H

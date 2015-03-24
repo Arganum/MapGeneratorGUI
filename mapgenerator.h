@@ -6,12 +6,12 @@
 #include <iostream>
 #include <QDebug>
 
+#include "utility.h"
 #include "roadnetwork.h"
 #include "xmlparser.h"
 #include "designer.h"
 #include "painter.h"
-#include "road.h"
-#include "utility.h"
+#include "Cartographer/cartographer.h"
 
 class RoadNetwork;
 class XmlParser;
@@ -33,6 +33,9 @@ public:
     void createRoadLines();
     void createTrafficLightCoordinates();
     void createTrafficLightDirections();
+    void createIntersectionCoordinates();
+    void createIntersectionLanes();
+    void createColorScheme();
     void deleteDesigner();
 
     // Painting
@@ -44,6 +47,13 @@ public:
     void saveRoadImage();
     void deletePainter();
 
+    // Cartography
+    void createVertices();
+    void createEdges();
+    void createLuaFile();
+    void printGraph();
+    void deleteCartographer();
+
     // RoadNetwork
     void saveTrafficLightsCoordinates();
     void printRoadNetwork();
@@ -54,6 +64,8 @@ private:
     XmlParser* xmlParser;
     Designer* designer;
     Painter* painter;
+
+    Cartographer* cartographer;
 
     QFile* osmFile;
 

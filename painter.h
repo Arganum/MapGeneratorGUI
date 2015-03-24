@@ -22,6 +22,7 @@ public:
     void drawRoadNetwork();
     void drawRoads();
     void drawTrafficLights();
+    void drawIntersections();
     void drawBoundary();
 
     QImage getRoadImage();

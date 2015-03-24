@@ -7,6 +7,8 @@ MapGenerator::MapGenerator()
     MapGenerator::xmlParser = new XmlParser( MapGenerator::roadNetwork );
     MapGenerator::designer = new Designer( MapGenerator::roadNetwork );
     MapGenerator::painter = new Painter( MapGenerator::roadNetwork );
+
+    MapGenerator::cartographer = new Cartographer( MapGenerator::roadNetwork );
 }
 
 MapGenerator::~MapGenerator()
@@ -62,6 +64,21 @@ void MapGenerator::createTrafficLightDirections()
     MapGenerator::designer->createTrafficLightDirections();
 }
 
+void MapGenerator::createIntersectionCoordinates()
+{
+    MapGenerator::designer->createIntersectionCoordinates();
+}
+
+void MapGenerator::createIntersectionLanes()
+{
+    MapGenerator::designer->createIntersectionLanes();
+}
+
+void MapGenerator::createColorScheme()
+{
+    MapGenerator::designer->createColorScheme();
+}
+
 void MapGenerator::deleteDesigner()
 {
     delete MapGenerator::designer;
@@ -109,6 +126,31 @@ void MapGenerator::deletePainter()
 {
     MapGenerator::painter->endRoadPainter();
     delete MapGenerator::painter;
+}
+
+void MapGenerator::createVertices()
+{
+     MapGenerator::cartographer->createVertices();
+}
+
+void MapGenerator::createEdges()
+{
+    MapGenerator::cartographer->createEdges();
+}
+
+void MapGenerator::createLuaFile()
+{
+    MapGenerator::cartographer->createLuaFile();
+}
+
+void MapGenerator::printGraph()
+{
+    MapGenerator::cartographer->printGraph();
+}
+
+void MapGenerator::deleteCartographer()
+{
+    delete MapGenerator::cartographer;
 }
 
 void MapGenerator::saveTrafficLightsCoordinates()

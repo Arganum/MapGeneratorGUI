@@ -40,6 +40,21 @@ void RoadNetwork::setTrafficLights( std::vector<TrafficLight> trafficLights )
     RoadNetwork::trafficLights = trafficLights;
 }
 
+std::vector<Intersection> RoadNetwork::getIntersections()
+{
+    return RoadNetwork::intersections;
+}
+
+void RoadNetwork::setIntersections( std::vector<Intersection> intersections )
+{
+    RoadNetwork::intersections = intersections;
+}
+
+void RoadNetwork::addIntersection( Intersection intersection )
+{
+    RoadNetwork::intersections.push_back( intersection );
+}
+
 void RoadNetwork::clearRoads()
 {
     RoadNetwork::roads.clear();
@@ -48,6 +63,11 @@ void RoadNetwork::clearRoads()
 void RoadNetwork::clearTrafficLights()
 {
     RoadNetwork::trafficLights.clear();
+}
+
+void RoadNetwork::clearIntersections()
+{
+    RoadNetwork::intersections.clear();
 }
 
 void RoadNetwork::clearRoadsNodes()

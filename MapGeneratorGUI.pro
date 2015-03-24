@@ -25,7 +25,12 @@ SOURCES += main.cpp\
     mapgenerator.cpp \
     roadnetwork.cpp \
     designer.cpp \
-    trafficlight.cpp
+    trafficlight.cpp \
+    Graph/graph.cpp \
+    Graph/vertex.cpp \
+    Graph/edge.cpp \
+    intersection.cpp \
+    Cartographer/cartographer.cpp
 
 HEADERS  += mainwindow.h \
     road.h \
@@ -35,6 +40,11 @@ HEADERS  += mainwindow.h \
     mapgenerator.h \
     roadnetwork.h \
     designer.h \
-    trafficlight.h
+    trafficlight.h \
+    Graph/graph.h \
+    Graph/vertex.h \
+    Graph/edge.h \
+    intersection.h \
+    Cartographer/cartographer.h
 
 FORMS    += mainwindow.ui

@@ -8,14 +8,28 @@
 #define COLOR_SCHEME 11390625 // 225^3
 
 //What Road Type to Paint
-#define MOTORWAY     0
-#define TRUNK        0
-#define PRIMARY      0
-#define SECONDARY    1
-#define TERTIARY     0
-#define UNCLASSIFIED 0
-#define RESIDENTIAL  0
+#define MOTORWAY     1
+#define TRUNK        1
+#define PRIMARY      1
+#define SECONDARY    1 //1 for trafficLight Test
+#define TERTIARY     1
+#define UNCLASSIFIED 1
+#define RESIDENTIAL  1
 #define SERVICE      0
+
+//Speed Limit of the different Road Types in km/h
+#define MOTORWAY_SPEED     130 // 110
+#define TRUNK_SPEED         90
+#define PRIMARY_SPEED       60
+#define SECONDARY_SPEED     60
+#define TERTIARY_SPEED      50
+#define UNCLASSIFIED_SPEED  50
+#define RESIDENTIAL_SPEED   50
+#define SERVICE_SPEED       30
+
+//Speed Limit of Traffic Lights and intersections in km/h
+#define TRAFFICLIGHT_SPEED  30
+#define INTERSECTION_SPEED  20
 
 struct Node
 {
@@ -45,6 +59,8 @@ struct Lane
 {
     double x;
     double y;
+
+    double speedLimit;
 
     double red;
     double green;
