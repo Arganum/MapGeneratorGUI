@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
     mapGenerator->createVertices();
     mapGenerator->createEdges();
     mapGenerator->createLuaFile();
-    mapGenerator->printGraph();
+    //mapGenerator->printGraph();
     mapGenerator->deleteCartographer();
 
     mapGenerator->saveTrafficLightsCoordinates();

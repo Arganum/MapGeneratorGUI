@@ -41,6 +41,8 @@ private:
     void circle2CircleIntersect1();
 
     QColor createColorScheme( double totalNumber, double number );
+    std::vector<Road> splitRoads( std::vector<Road> roads );
+    double splitRoadsCount( std::vector<Road> roads );
     std::vector<Road> mergeRoads( std::vector<Road> roads );
     std::vector<QPointF> sortIntersectionCoordinates( std::vector<QPointF> coordinates );
 };
