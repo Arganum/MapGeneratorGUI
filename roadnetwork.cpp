@@ -136,6 +136,7 @@ void RoadNetwork::printRoadsNodes()
         std::cout << "Road: " << std::endl;
         std::cout << "  Name  : " << it->getName() << std::endl;
         std::cout << "  Type  : " << it->getType() << std::endl;
+        std::cout << "  isOneWay : " << it->getIsOneWay() << std::endl;
         std::cout << "  Color : " << std::endl;
         std::cout << "    Red   : " << it->getColor().red() << std::endl;
         std::cout << "    Green : " << it->getColor().green() << std::endl;
@@ -167,6 +168,7 @@ void RoadNetwork::printRoadsNodeIDs()
         std::cout << "Road: " << std::endl;
         std::cout << "  Name    : " << it->getName() << std::endl;
         std::cout << "  Type    : " << it->getType() << std::endl;
+        std::cout << "  isOneWay : " << it->getIsOneWay() << std::endl;
         std::cout << "  Color : " << std::endl;
         std::cout << "    Red   : " << it->getColor().red() << std::endl;
         std::cout << "    Green : " << it->getColor().green() << std::endl;
@@ -195,6 +197,7 @@ void RoadNetwork::printRoadsLines()
         std::cout << "Road: " << std::endl;
         std::cout << "  Name  : " << it->getName() << std::endl;
         std::cout << "  Type  : " << it->getType() << std::endl;
+        std::cout << "  isOneWay : " << it->getIsOneWay() << std::endl;
         std::cout << "  Color : " << std::endl;
         std::cout << "    Red   : " << it->getColor().red() << std::endl;
         std::cout << "    Green : " << it->getColor().green() << std::endl;

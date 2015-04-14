@@ -31,8 +31,9 @@ void Cartographer::createVertices()
               jt != lanes.end(); ++jt )
         {
             Edge edge;
-            edge.setColor( QColor( jt->red, jt->green, jt->blue ) );
-            edge.setSpeedLimit( jt->speedLimit );
+            edge.setColor( jt->getColor() );
+            edge.setSpeedLimit( jt->getSpeedLimit() );
+            edge.setIsOneWay( jt->getIsOneWay() );
             vertex.addEdge( edge );
         }
 
@@ -50,13 +51,13 @@ void Cartographer::createVertices()
         vertex.setPoint( it->getPoint() );
         vertex.setColor( it->getColor() );
         vertex.setSpeedLimit( it->getSpeedLimit() );
-        //std::cout << lanes.size() << std::endl;
         for ( std::vector<Lane>::iterator jt = lanes.begin();
               jt != lanes.end(); ++jt )
         {
             Edge edge;
-            edge.setColor( QColor( jt->red, jt->green, jt->blue ) );
-            edge.setSpeedLimit( jt->speedLimit );
+            edge.setColor( jt->getColor() );
+            edge.setSpeedLimit( jt->getSpeedLimit() );
+            edge.setIsOneWay( jt->getIsOneWay() );
             vertex.addEdge( edge );
         }
 
@@ -67,11 +68,13 @@ void Cartographer::createVertices()
 void Cartographer::createEdges()
 {
     std::vector<Vertex> vertices = Cartographer::roadMap.getVertices();
+    std::vector<Vertex> newVertices;
 
     for ( std::vector<Vertex>::iterator it = vertices.begin();
           it != vertices.end(); ++it )
     {
         std::vector<Edge> origEdges = it->getEdges();
+        std::vector<Edge> newEdges;
 
         for ( std::vector<Edge>::iterator jt = origEdges.begin();
               jt != origEdges.end(); ++jt )
@@ -125,21 +128,25 @@ void Cartographer::createEdges()
             edge.setTo( closestIndex );
             if ( Cartographer::isEdgeUnique( origEdges, edge ) == true ) {
                 edge.setFrom( it->getIndex() );
-                *jt = edge;
+                if ( edge.getIsOneWay() == "FromTo" || edge.getIsOneWay() == "From" )
+                    newEdges.push_back( edge );
             } else {
                 edge.setLength( secondClosestVertex );
                 edge.setTo( secondClosestIndex );
                 if ( Cartographer::isEdgeUnique( origEdges, edge ) == true ) {
                     edge.setFrom( it->getIndex() );
-                    *jt = edge;
+                    if ( edge.getIsOneWay() == "FromTo" || edge.getIsOneWay() == "From" )
+                        newEdges.push_back( edge );
                 }
             }
         }
 
-        it->setEdges( origEdges );
+        Vertex tempVertex = *it;
+        tempVertex.setEdges( newEdges );
+        newVertices.push_back( tempVertex );
     }
 
-    Cartographer::roadMap.setVertices( vertices );
+    Cartographer::roadMap.setVertices( newVertices );
 }
 
 double Cartographer::distVertex2Vertex( Vertex vertex1, Vertex vertex2 )

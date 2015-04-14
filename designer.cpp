@@ -115,6 +115,7 @@ void Designer::createTrafficLightDirections()
 {
     std::vector<Road> roads =  Designer::roadNetwork->getRoads();
     std::vector<TrafficLight> trafficLights = Designer::roadNetwork->getTrafficLights();
+    std::vector<TrafficLight> newTrafficLights;
     for ( std::vector<TrafficLight>::iterator it = trafficLights.begin();
           it != trafficLights.end(); ++it )
     {
@@ -138,14 +139,29 @@ void Designer::createTrafficLightDirections()
                          ( floor( kt->p1().y() + 0.5 ) - floor( it->getPoint().y() + 0.5 ) ) == 0 )
                     {
                         Lane lane;
-                        lane.x = kt->p2().x() - it->getPoint().x();
-                        lane.y = kt->p2().y() - it->getPoint().y();
 
-                        lane.speedLimit = jt->getSpeedLimit();
+                        QPointF point;
+                        point.setX( kt->p2().x() - it->getPoint().x() );
+                        point.setY( kt->p2().y() - it->getPoint().y() );
 
-                        lane.red = jt->getColor().red();
-                        lane.green = jt->getColor().green();
-                        lane.blue = jt->getColor().blue();
+                        lane.setPoint( point );
+
+                        lane.setSpeedLimit( jt->getSpeedLimit() );
+
+                        lane.setColor( jt->getColor() );
+
+                        if ( jt->getIsOneWay()=="yes" )
+                        {
+                            lane.setIsOneWay( "To" );
+                            //std::cout << "To: " << lane.getColor().red() << " , " << lane.getColor().green() << " , " << lane.getColor().blue() << std::endl;
+                            //std::cout << "To: " << floor( it->getPoint().x() + 0.5 ) << " , " << floor( it->getPoint().y() + 0.5 ) << std::endl;
+                        } else if ( jt->getIsOneWay()=="-1" ) {
+                            lane.setIsOneWay( "From" );
+                            //std::cout << "From: " << lane.getColor().red() << " , " << lane.getColor().green() << " , " << lane.getColor().blue() << std::endl;
+                            //std::cout << "From: " << floor( it->getPoint().x() + 0.5 ) << " , " << floor( it->getPoint().y() + 0.5 ) << std::endl;
+                        } else {
+                            lane.setIsOneWay( "FromTo" );
+                        }
 
                         lanes.push_back( lane );
                     }
@@ -153,14 +169,29 @@ void Designer::createTrafficLightDirections()
                                 ( floor( kt->p2().y() + 0.5 ) - floor( it->getPoint().y() + 0.5 ) ) == 0 )
                     {
                         Lane lane;
-                        lane.x = kt->p1().x() - it->getPoint().x();
-                        lane.y = kt->p1().y() - it->getPoint().y();
 
-                        lane.speedLimit = jt->getSpeedLimit();
+                        QPointF point;
+                        point.setX( kt->p1().x() - it->getPoint().x() );
+                        point.setY( kt->p1().y() - it->getPoint().y() );
 
-                        lane.red = jt->getColor().red();
-                        lane.green = jt->getColor().green();
-                        lane.blue = jt->getColor().blue();
+                        lane.setPoint( point );
+
+                        lane.setSpeedLimit( jt->getSpeedLimit() );
+
+                        lane.setColor( jt->getColor() );
+
+                        if ( jt->getIsOneWay()=="yes" )
+                        {
+                            lane.setIsOneWay( "To" );
+                            //std::cout << "To: " << lane.getColor().red() << " , " << lane.getColor().green() << " , " << lane.getColor().blue() << std::endl;
+                            //std::cout << "To: " << floor( it->getPoint().x() + 0.5 ) << " , " << floor( it->getPoint().y() + 0.5 ) << std::endl;
+                        } else if ( jt->getIsOneWay()=="-1" ) {
+                            lane.setIsOneWay( "From" );
+                            //std::cout << "From: " << lane.getColor().red() << " , " << lane.getColor().green() << " , " << lane.getColor().blue() << std::endl;
+                            //std::cout << "From: " << floor( it->getPoint().x() + 0.5 ) << " , " << floor( it->getPoint().y() + 0.5 ) << std::endl;
+                        } else {
+                            lane.setIsOneWay( "FromTo" );
+                        }
 
                         lanes.push_back( lane );
                     }
@@ -191,35 +222,35 @@ void Designer::createTrafficLightDirections()
                 tempSwitch1[0] = *lt;
                 tempSwitch1[1] = *mt;
 
-                temp = QPointF::dotProduct( QPointF( lt->x, lt->y ), QPointF( mt->x, mt->y ) );
-
-                //std::cout <<  lt->x << " , " << lt->y << " : " << mt->x << " , " << mt->y << std::endl;
-                //std::cout << temp << std::endl;
+                temp = QPointF::dotProduct( lt->getPoint(), mt->getPoint() );
 
                 if ( highest > temp )
                 {
-                    //std::cout <<  lt->x << " , " << lt->y << " : " << mt->x << " , " << mt->y << std::endl;
-                    //std::cout << QPointF::dotProduct( QPointF( lt->x, lt->y ), QPointF( mt->x, mt->y ) ) << std::endl << std::endl;
                     highest = temp;
                     switch1 = tempSwitch1;
                 }
             }
         }
 
-        for ( std::vector<Lane>::iterator lt = lanes.begin();
-              lt != lanes.end(); ++lt )
+        if ( switch1.size()>=2 )
         {
-            if ( floor( switch1[0].x + 0.5 ) != floor( lt->x + 0.5 ) && floor( switch1[0].y + 0.5 ) != floor( lt->y + 0.5 ) &&
-                 floor( switch1[1].x + 0.5 ) != floor( lt->x + 0.5 ) && floor( switch1[1].y + 0.5 ) != floor( lt->y + 0.5 ) )
+            for ( std::vector<Lane>::iterator lt = lanes.begin();
+                  lt != lanes.end(); ++lt )
             {
-                switch2.push_back( *lt );
+                if ( floor( switch1[0].getPoint().x() + 0.5 ) != floor( lt->getPoint().x() + 0.5 ) && floor( switch1[0].getPoint().y() + 0.5 ) != floor( lt->getPoint().y() + 0.5 ) &&
+                     floor( switch1[1].getPoint().x() + 0.5 ) != floor( lt->getPoint().x() + 0.5 ) && floor( switch1[1].getPoint().y() + 0.5 ) != floor( lt->getPoint().y() + 0.5 ) )
+                {
+                    switch2.push_back( *lt );
+                }
             }
-        }
 
-        it->setSwitch1( switch1 );
-        it->setSwitch2( switch2 );
+            TrafficLight tempTrafficLight = *it;
+            tempTrafficLight.setSwitch1( switch1 );
+            tempTrafficLight.setSwitch2( switch2 );
+            newTrafficLights.push_back( tempTrafficLight );
+        }
     }
-    Designer::roadNetwork->setTrafficLights( trafficLights );
+    Designer::roadNetwork->setTrafficLights( newTrafficLights );
 }
 
 void Designer::createIntersectionCoordinates()
@@ -303,23 +334,55 @@ void Designer::createIntersectionLanes()
                 if ( floor( kt->p1().x() + 0.5 ) == floor( it->getPoint().x() + 0.5 ) &&
                      floor( kt->p1().y() + 0.5 ) == floor( it->getPoint().y() + 0.5 ) )
                 {
-                    tempLane.speedLimit = jt->getSpeedLimit();
+                    QPointF point;
+                    point.setX( kt->p1().x() - it->getPoint().x() );
+                    point.setY( kt->p1().y() - it->getPoint().y() );
 
-                    tempLane.red = jt->getColor().red();
-                    tempLane.green = jt->getColor().green();
-                    tempLane.blue = jt->getColor().blue();
-                    //std::cout << tempLane.red << " , " << tempLane.green << " , " << tempLane.blue << std::endl;
+                    tempLane.setPoint( point );
+
+                    tempLane.setSpeedLimit( jt->getSpeedLimit() );
+
+                    tempLane.setColor( jt->getColor() );
+
+                    if ( jt->getIsOneWay()=="yes" )
+                    {
+                        tempLane.setIsOneWay( "From" );
+                        //std::cout << "From: " << tempLane.getColor().red() << " , " << tempLane.getColor().green() << " , " << tempLane.getColor().blue() << std::endl;
+                        //std::cout << "From: " << floor( it->getPoint().x() + 0.5 ) << " , " << floor( it->getPoint().y() + 0.5 ) << std::endl;
+                    } else if ( jt->getIsOneWay()=="-1" ) {
+                        tempLane.setIsOneWay( "To" );
+                        //std::cout << "To: " << tempLane.getColor().red() << " , " << tempLane.getColor().green() << " , " << tempLane.getColor().blue() << std::endl;
+                        //std::cout << "To: " << floor( it->getPoint().x() + 0.5 ) << " , " << floor( it->getPoint().y() + 0.5 ) << std::endl;
+                    } else {
+                        tempLane.setIsOneWay( "FromTo" );
+                    }
                     it->addLane( tempLane );
                 }
                 else if ( floor( kt->p2().x() + 0.5 ) == floor( it->getPoint().x() + 0.5 ) &&
                           floor( kt->p2().y() + 0.5 ) == floor( it->getPoint().y() + 0.5 ) )
                 {
-                    tempLane.speedLimit = jt->getSpeedLimit();
+                    QPointF point;
+                    point.setX( kt->p2().x() - it->getPoint().x() );
+                    point.setY( kt->p2().y() - it->getPoint().y() );
 
-                    tempLane.red = jt->getColor().red();
-                    tempLane.green = jt->getColor().green();
-                    tempLane.blue = jt->getColor().blue();
-                    //std::cout << tempLane.red << " , " << tempLane.green << " , " << tempLane.blue << std::endl;
+                    tempLane.setPoint( point );
+
+                    tempLane.setSpeedLimit( jt->getSpeedLimit() );
+
+                    tempLane.setColor( jt->getColor() );
+
+                    if ( jt->getIsOneWay()=="yes" )
+                    {
+                        tempLane.setIsOneWay( "To" );
+                        //std::cout << "To: " << tempLane.getColor().red() << " , " << tempLane.getColor().green() << " , " << tempLane.getColor().blue() << std::endl;
+                        //std::cout << "To: " << floor( it->getPoint().x() + 0.5 ) << " , " << floor( it->getPoint().y() + 0.5 ) << std::endl;
+                    } else if ( jt->getIsOneWay()=="-1" ) {
+                        tempLane.setIsOneWay( "From" );
+                        //std::cout << "From: " << tempLane.getColor().red() << " , " << tempLane.getColor().green() << " , " << tempLane.getColor().blue() << std::endl;
+                        //std::cout << "From: " << floor( it->getPoint().x() + 0.5 ) << " , " << floor( it->getPoint().y() + 0.5 ) << std::endl;
+                    } else {
+                        tempLane.setIsOneWay( "FromTo" );
+                    }
                     it->addLane( tempLane );
                 }
             }
@@ -588,16 +651,18 @@ std::vector<Road> Designer::splitRoads( std::vector<Road> roads )
                         Road split1;
                         split1.setName( it->getName() );
                         split1.setType( it->getType() );
+                        split1.setIsOneWay( it->getIsOneWay() );
                         split1.setColor( it->getColor() );
                         split1.setSpeedLimit( it->getSpeedLimit() );
                         std::vector<QLineF> tempLines1;
-                        tempLines1.insert( tempLines1.begin(), lines.begin(), jt );
+                        tempLines1.insert( tempLines1.begin(), lines.begin(), (jt+1) ); // (jt+1)
                         split1.setLines( tempLines1 );
                         tempRoads.push_back( split1 );
 
                         Road split2;
                         split2.setName( it->getName() );
                         split2.setType( it->getType() );
+                        split2.setIsOneWay( it->getIsOneWay() );
                         split2.setColor( it->getColor() );
                         split2.setSpeedLimit( it->getSpeedLimit() );
                         std::vector<QLineF> tempLines2;
@@ -621,6 +686,7 @@ std::vector<Road> Designer::splitRoads( std::vector<Road> roads )
                         Road split1;
                         split1.setName( it->getName() );
                         split1.setType( it->getType() );
+                        split1.setIsOneWay( it->getIsOneWay() );
                         split1.setColor( it->getColor() );
                         split1.setSpeedLimit( it->getSpeedLimit() );
                         std::vector<QLineF> tempLines1;
@@ -631,6 +697,7 @@ std::vector<Road> Designer::splitRoads( std::vector<Road> roads )
                         Road split2;
                         split2.setName( it->getName() );
                         split2.setType( it->getType() );
+                        split2.setIsOneWay( it->getIsOneWay() );
                         split2.setColor( it->getColor() );
                         split2.setSpeedLimit( it->getSpeedLimit() );
                         std::vector<QLineF> tempLines2;
@@ -648,6 +715,7 @@ std::vector<Road> Designer::splitRoads( std::vector<Road> roads )
                 Road tempRoad;
                 tempRoad.setName( it->getName() );
                 tempRoad.setType( it->getType() );
+                tempRoad.setIsOneWay( it->getIsOneWay() );
                 tempRoad.setColor( it->getColor() );
                 tempRoad.setSpeedLimit( it->getSpeedLimit() );
                 tempRoad.setLines( it->getLines() );
@@ -703,46 +771,6 @@ double Designer::splitRoadsCount( std::vector<Road> roads )
     }
 
     return count;
-}
-
-// Some roads in the osm file are divided into two ways. so in this code they would get a different color.
-// Even though it is the same road. This will create a problem with the graph creation.
-// Since a road might change color without an intersection or trafficlight.
-// And this in turn does so that the Route behavior of the Car agents breaks down.
-// Lines række følgen vil ikke længere være seqventiel efter denne operation.
-std::vector<Road> Designer::mergeRoads( std::vector<Road> roads )
-{
-    std::vector<Road> newRoads;
-    std::unordered_set<std::string> uniqueness;
-
-    for ( std::vector<Road>::iterator it = roads.begin();
-          it != roads.end(); ++it )
-    {
-        std::vector<QLineF> origlines = it->getLines();
-
-        for ( std::vector<Road>::iterator jt = roads.begin();
-              jt != roads.end(); ++jt )
-        {
-            std::vector<QLineF> lines = jt->getLines();
-
-            if ( it - roads.begin() == jt - roads.begin() )
-                continue;
-
-            if ( it->getName() == jt->getName() && it->getType() == jt->getType() )
-            {
-                origlines.insert( origlines.end(), lines.begin(), lines.end() );
-            }
-        }
-
-        if ( uniqueness.count( it->getName() + it->getType() ) == 0 )
-        {
-            uniqueness.insert( it->getName() + it->getType() );
-            it->setLines( origlines );
-            newRoads.push_back( *it );
-        }
-    }
-
-    return newRoads;
 }
 
 std::vector<QPointF> Designer::sortIntersectionCoordinates( std::vector<QPointF> coordinates )

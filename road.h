@@ -20,6 +20,9 @@ public:
     std::string getType();
     void setType( std::string type );
 
+    std::string getIsOneWay();
+    void setIsOneWay( std::string isOneWay );
+
     double getSpeedLimit();
     void setSpeedLimit( double speedLimit );
 
@@ -44,6 +47,7 @@ public:
 private:
     std::string name;
     std::string type;
+    std::string isOneWay;
 
     double speedLimit;
 

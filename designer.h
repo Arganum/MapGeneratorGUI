@@ -5,9 +5,9 @@
 #include <qmath.h>
 #include <QColor>
 #include <iostream>
-#include <unordered_set>
 
-#include <roadnetwork.h>
+#include "roadnetwork.h"
+#include "lane.h"
 
 class RoadNetwork;
 class Designer
@@ -43,7 +43,6 @@ private:
     QColor createColorScheme( double totalNumber, double number );
     std::vector<Road> splitRoads( std::vector<Road> roads );
     double splitRoadsCount( std::vector<Road> roads );
-    std::vector<Road> mergeRoads( std::vector<Road> roads );
     std::vector<QPointF> sortIntersectionCoordinates( std::vector<QPointF> coordinates );
 };
 

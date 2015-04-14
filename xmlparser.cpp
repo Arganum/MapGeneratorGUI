@@ -135,6 +135,18 @@ void XmlParser::elementTag( Road & road )
     if ( XmlParser::xmlReader->attributes().value( "k" ) == "name" )
         road.setName( XmlParser::xmlReader->attributes().value( "v" ).toUtf8().constData() );
 
+    if ( XmlParser::xmlReader->attributes().value( "k" ) == "junction" &&
+         XmlParser::xmlReader->attributes().value( "v" ) == "roundabout" )
+        road.setIsOneWay( "yes" );
+
+    if ( XmlParser::xmlReader->attributes().value( "k" ) == "oneway" &&
+         XmlParser::xmlReader->attributes().value( "v" ) == "yes" )
+        road.setIsOneWay( XmlParser::xmlReader->attributes().value( "v" ).toUtf8().constData() );
+
+    if ( XmlParser::xmlReader->attributes().value( "k" ) == "oneway" &&
+         XmlParser::xmlReader->attributes().value( "v" ) == "-1" )
+        road.setIsOneWay( XmlParser::xmlReader->attributes().value( "v" ).toUtf8().constData() );
+
     while ( XmlParser::xmlReader->readNextStartElement() )
     {
         if ( XmlParser::xmlReader->name() == "nd" )

@@ -1,17 +1,17 @@
-#ifndef INTERSECTION_H
-#define INTERSECTION_H
+#ifndef LANE_H
+#define LANE_H
 
-#include <QPointF>
+#include <string>
+#include <QPoint>
 #include <QColor>
 
-#include "lane.h"
 #include "utility.h"
 
-class Intersection
+class Lane
 {
 public:
-    Intersection();
-    ~Intersection();
+    Lane();
+    ~Lane();
 
     QPointF getPoint();
     void setPoint( QPointF point );
@@ -22,9 +22,8 @@ public:
     double getSpeedLimit();
     void setSpeedLimit( double speedLimit );
 
-    std::vector<Lane> getLanes();
-    void setLanes( std::vector<Lane> lanes );
-    void addLane( Lane lane );
+    std::string getIsOneWay();
+    void setIsOneWay( std::string isOneWay );
 
 private:
     QPointF point;
@@ -32,7 +31,7 @@ private:
 
     double speedLimit;
 
-    std::vector<Lane> lanes;
+    std::string isOneWay;
 };
 
-#endif // INTERSECTION_H
+#endif // LANE_H

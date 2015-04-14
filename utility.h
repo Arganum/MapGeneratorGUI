@@ -55,6 +55,7 @@ struct Bounds
     double maxLongitude;
 };
 
+/*
 struct Lane
 {
     double x;
@@ -65,7 +66,7 @@ struct Lane
     double red;
     double green;
     double blue;
-};
+};*/
 
 #endif // UTILITY_H
 

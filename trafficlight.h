@@ -4,6 +4,7 @@
 #include <QPoint>
 #include <QColor>
 
+#include "lane.h"
 #include "utility.h"
 
 class TrafficLight

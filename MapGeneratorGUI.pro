@@ -30,7 +30,8 @@ SOURCES += main.cpp\
     Graph/vertex.cpp \
     Graph/edge.cpp \
     intersection.cpp \
-    Cartographer/cartographer.cpp
+    Cartographer/cartographer.cpp \
+    lane.cpp
 
 HEADERS  += mainwindow.h \
     road.h \
@@ -45,6 +46,7 @@ HEADERS  += mainwindow.h \
     Graph/vertex.h \
     Graph/edge.h \
     intersection.h \
-    Cartographer/cartographer.h
+    Cartographer/cartographer.h \
+    lane.h
 
 FORMS    += mainwindow.ui

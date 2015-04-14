@@ -2,7 +2,7 @@
 
 Road::Road()
 {
-
+    Road::isOneWay = "no";
 }
 
 Road::~Road()
@@ -28,6 +28,16 @@ std::string Road::getType()
 void Road::setType( std::string type )
 {
     Road::type = type;
+}
+
+std::string Road::getIsOneWay()
+{
+    return Road::isOneWay;
+}
+
+void Road::setIsOneWay( std::string isOneWay )
+{
+    Road::isOneWay = isOneWay;
 }
 
 double Road::getSpeedLimit()

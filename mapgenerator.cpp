@@ -181,9 +181,9 @@ void MapGenerator::saveTrafficLightsCoordinates()
               jt != tempSwitch.end(); ++jt )
         {
             if ( jt+1 == tempSwitch.end() )
-                out << "{ red = " << jt->red << " , green = " << jt->green << " , blue = " << jt->blue << " }";
+                out << "{ red = " << jt->getColor().red() << " , green = " << jt->getColor().green() << " , blue = " << jt->getColor().blue() << " }";
             else
-                out << "{ red = " << jt->red << " , green = " << jt->green << " , blue = " << jt->blue << " }, ";
+                out << "{ red = " << jt->getColor().red() << " , green = " << jt->getColor().green() << " , blue = " << jt->getColor().blue() << " }, ";
         }
         out << " } ,\n";
 
@@ -193,9 +193,9 @@ void MapGenerator::saveTrafficLightsCoordinates()
               jt != tempSwitch.end(); ++jt )
         {
             if ( jt+1 == tempSwitch.end() )
-                out << "{ red = " << jt->red << " , green = " << jt->green << " , blue = " << jt->blue << " }";
+                out << "{ red = " << jt->getColor().red() << " , green = " << jt->getColor().green() << " , blue = " << jt->getColor().blue() << " }";
             else
-                out << "{ red = " << jt->red << " , green = " << jt->green << " , blue = " << jt->blue << " }, ";
+                out << "{ red = " << jt->getColor().red() << " , green = " << jt->getColor().green() << " , blue = " << jt->getColor().blue() << " }, ";
         }
         out << " }\n";
         out << "} )" << "\n" << "\n";
@@ -210,7 +210,7 @@ void MapGenerator::printRoadNetwork()
     //MapGenerator::roadNetwork->printBoundary();
     //MapGenerator::roadNetwork->printTrafficLights();
     //MapGenerator::roadNetwork->printRoadsNodes();
-    //MapGenerator::roadNetwork->printRoadsLines();
+    MapGenerator::roadNetwork->printRoadsLines();
     //MapGenerator::roadNetwork->printRoadsNodeIDs();
 }
 

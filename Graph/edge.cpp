@@ -59,3 +59,13 @@ void Edge::setTo( int to )
 {
     Edge::to = to;
 }
+
+std::string Edge::getIsOneWay()
+{
+    return Edge::isOneWay;
+}
+
+void Edge::setIsOneWay( std::string isOneWay )
+{
+    Edge::isOneWay = isOneWay;
+}

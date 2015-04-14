@@ -16,11 +16,14 @@ int main(int argc, char *argv[])
     mapGenerator->parseOsmFile();
     mapGenerator->deleteOsmParser();
 
+    //mapGenerator->printRoadNetwork();
+
     mapGenerator->createBoundary();
     mapGenerator->createRoadLines();
     mapGenerator->createTrafficLightCoordinates();
     mapGenerator->createIntersectionCoordinates();
     mapGenerator->createColorScheme();
+
     mapGenerator->createTrafficLightDirections();
     mapGenerator->createIntersectionLanes();
     mapGenerator->deleteDesigner();
@@ -37,7 +40,7 @@ int main(int argc, char *argv[])
     mapGenerator->deleteCartographer();
 
     mapGenerator->saveTrafficLightsCoordinates();
-    mapGenerator->printRoadNetwork();
+    //mapGenerator->printRoadNetwork();
 
 
     delete mapGenerator;
