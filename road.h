@@ -44,6 +44,9 @@ public:
     QColor getColor();
     void setColor( QColor color );
 
+    double getLength();
+    void setLength( double length );
+
 private:
     std::string name;
     std::string type;
@@ -56,6 +59,7 @@ private:
 
     std::vector<QLineF> lines;
     QColor color;
+    double length;
 };
 
 #endif // ROAD_H

@@ -120,3 +120,13 @@ void Road::setColor( QColor color )
     Road::color = color;
 }
 
+double Road::getLength()
+{
+    return Road::length;
+}
+
+void Road::setLength( double length )
+{
+    Road::length = length;
+}
+

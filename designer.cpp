@@ -150,6 +150,8 @@ void Designer::createTrafficLightDirections()
 
                         lane.setColor( jt->getColor() );
 
+                        lane.setLength( jt->getLength() );
+
                         if ( jt->getIsOneWay()=="yes" )
                         {
                             lane.setIsOneWay( "To" );
@@ -179,6 +181,8 @@ void Designer::createTrafficLightDirections()
                         lane.setSpeedLimit( jt->getSpeedLimit() );
 
                         lane.setColor( jt->getColor() );
+
+                        lane.setLength( jt->getLength() );
 
                         if ( jt->getIsOneWay()=="yes" )
                         {
@@ -344,6 +348,8 @@ void Designer::createIntersectionLanes()
 
                     tempLane.setColor( jt->getColor() );
 
+                    tempLane.setLength( jt->getLength() );
+
                     if ( jt->getIsOneWay()=="yes" )
                     {
                         tempLane.setIsOneWay( "From" );
@@ -371,6 +377,8 @@ void Designer::createIntersectionLanes()
 
                     tempLane.setColor( jt->getColor() );
 
+                    tempLane.setLength( jt->getLength() );
+
                     if ( jt->getIsOneWay()=="yes" )
                     {
                         tempLane.setIsOneWay( "To" );
@@ -396,6 +404,7 @@ void Designer::createColorScheme()
 {
     std::vector<Road> roads = Designer::roadNetwork->getRoads();
     roads = Designer::splitRoads( roads );
+    roads = Designer::calculateRoadsLengths( roads );
     std::vector<TrafficLight> trafficLights = Designer::roadNetwork->getTrafficLights();
     std::vector<Intersection> intersections = Designer::roadNetwork->getIntersections();
 
@@ -771,6 +780,28 @@ double Designer::splitRoadsCount( std::vector<Road> roads )
     }
 
     return count;
+}
+
+std::vector<Road> Designer::calculateRoadsLengths( std::vector<Road> roads )
+{
+    std::vector<Road> newRoads = roads;
+
+    for ( std::vector<Road>::iterator it = newRoads.begin();
+          it != newRoads.end(); ++it )
+    {
+        double length = 0;
+        std::vector<QLineF> lines = it->getLines();
+
+        for ( std::vector<QLineF>::iterator jt = lines.begin();
+              jt != lines.end(); ++ jt )
+        {
+            length = length + jt->length();
+        }
+
+        it->setLength( length );
+    }
+
+    return newRoads;
 }
 
 std::vector<QPointF> Designer::sortIntersectionCoordinates( std::vector<QPointF> coordinates )

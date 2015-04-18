@@ -10,6 +10,16 @@ Lane::~Lane()
 
 }
 
+double Lane::getLength()
+{
+    return Lane::length;
+}
+
+void Lane::setLength( double length )
+{
+    Lane::length = length;
+}
+
 QPointF Lane::getPoint()
 {
     return Lane::point;

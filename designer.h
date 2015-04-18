@@ -42,6 +42,7 @@ private:
 
     QColor createColorScheme( double totalNumber, double number );
     std::vector<Road> splitRoads( std::vector<Road> roads );
+    std::vector<Road> calculateRoadsLengths( std::vector<Road> roads );
     double splitRoadsCount( std::vector<Road> roads );
     std::vector<QPointF> sortIntersectionCoordinates( std::vector<QPointF> coordinates );
 };

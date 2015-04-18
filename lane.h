@@ -13,6 +13,9 @@ public:
     Lane();
     ~Lane();
 
+    double getLength();
+    void setLength( double length );
+
     QPointF getPoint();
     void setPoint( QPointF point );
 
@@ -26,6 +29,7 @@ public:
     void setIsOneWay( std::string isOneWay );
 
 private:
+    double length;
     QPointF point;
     QColor color;
 

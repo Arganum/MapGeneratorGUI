@@ -31,6 +31,7 @@ void Cartographer::createVertices()
               jt != lanes.end(); ++jt )
         {
             Edge edge;
+            edge.setLength( jt->getLength() );
             edge.setColor( jt->getColor() );
             edge.setSpeedLimit( jt->getSpeedLimit() );
             edge.setIsOneWay( jt->getIsOneWay() );
@@ -55,6 +56,7 @@ void Cartographer::createVertices()
               jt != lanes.end(); ++jt )
         {
             Edge edge;
+            edge.setLength( jt->getLength() );
             edge.setColor( jt->getColor() );
             edge.setSpeedLimit( jt->getSpeedLimit() );
             edge.setIsOneWay( jt->getIsOneWay() );
@@ -97,6 +99,7 @@ void Cartographer::createEdges()
                     if ( jt->getColor() == lt->getColor() )
                     {
                         double tempDist = Cartographer::distVertex2Vertex( *it, *kt );
+
                         if ( closestVertex == 0 ) {
                             closestVertex = tempDist;
                             closestIndex = kt->getIndex();
@@ -124,14 +127,12 @@ void Cartographer::createEdges()
             }
 
             Edge edge = *jt;
-            edge.setLength( closestVertex );
             edge.setTo( closestIndex );
             if ( Cartographer::isEdgeUnique( origEdges, edge ) == true ) {
                 edge.setFrom( it->getIndex() );
                 if ( edge.getIsOneWay() == "FromTo" || edge.getIsOneWay() == "From" )
                     newEdges.push_back( edge );
             } else {
-                edge.setLength( secondClosestVertex );
                 edge.setTo( secondClosestIndex );
                 if ( Cartographer::isEdgeUnique( origEdges, edge ) == true ) {
                     edge.setFrom( it->getIndex() );
