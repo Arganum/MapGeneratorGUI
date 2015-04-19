@@ -47,6 +47,9 @@ public:
     double getLength();
     void setLength( double length );
 
+    double getPixelLength();
+    void setPixelLength( double pixelLength );
+
 private:
     std::string name;
     std::string type;
@@ -60,6 +63,7 @@ private:
     std::vector<QLineF> lines;
     QColor color;
     double length;
+    double pixelLength;
 };
 
 #endif // ROAD_H

@@ -34,6 +34,8 @@ private:
                         //                   D-------c-------C
     double latLon2Length( double endLatitude, double endLongitude,
                           double beginLatitude, double beginLongitude );
+    double haversine( double endLatitude, double endLongitude,
+                          double beginLatitude, double beginLongitude );
     double deg2Rad( double deg );
     double rad2Deg( double rad );
 
@@ -45,6 +47,8 @@ private:
     std::vector<Road> calculateRoadsLengths( std::vector<Road> roads );
     double splitRoadsCount( std::vector<Road> roads );
     std::vector<QPointF> sortIntersectionCoordinates( std::vector<QPointF> coordinates );
+    bool boundaryAdjustedLine( QLineF & line, QLineF intersectLine );
+    bool pointWithInBoundary( QPointF point );
 };
 
 #endif // DESIGNER_H

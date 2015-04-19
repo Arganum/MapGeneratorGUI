@@ -130,3 +130,13 @@ void Road::setLength( double length )
     Road::length = length;
 }
 
+double Road::getPixelLength()
+{
+    return Road::pixelLength;
+}
+
+void Road::setPixelLength( double pixelLength )
+{
+    Road::pixelLength = pixelLength;
+}
+

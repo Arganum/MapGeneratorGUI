@@ -3,7 +3,8 @@
 
 #define FIRST_PARSE 0
 #define SECOND_PARSE 1
-#define MAP_SCALE 2000 // 1000 = 1 pixel = 1 meter
+//#define MAP_SCALE 2000 // 1000 = 1 pixel = 1 meter
+#define MAP_SCALE 2 // 1 = 1 pixel = 1 meter, 2 = 1 pixel = 0.5 meter.
 
 #define COLOR_SCHEME 11390625 // 225^3
 
@@ -28,7 +29,7 @@
 #define SERVICE_SPEED       30
 
 //Speed Limit of Traffic Lights and intersections in km/h
-#define TRAFFICLIGHT_SPEED  30
+#define TRAFFICLIGHT_SPEED  20
 #define INTERSECTION_SPEED  20
 
 struct Node

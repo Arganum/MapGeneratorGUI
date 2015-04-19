@@ -20,6 +20,16 @@ void Edge::setLength( double length )
     Edge::length = length;
 }
 
+double Edge::getPixelLength()
+{
+    return Edge::pixelLength;
+}
+
+void Edge::setPixelLength( double pixelLength )
+{
+    Edge::pixelLength = pixelLength;
+}
+
 double Edge::getSpeedLimit()
 {
     return Edge::speedLimit;

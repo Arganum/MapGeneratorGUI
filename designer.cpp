@@ -18,6 +18,7 @@ void Designer::createBoundary()
 
     Bounds boundary = Designer::roadNetwork->getBoundary();
 
+    /*
     width  = Designer::latLon2Length( boundary.minLatitude,
                                       boundary.maxLongitude,
                                       boundary.minLatitude,
@@ -26,6 +27,16 @@ void Designer::createBoundary()
                                       boundary.minLongitude,
                                       boundary.minLatitude,
                                       boundary.minLongitude );
+    */
+
+    width  = Designer::haversine( boundary.minLatitude,
+                                  boundary.maxLongitude,
+                                  boundary.minLatitude,
+                                  boundary.minLongitude );
+    height = Designer::haversine( boundary.maxLatitude,
+                                  boundary.minLongitude,
+                                  boundary.minLatitude,
+                                  boundary.minLongitude );
 
     //std::cout << width  << " , " << floor ( width  + 0.5 ) << std::endl;
     //std::cout << height << " , " << floor ( height + 0.5 ) << std::endl;
@@ -79,12 +90,32 @@ void Designer::createRoadLines()
                    endPoint.y() < Designer::C.y() ) )
             {
                 tempLine.setPoints( beginPoint, endPoint );
-                it->addLine( tempLine );
+                if ( beginPoint.x() > A.x() && endPoint.x() > A.x() &&
+                     beginPoint.y() > A.y() && endPoint.y() > A.y() &&
+                     beginPoint.x() < C.x() && endPoint.x() < C.x() &&
+                     beginPoint.y() < C.y() && endPoint.y() < C.y() )
+                {
+                    it->addLine( tempLine );
+                }
+                else if ( boundaryAdjustedLine( tempLine, a ) )
+                {
+                    it->addLine( tempLine );
+                }
+                else if ( boundaryAdjustedLine( tempLine, b ) )
+                {
+                    it->addLine( tempLine );
+                }
+                else if ( boundaryAdjustedLine( tempLine, c ) )
+                {
+                    it->addLine( tempLine );
+                }
+                else if ( boundaryAdjustedLine( tempLine, d ) )
+                {
+                    it->addLine( tempLine );
+                }
             }
         }
     }
-
-    //roads = Designer::mergeRoads( roads );
 
     Designer::roadNetwork->setRoads( roads );
 }
@@ -145,12 +176,10 @@ void Designer::createTrafficLightDirections()
                         point.setY( kt->p2().y() - it->getPoint().y() );
 
                         lane.setPoint( point );
-
                         lane.setSpeedLimit( jt->getSpeedLimit() );
-
                         lane.setColor( jt->getColor() );
-
                         lane.setLength( jt->getLength() );
+                        lane.setPixelLength( jt->getPixelLength() );
 
                         if ( jt->getIsOneWay()=="yes" )
                         {
@@ -177,12 +206,10 @@ void Designer::createTrafficLightDirections()
                         point.setY( kt->p1().y() - it->getPoint().y() );
 
                         lane.setPoint( point );
-
                         lane.setSpeedLimit( jt->getSpeedLimit() );
-
                         lane.setColor( jt->getColor() );
-
                         lane.setLength( jt->getLength() );
+                        lane.setPixelLength( jt->getPixelLength() );
 
                         if ( jt->getIsOneWay()=="yes" )
                         {
@@ -343,12 +370,10 @@ void Designer::createIntersectionLanes()
                     point.setY( kt->p1().y() - it->getPoint().y() );
 
                     tempLane.setPoint( point );
-
                     tempLane.setSpeedLimit( jt->getSpeedLimit() );
-
                     tempLane.setColor( jt->getColor() );
-
                     tempLane.setLength( jt->getLength() );
+                    tempLane.setPixelLength( jt->getPixelLength() );
 
                     if ( jt->getIsOneWay()=="yes" )
                     {
@@ -372,12 +397,10 @@ void Designer::createIntersectionLanes()
                     point.setY( kt->p2().y() - it->getPoint().y() );
 
                     tempLane.setPoint( point );
-
                     tempLane.setSpeedLimit( jt->getSpeedLimit() );
-
                     tempLane.setColor( jt->getColor() );
-
                     tempLane.setLength( jt->getLength() );
+                    tempLane.setPixelLength( jt->getPixelLength() );
 
                     if ( jt->getIsOneWay()=="yes" )
                     {
@@ -444,8 +467,8 @@ void Designer::createColorScheme()
     Designer::roadNetwork->setIntersections( intersections );
 }
 
-double Designer::latLon2Length( double endLatitude, double endLongitude,
-                               double beginLatitude, double beginLongitude )
+double Designer::latLon2Length( double endLatitude,   double endLongitude,
+                                double beginLatitude, double beginLongitude )
 {
     double theta, dist;
     theta = endLongitude - beginLongitude;
@@ -458,6 +481,24 @@ double Designer::latLon2Length( double endLatitude, double endLongitude,
     dist = Designer::rad2Deg( dist );
     dist = dist * 60 * 1.1515 * 1.609344; //M nothing, KM 1.609344
     dist = dist * MAP_SCALE;
+
+    return dist;
+}
+
+double Designer::haversine( double endLatitude,   double endLongitude,
+                            double beginLatitude, double beginLongitude )
+{
+    double R = 6371000; //Earth radius in meters.
+    double lat1 = Designer::deg2Rad( endLatitude );
+    double lat2 = Designer::deg2Rad( beginLatitude );
+    double deltaLat = Designer::deg2Rad( beginLatitude - endLatitude );
+    double deltaLon = Designer::deg2Rad( beginLongitude - endLongitude );
+
+    double aa = sin( deltaLat/2 ) * sin( deltaLat/2 ) +
+                cos( lat1 ) * cos( lat2 ) *
+                sin( deltaLon/2 ) * sin( deltaLon/2 );
+    double cc = 2 * atan2( sqrt( aa ), sqrt( 1 - aa ) );
+    double dist = R * cc * MAP_SCALE;
 
     return dist;
 }
@@ -481,6 +522,7 @@ QPointF Designer::circle2CircleIntersect( double latitude, double longitude )
     dy   = Designer::a.p2().y() - Designer::a.p1().y();
     dist = sqrt( (dy * dy) + (dx * dx) );
 
+    /*
     r1 = latLon2Length( latitude, longitude,
                         Designer::roadNetwork->getBoundary().minLatitude,
                         Designer::roadNetwork->getBoundary().minLongitude );
@@ -490,6 +532,17 @@ QPointF Designer::circle2CircleIntersect( double latitude, double longitude )
     r3 = latLon2Length( latitude, longitude,
                         Designer::roadNetwork->getBoundary().maxLatitude,
                         Designer::roadNetwork->getBoundary().minLongitude );
+    */
+
+    r1 = Designer::haversine( latitude, longitude,
+                              Designer::roadNetwork->getBoundary().minLatitude,
+                              Designer::roadNetwork->getBoundary().minLongitude );
+    r2 = Designer::haversine( latitude, longitude,
+                              Designer::roadNetwork->getBoundary().minLatitude,
+                              Designer::roadNetwork->getBoundary().maxLongitude );
+    r3 = Designer::haversine( latitude, longitude,
+                              Designer::roadNetwork->getBoundary().maxLatitude,
+                              Designer::roadNetwork->getBoundary().minLongitude );
 
     adist = ( (r1 * r1) - (r2 * r2) + (dist * dist) ) / (2.0 * dist);
 
@@ -798,7 +851,8 @@ std::vector<Road> Designer::calculateRoadsLengths( std::vector<Road> roads )
             length = length + jt->length();
         }
 
-        it->setLength( length );
+        it->setLength( length/MAP_SCALE );
+        it->setPixelLength( length );
     }
 
     return newRoads;
@@ -862,4 +916,36 @@ std::vector<QPointF> Designer::sortIntersectionCoordinates( std::vector<QPointF>
     }
 
     return intersectionPoints;
+}
+
+bool Designer::boundaryAdjustedLine( QLineF & line, QLineF intersectLine )
+{
+    bool temp = false;
+    QPointF intersectionPoint;
+    int intersect = line.intersect( intersectLine, &intersectionPoint );
+
+    if ( intersect == QLineF::BoundedIntersection )
+    {
+        if ( !pointWithInBoundary( line.p1() ) )
+        {
+            line.setP1( intersectionPoint );
+            temp = true;
+        } else {
+            line.setP2( intersectionPoint );
+            temp = true;
+        }
+    }
+    return temp;
+}
+
+bool Designer::pointWithInBoundary( QPointF point )
+{
+    bool temp = false;
+    bool withInBoundary =   point.x() > A.x() && point.y() > A.y() &&
+                            point.x() < C.x() && point.y() < C.y();
+
+    if ( withInBoundary )
+        temp = true;
+
+    return temp;
 }

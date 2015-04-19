@@ -32,6 +32,7 @@ void Cartographer::createVertices()
         {
             Edge edge;
             edge.setLength( jt->getLength() );
+            edge.setPixelLength( jt->getPixelLength() );
             edge.setColor( jt->getColor() );
             edge.setSpeedLimit( jt->getSpeedLimit() );
             edge.setIsOneWay( jt->getIsOneWay() );
@@ -57,6 +58,7 @@ void Cartographer::createVertices()
         {
             Edge edge;
             edge.setLength( jt->getLength() );
+            edge.setPixelLength( jt->getPixelLength() );
             edge.setColor( jt->getColor() );
             edge.setSpeedLimit( jt->getSpeedLimit() );
             edge.setIsOneWay( jt->getIsOneWay() );
@@ -200,6 +202,7 @@ void Cartographer::printGraph()
         {
             std::cout << "      Edge: " << std::endl;
             std::cout << "        Length: " << jt->getLength() << std::endl;
+            std::cout << "        PixelLength: " << jt->getPixelLength() << std::endl;
             std::cout << "        SpeedLimit: " << jt->getSpeedLimit() << std::endl;
             std::cout << "        Color : " << std::endl;
             std::cout << "          Red   : " << jt->getColor().red() << std::endl;
@@ -245,6 +248,7 @@ void Cartographer::createLuaFile()
             ++index;
             out << "      [" << index << "] = { ";
             out << "length = " << jt->getLength() << ", ";
+            out << "pixelLength = " << jt->getPixelLength() << ", ";
             out << "speedLimit = " << jt->getSpeedLimit() << ", ";
             out << "color = { ";
             out << "red = " << jt->getColor().red() << ", ";

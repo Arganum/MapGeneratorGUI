@@ -20,6 +20,16 @@ void Lane::setLength( double length )
     Lane::length = length;
 }
 
+double Lane::getPixelLength()
+{
+    return Lane::pixelLength;
+}
+
+void Lane::setPixelLength( double pixelLength )
+{
+    Lane::pixelLength = pixelLength;
+}
+
 QPointF Lane::getPoint()
 {
     return Lane::point;

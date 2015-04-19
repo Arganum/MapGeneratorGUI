@@ -13,6 +13,9 @@ public:
     double getLength();
     void setLength( double length );
 
+    double getPixelLength();
+    void setPixelLength( double pixelLength );
+
     double getSpeedLimit();
     void setSpeedLimit( double speedLimit );
 
@@ -30,6 +33,7 @@ public:
 
 private:
     double length;
+    double pixelLength;
     double speedLimit;
     QColor color;
 

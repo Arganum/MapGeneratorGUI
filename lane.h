@@ -16,6 +16,9 @@ public:
     double getLength();
     void setLength( double length );
 
+    double getPixelLength();
+    void setPixelLength( double pixelLength );
+
     QPointF getPoint();
     void setPoint( QPointF point );
 
@@ -30,6 +33,7 @@ public:
 
 private:
     double length;
+    double pixelLength;
     QPointF point;
     QColor color;
 
