@@ -9,8 +9,8 @@
 #define COLOR_SCHEME 11390625 // 225^3
 
 //What Road Type to Paint
-#define MOTORWAY     1
-#define TRUNK        1
+#define MOTORWAY     0
+#define TRUNK        0
 #define PRIMARY      1
 #define SECONDARY    1 //1 for trafficLight Test
 #define TERTIARY     1
